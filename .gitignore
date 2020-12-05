@@ -33,7 +33,7 @@ hs_err_pid*
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-
+.idea/
 # Generated files
 .idea/**/contentModel.xml
 
@@ -165,6 +165,9 @@ local.properties
 # ---> Gradle
 .gradle
 /build/
+gradle/
+gradlew
+gradlew.bat
 
 # Ignore Gradle GUI config
 gradle-app.setting

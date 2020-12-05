@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'BP_TEAM'
+version '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+
+task ensureDirectory {
+    mkdir "./src/test/java/ir/sharif/math/bp99_1/snake_and_ladder"
+    mkdir "./src/test/resources/ir/sharif/math/bp99_1/snake_and_ladder"
+    mkdir "./src/main/java/ir/sharif/math.bp99_1/snake_and_ladder"
+    mkdir "./src/main/resources/ir/sharif/math/bp99_1/snake_and_ladder"
+}
+
+dependencies {
+    // lombok
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+}
