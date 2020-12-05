@@ -14,7 +14,7 @@ repositories {
 task ensureDirectory {
     mkdir "./src/test/java/ir/sharif/math/bp99_1/snake_and_ladder"
     mkdir "./src/test/resources/ir/sharif/math/bp99_1/snake_and_ladder"
-    mkdir "./src/main/java/ir/sharif/math.bp99_1/snake_and_ladder"
+    mkdir "./src/main/java/ir/sharif/math/bp99_1/snake_and_ladder"
     mkdir "./src/main/resources/ir/sharif/math/bp99_1/snake_and_ladder"
 }
 
