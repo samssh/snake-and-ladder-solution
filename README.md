@@ -1,3 +1,3 @@
-# Snake_and_Ladder
+# Snake and Ladder
 
-project about object oriented programming for basic programming course assignments
+project about object-oriented programming for basic programming course assignments
