@@ -1,9 +1,9 @@
 <img align="left" src="https://i.postimg.cc/YCkSN7GG/logo.png" alt="logo">
 
-
+<br/><br/>
 # Snake and Ladder
 
-<br/><br/><br/><br/>
+
 
 #### project about object-oriented programming for basic programming course assignments
 
