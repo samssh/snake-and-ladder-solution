@@ -9,4 +9,4 @@
 
 ###### Our goal is to make something like this:
 
-[![veb-kam.jpg](https://i.postimg.cc/L4cBjxtY/veb-kam.jpg)](https://postimg.cc/MXYQSbrq)
+![veb-kam.jpg](https://i.postimg.cc/L4cBjxtY/veb-kam.jpg)
