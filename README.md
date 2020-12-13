@@ -6,7 +6,3 @@
 
 
 #### project about object-oriented programming for basic programming course assignments
-
-###### Our goal is to make something like this:
-
-![veb-kam.jpg](https://i.postimg.cc/L4cBjxtY/veb-kam.jpg)
