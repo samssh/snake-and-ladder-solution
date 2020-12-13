@@ -11,8 +11,13 @@ import java.util.Properties;
 
 public class Config extends Properties {
     private static final String DEFAULT_ADDRESS = "./src/main/resources/ir/sharif/math/bp99_1/snake_and_ladder/configurations/main.properties";
-    public static final Config MAIN_CONFIG = new Config(DEFAULT_ADDRESS);
-    public Config(String address) {
+    private static final Config MAIN_CONFIG = new Config(DEFAULT_ADDRESS);
+
+    public static Config getConfig(String name) {
+        return MAIN_CONFIG.getObject(Config.class, name);
+    }
+
+    private Config(String address) {
         super();
         try {
             Reader fileReader = new FileReader(address);
