@@ -17,7 +17,7 @@ public class Board {
         return transmitter;
     }
 
-    public void setTransferors(List<Transmitter> transmitter) {
+    public void setTransmitter(List<Transmitter> transmitter) {
         this.transmitter = transmitter;
     }
 

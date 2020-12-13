@@ -7,6 +7,7 @@ public class Player {
     private int point;
     private List<Piece> pieces;
     private Dice dice;
+    private Player rival;
 
     public Player(String name,List<Piece> pieces,Dice dice,int point){
         this.dice = dice;
@@ -32,6 +33,14 @@ public class Player {
         return pieces;
     }
 
+    public Player getRival() {
+        return rival;
+    }
+
+    public void setRival(Player rival) {
+        this.rival = rival;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -46,6 +55,11 @@ public class Player {
 
     public void setPoint(int point) {
         this.point = point;
+    }
+
+    public void usePrize(Prize prize){
+        point += prize.getPoint();
+        dice.addChance(prize.getChance(),prize.getChanceNumber());
     }
 }
 

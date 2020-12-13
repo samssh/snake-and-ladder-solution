@@ -4,8 +4,10 @@ public class Piece {
     private String name;
     private Cell currentCell;
     private Color color;
+    private Player player;
 
-    public Piece(String name,Cell currentCell,Color color){
+    public Piece(Player player,String name,Cell currentCell,Color color){
+        this.player = player;
         this.name = name;
         this.currentCell = currentCell;
         this.color = color;
@@ -13,6 +15,10 @@ public class Piece {
 
     public String getName() {
         return name;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 
     public Color getColor() {
