@@ -14,7 +14,7 @@ public class Config extends Properties {
     private static final Config MAIN_CONFIG = new Config(DEFAULT_ADDRESS);
 
     public static Config getConfig(String name) {
-        return MAIN_CONFIG.getObject(Config.class, name);
+        return MAIN_CONFIG.getProperty(Config.class, name);
     }
 
     private Config(String address) {
@@ -23,6 +23,7 @@ public class Config extends Properties {
             Reader fileReader = new FileReader(address);
             this.load(fileReader);
         } catch (IOException e) {
+            System.out.println(address);
             e.printStackTrace();
         }
     }
@@ -53,7 +54,7 @@ public class Config extends Properties {
     private <E> E getObject(Class<E> c, String value) {
         E e = null;
         try {
-            Constructor<E> constructor = c.getConstructor(String.class);
+            Constructor<E> constructor = c.getDeclaredConstructor(String.class);
             e = constructor.newInstance(value);
         } catch (ReflectiveOperationException reflectiveOperationException) {
             reflectiveOperationException.printStackTrace();

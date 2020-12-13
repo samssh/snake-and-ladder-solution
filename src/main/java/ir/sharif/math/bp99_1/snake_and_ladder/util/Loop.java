@@ -1,7 +1,5 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.util;
 
-import lombok.SneakyThrows;
-
 
 public class Loop {
     private final int fps;
@@ -42,11 +40,14 @@ public class Loop {
         }
     }
 
-    @SneakyThrows
     public void sleep(long time) {
         int milliseconds = (int) (time) / 1000000;
         int nanoseconds = (int) (time) % 1000000;
-        Thread.sleep(milliseconds, nanoseconds);
+        try {
+            Thread.sleep(milliseconds, nanoseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void start() {
@@ -54,11 +55,14 @@ public class Loop {
         thread.start();
     }
 
-    @SneakyThrows
     public void stop() {
         running = false;
         if (Thread.currentThread().equals(thread))
             return;
-        thread.join();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

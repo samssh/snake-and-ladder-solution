@@ -5,12 +5,6 @@ import ir.sharif.math.bp99_1.snake_and_ladder.util.Loop;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * contains <code> javax.swing.JFrame </code>
- * tasks:
- * add some timer to update frame automatically
- * building frame by configuration attributes
- */
 public class Frame extends JFrame {
 
     private int fps;
