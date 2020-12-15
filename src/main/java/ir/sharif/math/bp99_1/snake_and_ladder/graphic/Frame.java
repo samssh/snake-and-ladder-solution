@@ -5,12 +5,6 @@ import ir.sharif.math.bp99_1.snake_and_ladder.util.Loop;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * contains <code> javax.swing.JFrame </code>
- * tasks:
- * add some timer to update frame automatically
- * building frame by configuration attributes
- */
 public class Frame extends JFrame {
 
     private int fps;
@@ -23,7 +17,14 @@ public class Frame extends JFrame {
     }
 
     private void config() {
-
+        Config frameConfig = Config.getConfig("frame");
+        setSize(new Dimension(frameConfig.getProperty(Integer.class, "width")
+                , frameConfig.getProperty(Integer.class, "height")));
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setResizable(frameConfig.getProperty(Boolean.class, "resizable"));
+        setUndecorated(frameConfig.getProperty(Boolean.class, "undecorated"));
+        setTitle(frameConfig.getProperty(String.class, "title"));
+        fps = frameConfig.getProperty(Integer.class, "fps");
     }
 
     @Override

@@ -11,13 +11,19 @@ import java.util.Properties;
 
 public class Config extends Properties {
     private static final String DEFAULT_ADDRESS = "./src/main/resources/ir/sharif/math/bp99_1/snake_and_ladder/configurations/main.properties";
-    public static final Config MAIN_CONFIG = new Config(DEFAULT_ADDRESS);
-    public Config(String address) {
+    private static final Config MAIN_CONFIG = new Config(DEFAULT_ADDRESS);
+
+    public static Config getConfig(String name) {
+        return MAIN_CONFIG.getProperty(Config.class, name);
+    }
+
+    private Config(String address) {
         super();
         try {
             Reader fileReader = new FileReader(address);
             this.load(fileReader);
         } catch (IOException e) {
+            System.out.println(address);
             e.printStackTrace();
         }
     }
@@ -48,7 +54,7 @@ public class Config extends Properties {
     private <E> E getObject(Class<E> c, String value) {
         E e = null;
         try {
-            Constructor<E> constructor = c.getConstructor(String.class);
+            Constructor<E> constructor = c.getDeclaredConstructor(String.class);
             e = constructor.newInstance(value);
         } catch (ReflectiveOperationException reflectiveOperationException) {
             reflectiveOperationException.printStackTrace();
