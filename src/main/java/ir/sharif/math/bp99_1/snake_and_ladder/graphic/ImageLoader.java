@@ -8,10 +8,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ImageLoader {
+    private final static ImageLoader instance = new ImageLoader();
     private final Map<String, BufferedImage> imageMap;
 
-    public ImageLoader() {
+    public static BufferedImage getImage(String name) {
+        return instance.imageMap.get(name);
+    }
+
+    private ImageLoader() {
         imageMap = new HashMap<>();
+        load();
     }
 
     private void load() {
@@ -25,7 +31,7 @@ public class ImageLoader {
                 imageMap.put(name, image);
             } catch (IOException e) {
                 System.err.println(file.toString());
-                e.printStackTrace();
+                throw new RuntimeException("image file not exist", e);
             }
         }
     }
