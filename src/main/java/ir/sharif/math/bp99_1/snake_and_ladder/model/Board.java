@@ -13,6 +13,7 @@ public class Board {
     public List<Cell> getCells() {
         return cells;
     }
+
     public List<Transmitter> getTransmitter() {
         return transmitter;
     }
