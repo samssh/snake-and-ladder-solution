@@ -1,8 +1,7 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.BoardPanel;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.MainPanel;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.PlayerInfoPanel;
+import ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Loop;
 
 import javax.swing.*;
@@ -10,42 +9,32 @@ import java.awt.*;
 
 public class Frame extends JFrame {
 
-    static Frame myFrame = new Frame();
-
+    private MainPanel m;
     private int fps;
-    MainPanel m ;
 
-    private Frame() {
+    public Frame(String p1 , String p2) {              // this constructor is just for test
         this.config();
-        setLayout(null);
-        this.setVisible(true);
-        this.setLocationRelativeTo(null);
         new Loop(fps, this::update).start();
-
-        initialize();
-
+        initialize(p1,p2);
     }
 
-    public static Frame getInstance(){
-        return myFrame;
-    }
 
-    private void initialize(){
-        String player1 = JOptionPane.showInputDialog(this , "Enter first player name ");
-        while (player1 == null){
-            player1 = JOptionPane.showInputDialog(this , "Enter first player name ");
-        }
-        String player2 = JOptionPane.showInputDialog(this , "Enter second player name ");
-        while (player2 == null){
-            player2 = JOptionPane.showInputDialog(this , "Enter second player name ");
-        }
+/*    public Frame(GameState gs)  { */
 
-        /**
-         *  WE SHOULD CREATE A METHOD TO LOAD THE DATA FROM FILES
-         **/
-        m =new MainPanel(player1,player2,1024,1024);
-        m.setBounds(0,0,1280,720);
-        add(m);
+/*    }        */                                               /** this is the main constructor
+                                                            it should get sth like GameState, and then
+                                                            create the graphic part of the project */
+
+
+
+
+    private void initialize(String player1 , String player2) {          /** this func is also need GmaeState , for test i use two string */
+
+        m = new MainPanel(player1, player2, 1024, 1024);        //
+        m.setBounds(0, 0, 1280, 720);
+        setContentPane(m);
+
+//
     }
 
     private void config() {
@@ -57,6 +46,9 @@ public class Frame extends JFrame {
         setUndecorated(frameConfig.getProperty(Boolean.class, "undecorated"));
         setTitle(frameConfig.getProperty(String.class, "title"));
         fps = frameConfig.getProperty(Integer.class, "fps");
+        this.setLayout(null);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override

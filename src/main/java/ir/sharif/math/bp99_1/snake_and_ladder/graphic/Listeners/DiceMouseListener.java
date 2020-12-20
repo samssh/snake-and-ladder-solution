@@ -8,21 +8,20 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Random;
 
-public class MyMouseListener implements MouseListener{
+public class DiceMouseListener implements MouseListener{
 
-    private MainPanel p ;
-    private PlayerInfoPanel pi;
 
-    public MyMouseListener(MainPanel p, PlayerInfoPanel pi) {
-        this.p = p;
-        this.pi = pi;
-    }
+    /**
+     *  TO DO ...
+     *
+     *  when user click the dice label ,
+     *  send a request to the logic to roll the dice for him
+     *
+     */
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        Random r = new Random();
-        int ra = r.nextInt(10);
-        p.changeTurn(pi , ra);
+
     }
 
     @Override
