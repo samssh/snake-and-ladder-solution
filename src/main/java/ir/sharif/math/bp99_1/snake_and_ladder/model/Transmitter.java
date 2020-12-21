@@ -1,7 +1,7 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
 public class Transmitter {
-    private Cell firstCell,lastCell;
+    private final Cell firstCell,lastCell;
 
     public Transmitter(Cell firstCell,Cell lastCell){
         this.firstCell = firstCell;

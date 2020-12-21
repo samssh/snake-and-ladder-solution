@@ -4,8 +4,8 @@ import java.util.Random;
 import java.util.TreeMap;
 
 public class Dice {
-    private TreeMap<Integer,Integer> chances;
-    private Random random;
+    private final TreeMap<Integer,Integer> chances;
+    private final Random random;
 
     public Dice(){
         random = new Random();
