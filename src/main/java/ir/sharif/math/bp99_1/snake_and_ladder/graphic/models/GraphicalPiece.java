@@ -7,14 +7,12 @@ import java.awt.*;
 
 public class GraphicalPiece extends GraphicalModel{
     private final String name;
-    private GraphicalCell currentGraphicalCell;
     private final Color color;
     private final Player player;
 
-    public GraphicalPiece(Player player, String name, GraphicalCell currentGraphicalCell, Color color){
+    public GraphicalPiece(Player player, String name, Color color){
         this.player = player;
         this.name = name;
-        this.currentGraphicalCell = currentGraphicalCell;
         this.color = color;
     }
 
@@ -30,13 +28,6 @@ public class GraphicalPiece extends GraphicalModel{
         return color;
     }
 
-    public GraphicalCell getCurrentCell() {
-        return currentGraphicalCell;
-    }
-
-    public void setCurrentCell(GraphicalCell currentGraphicalCell) {
-        this.currentGraphicalCell = currentGraphicalCell;
-    }
 
     @Override
     public void paint(Graphics2D graphics2D) {

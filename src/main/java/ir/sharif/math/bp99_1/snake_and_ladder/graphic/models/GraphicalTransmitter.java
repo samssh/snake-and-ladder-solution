@@ -7,7 +7,6 @@ public class GraphicalTransmitter extends GraphicalModel {
 
     }
 
-
     @Override
     public void paint(Graphics2D graphics2D) {
 

@@ -6,6 +6,7 @@ import java.util.TreeMap;
 
 public class GraphicalDice extends GraphicalModel{
 
+
     public GraphicalDice(){
 
     }
