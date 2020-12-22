@@ -13,13 +13,13 @@ import java.util.Map;
 public class ImageLoader {
     final static ImageLoader instance = new ImageLoader();
     private final Map<String, BufferedImage> imageMap;
-    private final Map<Integer, Icon> dice;
+    private final Map<String, Icon> dice;
 
     public static BufferedImage getImage(String name) {
         return instance.imageMap.get(name);
     }
 
-    public static Icon getIcon(int dice) {
+    public static Icon getIcon(String dice) {
         return instance.dice.get(dice);
     }
 
@@ -48,7 +48,7 @@ public class ImageLoader {
             String key = (String) k.getKey();
             String value = (String) k.getValue();
             Icon icon = new ImageIcon(value);
-            dice.put(Integer.parseInt(key), icon);
+            dice.put(key, icon);
         }
     }
 
