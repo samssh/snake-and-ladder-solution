@@ -1,10 +1,12 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic.models;
 
-public class PlayerModel {
+import java.awt.*;
+
+public class GraphicalPlayer extends GraphicalModel{
     private String name;
     private int score;
 
-    public PlayerModel(String name, int score) {
+    public GraphicalPlayer(String name, int score) {
         this.name = name;
         this.score = score;
     }
@@ -23,5 +25,10 @@ public class PlayerModel {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    @Override
+    public void paint(Graphics2D graphics2D) {
+
     }
 }
