@@ -50,6 +50,7 @@ public class GraphicalAgent {
     }
 
     private Frame initializePanels() {
+
         PlayerInfoPanel player1Info = new PlayerInfoPanel(gameState.getPlayer1(), this, 1);
         PlayerInfoPanel player2Info = new PlayerInfoPanel(gameState.getPlayer2(), this, 2);
         BoardPanel boardPanel = new BoardPanel(gameState.getBoard(), this);
