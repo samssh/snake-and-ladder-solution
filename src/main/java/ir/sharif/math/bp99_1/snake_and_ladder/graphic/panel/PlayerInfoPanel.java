@@ -60,7 +60,7 @@ public class PlayerInfoPanel extends JPanel {
         score.setFont(score.getFont().deriveFont(20.0f));
         score.setFocusable(false);
 
-        dice = new JLabel(ImageLoader.getIcon(10));     /* 10 is the key to dice gif */
+        dice = new JLabel(ImageLoader.getIcon("diceGif"));
         dice.setFocusable(false);
 
         diceNumber = new JLabel();

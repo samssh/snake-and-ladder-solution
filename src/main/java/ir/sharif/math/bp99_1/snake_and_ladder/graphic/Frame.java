@@ -1,5 +1,6 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
+import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.MainPanel;
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Loop;
 
@@ -8,14 +9,17 @@ import java.awt.*;
 
 public class Frame extends JFrame {
     private int fps;
+    private final MainPanel mainPanel;
 
-    public Frame() {
+    public Frame(MainPanel mainPanel) {
         this.config();
+        initialize();
         new Loop(fps, this::update).start();
+        this.mainPanel = mainPanel;
     }
 
-    private void initialize(String player1, String player2) {
-
+    private void initialize() {
+        this.setContentPane(mainPanel);
     }
 
     private void config() {
