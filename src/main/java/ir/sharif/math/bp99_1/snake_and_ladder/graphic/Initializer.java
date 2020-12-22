@@ -1,32 +1,26 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
+import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalGameState;
+import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.BoardPanel;
+import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.MainPanel;
+import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.PlayerInfoPanel;
+
 import javax.swing.*;
 
 /**
  * this class get the config file and build graphical objects like frame and empty models
  */
 public class Initializer {
+//    private String player1, player2;
 
-    public static void main(String[] args) {
-        String player1 = JOptionPane.showInputDialog( "Enter first player name ");
-        while (player1 == null) {
-            player1 = JOptionPane.showInputDialog( "Enter first player name ");
-        }
-        String player2 = JOptionPane.showInputDialog( "Enter second player name ");
-        while (player2 == null) {
-            player2 = JOptionPane.showInputDialog("Enter second player name ");
-        }
+    public static void initializePanels(GraphicalGameState gameState, GraphicalAgent agent) {
+        PlayerInfoPanel player1Info = new PlayerInfoPanel(gameState.getPlayer1(), agent, 1);
+        PlayerInfoPanel player2Info = new PlayerInfoPanel(gameState.getPlayer2(), agent, 2);
+        BoardPanel boardPanel = new BoardPanel(gameState.getBoard(), agent);
+        MainPanel mainPanel = new MainPanel(boardPanel, player1Info, player2Info);
+        Frame frame = new Frame();
+        frame.setContentPane(mainPanel);
 
-        /**
-         *  WE SHOULD TRANSFER PLAYER NAMES TO LOGIC , THEN LOGIC LOAD THE DATAS ,
-         *  THEN RETURN BACK STH AND AFTER THAT THE FRAME AND ITS COMPONENTS WILL BE COMPLETELY INITIALIZE
-         *
-         *
-         *  FOR NOW ( FOR TEST ) WE CREATE THE FRAME WITH CONSTANT VALUES
-         *
-         **/
-
-        new Frame(player1 , player2);
     }
 
 }

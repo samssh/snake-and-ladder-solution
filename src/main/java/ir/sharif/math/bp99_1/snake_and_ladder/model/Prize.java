@@ -1,9 +1,9 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
 public class Prize {
-    private Cell cell;
-    private int point;
-    private int chance,chanceNumber;
+    private final Cell cell;
+    private final int point;
+    private final int chance,chanceNumber;
 
     public Prize(Cell cell,int point,int chance,int chanceNumber){
         this.cell = cell;

@@ -5,28 +5,18 @@ import ir.sharif.math.bp99_1.snake_and_ladder.logic.LogicalAgent;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 
+import javax.swing.*;
+
 /**
  * this class is a connection between the graphic and logics
  */
 public class GraphicalAgent {
-
-    private static GraphicalAgent graphicalAgent;
-    private LogicalAgent logicalAgent;
-    private GraphicalAgent() {
-    }
+    private final LogicalAgent logicalAgent; // maybe deleted
+    private final Object paintLock;
 
     public GraphicalAgent(LogicalAgent logicalAgent) {
         this.logicalAgent = logicalAgent;
-    }
-
-    public static GraphicalAgent getInstance() {
-        if (graphicalAgent == null)
-            graphicalAgent = new GraphicalAgent();
-        return graphicalAgent;
-    }
-
-    public void setLogicalAgent(LogicalAgent logicalAgent) {
-        this.logicalAgent = logicalAgent;
+        this.paintLock = new Object();
     }
 
     /**
@@ -34,7 +24,9 @@ public class GraphicalAgent {
      * and save this models somewhere
      */
     public void update(GameState gameState) {
-        throw new RuntimeException("implement me");
+        synchronized (paintLock) {
+            // update game state
+        }
     }
 
     public void loadFirstPlayer(String name) {
@@ -51,5 +43,18 @@ public class GraphicalAgent {
 
     public void move(Player p, int startX, int startY, int endX, int endY) {
 
+    }
+
+    public Object getPaintLock() {
+        return paintLock;
+    }
+
+    private String getPlayerNames(int number) {
+        String[] s = new String[]{"first", "second"};
+        String result;
+        do {
+            result = JOptionPane.showInputDialog("Enter " + s[number] + " player name ");
+        } while (result == null);
+        return result;
     }
 }
