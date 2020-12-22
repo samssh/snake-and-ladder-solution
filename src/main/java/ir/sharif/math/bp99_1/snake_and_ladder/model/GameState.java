@@ -46,8 +46,5 @@ public class GameState {
 
     public void nextTurn(){
         turn = 1 - turn;
-
     }
-
-
 }

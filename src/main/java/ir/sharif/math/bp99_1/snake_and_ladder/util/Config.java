@@ -14,6 +14,8 @@ public class Config extends Properties {
     private static final Config MAIN_CONFIG = new Config(DEFAULT_ADDRESS);
 
     public static Config getConfig(String name) {
+        if ("mainConfig".equals(name))
+            return MAIN_CONFIG;
         return MAIN_CONFIG.getProperty(Config.class, name);
     }
 
