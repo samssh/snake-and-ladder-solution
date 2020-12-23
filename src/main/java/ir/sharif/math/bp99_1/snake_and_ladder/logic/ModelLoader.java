@@ -6,6 +6,7 @@ import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class ModelLoader {
@@ -42,6 +43,8 @@ public class ModelLoader {
             scanner.next();
             int point = scanner.nextInt();
 
+            scanner.close();
+
             return new Player(id,name,point);
 
         } catch (FileNotFoundException e) {
@@ -55,6 +58,14 @@ public class ModelLoader {
 
     public void savePlayer(Player player){
         // save player at the end of the game
+        File file = getPlayerFile(player.getName());
+        try {
+            PrintWriter printWriter = new PrintWriter(file);
+            printWriter.println(player.toString());
+            printWriter.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private File getPlayerFile(String name){
