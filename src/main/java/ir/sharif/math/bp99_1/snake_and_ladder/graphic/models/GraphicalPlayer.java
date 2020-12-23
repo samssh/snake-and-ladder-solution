@@ -25,12 +25,12 @@ public class GraphicalPlayer extends GraphicalModel{
 //    }
 
 
-    private void initialPiece(ArrayList<Piece> pieces){
-        this.pieces=new ArrayList<>();
-        for (Piece a:pieces) {
-            this.pieces.add(new GraphicalPiece(a.getName(),a.getColor()));
-        }
-    }
+//    private void initialPiece(ArrayList<Piece> pieces){
+//        this.pieces=new ArrayList<>();
+//        for (Piece a:pieces) {
+//            this.pieces.add(new GraphicalPiece(a.getName(),a.getColor()));
+//        }
+//    }
 
     public ArrayList<GraphicalPiece> getPieces() {
         return pieces;

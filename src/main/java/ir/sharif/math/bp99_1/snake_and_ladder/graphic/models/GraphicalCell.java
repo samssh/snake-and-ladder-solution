@@ -8,11 +8,20 @@ public class GraphicalCell extends GraphicalModel {
     private final Color color;
     private final GraphicalPrize graphicalPrize;
     private GraphicalPiece graphicalPiece;
+    private final int x , y;
+//
+//    public GraphicalCell(Color color, GraphicalPrize graphicalPrize, GraphicalPiece graphicalPiece) {
+//        this.color = color;
+//        this.graphicalPrize = graphicalPrize;
+//        this.graphicalPiece = graphicalPiece;
+//    }
 
-    public GraphicalCell(Color color, GraphicalPrize graphicalPrize, GraphicalPiece graphicalPiece) {
+    public GraphicalCell(Color color, GraphicalPrize graphicalPrize, GraphicalPiece graphicalPiece, int x, int y) {
         this.color = color;
         this.graphicalPrize = graphicalPrize;
         this.graphicalPiece = graphicalPiece;
+        this.x = x;
+        this.y = y;
     }
 
     public Color getColor() {
@@ -34,9 +43,10 @@ public class GraphicalCell extends GraphicalModel {
     @Override
     public void paint(Graphics2D graphics2D) {
         // paint this
+        graphics2D.translate(x,y);
 
         if (graphicalPrize != null) graphicalPrize.paint(graphics2D);
         if (graphicalPiece != null) graphicalPiece.paint(graphics2D);
-
+        graphics2D.translate(-x,-y);
     }
 }

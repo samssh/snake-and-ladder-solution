@@ -27,13 +27,11 @@ public class GraphicalGameStateBuilder {
         return gb;
     }
 
-    private static GraphicalCell[][] convertCells(Cell[][] cells){
-        GraphicalCell[][] gc = new GraphicalCell[7][16];
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 16; j++) {
-                Cell c = cells[i][j];
-                gc[i][j] = new GraphicalCell(c.getColor() ,convertPrize(c.getPrize()) , convertPiece(c.getPiece()) );
-            }
+    private static LinkedList<GraphicalCell> convertCells(List<Cell> cells){
+        LinkedList<GraphicalCell> gc = new LinkedList<>();
+
+        for (Cell cell : cells) {
+            gc.add(new GraphicalCell(cell.getColor() , convertPrize(cell.getPrize()) , convertPiece(cell.getPiece()) , cell.getX() , cell.getY()));
         }
         return gc;
     }
@@ -49,12 +47,12 @@ public class GraphicalGameStateBuilder {
 
 
     private static GraphicalCell convertCell(Cell cell){
-        GraphicalCell gc = new GraphicalCell(cell.getColor() , convertPrize(cell.getPrize()) , convertPiece(cell.getPiece()));
+        GraphicalCell gc = new GraphicalCell(cell.getColor() , convertPrize(cell.getPrize()) , convertPiece(cell.getPiece()) , cell.getX() , cell.getY());
         return gc;
     }
 
     private static GraphicalPiece convertPiece(Piece piece){
-        GraphicalPiece gp = new GraphicalPiece(piece.getName() , piece.getColor());
+        GraphicalPiece gp = new GraphicalPiece(piece.getColor());
         return gp;
 
     }
@@ -68,7 +66,7 @@ public class GraphicalGameStateBuilder {
     private static ArrayList<GraphicalPiece> convertPieces(ArrayList<Piece> l){
         ArrayList<GraphicalPiece> pi =new ArrayList<>();
         for (Piece a: l) {
-            pi.add(new GraphicalPiece(a.getName(),a.getColor()));
+            pi.add(new GraphicalPiece(a.getColor()));
         }
         return pi;
     }

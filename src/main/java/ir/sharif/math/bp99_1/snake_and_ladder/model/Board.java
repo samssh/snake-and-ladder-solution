@@ -99,7 +99,7 @@ public class Board {
             int y2 = scanner.nextInt();
             Cell cell2 = getCell(x2,y2);
 
-            Transmitter transmitter = new Transmitter(cell1,cell2);
+            Transmitter transmitter = new Transmitter(cell1,cell2,"snake");
             transmitters.add(transmitter);
 
             cell1.setTransmitter(transmitter);
@@ -117,7 +117,7 @@ public class Board {
             int chanceNumber = scanner.nextInt();
 
             Cell cell = getCell(x,y);
-            cell.setPrize(new Prize(cell,point,chance,chanceNumber));
+            cell.setPrize(new Prize(cell,point,chance,chanceNumber,"prize"));
         }
 
     }
