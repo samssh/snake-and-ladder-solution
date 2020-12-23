@@ -37,6 +37,11 @@ public class ModelLoader {
     public Player loadPlayer(String name){
         // check if player exist load that or creat file for this player
         File playerFile = getPlayerFile(name);
+        if(playerFile == null){
+            int id = playersDirectory.list().length;
+            new File(playersDirectory.getPath()+name+"_"+id+".player");
+            return new Player(id,name,0);
+        }
         try {
             Scanner scanner = new Scanner(playerFile);
 
@@ -59,15 +64,15 @@ public class ModelLoader {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        catch (NullPointerException e){
-            return null;
-        }
         return null;
     }
 
     public void savePlayer(Player player){
         // save player at the end of the game
         File file = getPlayerFile(player.getName());
+        if(file == null){
+            file = new File(playersDirectory.getPath()+player.getName()+"_"+player.getId()+".player");
+        }
         try {
             PrintWriter printWriter = new PrintWriter(file);
             printWriter.println(player.toString());
