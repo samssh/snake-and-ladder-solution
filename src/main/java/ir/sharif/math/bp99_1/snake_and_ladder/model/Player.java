@@ -1,5 +1,6 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -8,14 +9,34 @@ public class Player {
     private List<Piece> pieces;
     private Dice dice;
     private Player rival;
+    private int id;
 
-    public Player(String name,List<Piece> pieces,Dice dice,int point){
+    public Player(int id,String name,List<Piece> pieces,Dice dice,int point){
+        this.id = id;
         this.dice = dice;
         this.name = name;
         this.pieces = pieces;
         this.point = point;
     }
 
+    public Player(int id,String name,int point){
+        this.id = id;
+        this.name = name;
+        this.point = point;
+
+        dice = new Dice();
+
+        pieces = new ArrayList<>();
+
+        pieces.add(new Piece(this,Color.RED));
+        pieces.add(new Piece(this,Color.BLUE));
+        pieces.add(new Piece(this,Color.GREEN));
+        pieces.add(new Piece(this,Color.YELLOW));
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
