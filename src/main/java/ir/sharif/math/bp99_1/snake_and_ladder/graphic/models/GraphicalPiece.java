@@ -8,10 +8,8 @@ import java.awt.*;
 public class GraphicalPiece extends GraphicalModel{
     private final String name;
     private final Color color;
-    private final Player player;
 
-    public GraphicalPiece(Player player, String name, Color color){
-        this.player = player;
+    public GraphicalPiece( String name, Color color){
         this.name = name;
         this.color = color;
     }
@@ -20,9 +18,6 @@ public class GraphicalPiece extends GraphicalModel{
         return name;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
 
     public Color getColor() {
         return color;

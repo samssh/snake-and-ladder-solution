@@ -46,6 +46,7 @@ public class GraphicalAgent {
         /*
          * build Graphical game state
          * */
+        GraphicalGameState gss = new GraphicalGameState(gs);
         this.gameState = null;
     }
 
