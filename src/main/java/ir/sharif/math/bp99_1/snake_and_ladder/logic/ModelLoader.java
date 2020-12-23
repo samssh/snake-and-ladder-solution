@@ -19,8 +19,17 @@ public class ModelLoader {
     }
 
     public Board loadBord(){
-
         // load board from file
+        try {
+            Scanner scanner = new Scanner(boardFile);
+            String boardData = new String();
+            while (scanner.hasNext()){
+                boardData += scanner.nextLine()+"\n";
+            }
+            return new Board(boardData);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         return null;
     }

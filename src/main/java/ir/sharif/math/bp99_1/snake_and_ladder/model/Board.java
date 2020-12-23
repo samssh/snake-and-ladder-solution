@@ -8,7 +8,7 @@ public class Board {
     private List<Wall> walls;
     private List<Cell> startingCells;
 
-    public Board(){
+    public Board(String boardDate){
 
     }
 
