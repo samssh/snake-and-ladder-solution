@@ -1,5 +1,6 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cell {
@@ -17,6 +18,11 @@ public class Cell {
         this.locked = color == Color.BLACK;
         this.X = X;
         this.Y = Y;
+
+        transmitter = null;
+        prize = null;
+        adjacentOpenCells = new ArrayList<>();
+        adjacentCells = new ArrayList<>();
     }
 
     public int getX() {
