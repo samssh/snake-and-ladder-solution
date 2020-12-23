@@ -1,5 +1,7 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
+import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
@@ -9,20 +11,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ImageLoader {
-     final static ImageLoader instance = new ImageLoader();
+    final static ImageLoader instance = new ImageLoader();
     private final Map<String, BufferedImage> imageMap;
-    private final Map<Integer, Icon> dice;
+    private final Map<String, Icon> dice;
 
     public static BufferedImage getImage(String name) {
         return instance.imageMap.get(name);
     }
 
-    public static Icon getIcon(int dice){
+    public static Icon getIcon(String dice) {
         return instance.dice.get(dice);
     }
+
     private ImageLoader() {
         imageMap = new HashMap<>();
-        dice =new HashMap<>();
+        dice = new HashMap<>();
         load();
     }
 
@@ -40,12 +43,12 @@ public class ImageLoader {
                 throw new RuntimeException("image file not exist", e);
             }
         }
-       config = Config.getConfig("dice");
+        config = Config.getConfig("dice");
         for (Map.Entry<Object, Object> k : config.entrySet()) {
             String key = (String) k.getKey();
-            String value =(String) k.getValue();
+            String value = (String) k.getValue();
             Icon icon = new ImageIcon(value);
-            dice.put(Integer.parseInt(key), icon);
+            dice.put(key, icon);
         }
     }
 

@@ -1,9 +1,9 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
 public class GameState {
-    private Board board;
-    private Player playerOne;
-    private Player playerTwo;
+    private final Board board;
+    private final Player playerOne;
+    private final Player playerTwo;
     private int turn;
     private boolean finished;
 
@@ -46,8 +46,5 @@ public class GameState {
 
     public void nextTurn(){
         turn = 1 - turn;
-
     }
-
-
 }

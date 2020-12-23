@@ -3,12 +3,12 @@ package ir.sharif.math.bp99_1.snake_and_ladder.model;
 import java.util.List;
 
 public class Cell {
-    private Color color;
-    private List<Cell> adjacentCells;
-    private List<Cell> adjacentOpenCells;
-    private boolean locked;
-    private Prize prize;
-    private Transmitter transmitter;
+    private final Color color;
+    private final List<Cell> adjacentCells;
+    private final List<Cell> adjacentOpenCells;
+    private final boolean locked;
+    private final Prize prize;
+    private final Transmitter transmitter;
     private Piece piece;
 
     public Cell(Color color,List<Cell> adjacentCells,List<Cell> adjacentOpenCells,boolean locked,Prize prize,Transmitter transmitter,Piece piece){
