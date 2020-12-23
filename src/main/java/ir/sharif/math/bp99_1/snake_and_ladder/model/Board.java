@@ -6,6 +6,7 @@ public class Board {
     private List<Cell> cells;
     private List<Transmitter> transmitter;
     private List<Wall> walls;
+    private List<Cell> startingCells;
 
     public Board(){
 
@@ -17,6 +18,10 @@ public class Board {
 
     public List<Wall> getWalls() {
         return walls;
+    }
+
+    public List<Cell> getStartingCells() {
+        return startingCells;
     }
 
     public List<Transmitter> getTransmitter() {
@@ -33,6 +38,10 @@ public class Board {
 
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
+    }
+
+    public void setStartingCells(List<Cell> startingCells) {
+        this.startingCells = startingCells;
     }
 
     public Cell getCell(int X, int Y){
