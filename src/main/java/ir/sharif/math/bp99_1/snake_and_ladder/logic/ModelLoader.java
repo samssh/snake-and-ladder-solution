@@ -22,7 +22,7 @@ public class ModelLoader {
         // load board from file
         try {
             Scanner scanner = new Scanner(boardFile);
-            String boardData = new String();
+            String boardData = "";
             while (scanner.hasNext()){
                 boardData += scanner.nextLine()+"\n";
             }
