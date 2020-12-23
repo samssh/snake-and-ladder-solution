@@ -82,5 +82,12 @@ public class Player {
         point += prize.getPoint();
         dice.addChance(prize.getChance(),prize.getChanceNumber());
     }
+
+    @Override
+    public String toString() {
+        return  "PlayerID : " + id + '\n' +
+                "PlayerName : " + name + '\n' +
+                "PlayerScore : " + point + '\n' ;
+    }
 }
 
