@@ -6,10 +6,9 @@ public class Piece {
     private final Color color;
     private final Player player;
 
-    public Piece(Player player,String name,Cell currentCell,Color color){
+    public Piece(Player player,String name,Color color){
         this.player = player;
         this.name = name;
-        this.currentCell = currentCell;
         this.color = color;
     }
 
