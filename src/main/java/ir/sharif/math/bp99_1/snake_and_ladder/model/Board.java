@@ -25,4 +25,12 @@ public class Board {
     public void setCells(List<Cell> cells) {
         this.cells = cells;
     }
+
+    public Cell getCell(int X,int Y){
+        for(Cell cell : cells){
+            if(cell.getX() == X && cell.getY() == Y)
+                return cell;
+        }
+        return null;
+    }
 }
