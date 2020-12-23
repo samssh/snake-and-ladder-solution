@@ -5,6 +5,8 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class ModelLoader {
     private final File boardFile, playersDirectory;
@@ -23,9 +25,31 @@ public class ModelLoader {
     }
 
     public Player loadPlayer(String name){
-
         // check if player exist load that or creat file for this player
+        File playerFile = getPlayerFile(name);
+        try {
+            Scanner scanner = new Scanner(playerFile);
 
+            scanner.next();
+            scanner.next();
+            int id = scanner.nextInt();
+
+            scanner.next();
+            scanner.next();
+            String playerName = scanner.next(); //  name
+
+            scanner.next();
+            scanner.next();
+            int point = scanner.nextInt();
+
+            return new Player(id,name,point);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (NullPointerException e){
+            return null;
+        }
         return null;
     }
 
@@ -33,5 +57,13 @@ public class ModelLoader {
         // save player at the end of the game
     }
 
+    private File getPlayerFile(String name){
+        for(String fileName : playersDirectory.list()){
+            String playerName = fileName.substring(0,fileName.indexOf('_'));
+            if(playerName.equals(name))
+                return new File(playersDirectory.getPath()+fileName);
+        }
+        return null;
+    }
 
 }
