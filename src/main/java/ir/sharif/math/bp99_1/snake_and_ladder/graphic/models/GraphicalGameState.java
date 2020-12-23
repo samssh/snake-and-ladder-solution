@@ -12,12 +12,6 @@ public class GraphicalGameState {
         this.player2 = player2;
     }
 
-    public GraphicalGameState(GameState gs){
-        player1 = new GraphicalPlayer(gs.getPlayer(1));
-        player2 = new GraphicalPlayer(gs.getPlayer(2));
-        board = new GraphicalBoard(gs.getBoard());
-    }
-
     public GraphicalBoard getBoard() {
         return board;
     }

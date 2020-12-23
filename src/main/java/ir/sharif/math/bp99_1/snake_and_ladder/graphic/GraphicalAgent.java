@@ -2,6 +2,7 @@ package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
 
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalGameState;
+import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalGameStateBuilder;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.BoardPanel;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.MainPanel;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.PlayerInfoPanel;
@@ -46,8 +47,8 @@ public class GraphicalAgent {
         /*
          * build Graphical game state
          * */
-        GraphicalGameState gss = new GraphicalGameState(gs);
-        this.gameState = null;
+        GraphicalGameState gss = GraphicalGameStateBuilder.build(gs);
+        this.gameState = gss;
     }
 
     private Frame initializePanels() {

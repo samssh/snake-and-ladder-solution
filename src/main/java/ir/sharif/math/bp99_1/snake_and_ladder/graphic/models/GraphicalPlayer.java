@@ -10,11 +10,7 @@ public class GraphicalPlayer extends GraphicalModel{
     private String name;
     private int score;
     private ArrayList<GraphicalPiece> pieces;
-//    public GraphicalPlayer(String name, int score, ArrayList<Piece> pieces) {
-//        this.name = name;
-//        this.score = score;
-//        initialPiece(pieces);
-//    }
+
 
     public GraphicalPlayer(String name, int score, ArrayList<GraphicalPiece> pieces) {
         this.name = name;
@@ -32,7 +28,7 @@ public class GraphicalPlayer extends GraphicalModel{
     private void initialPiece(ArrayList<Piece> pieces){
         this.pieces=new ArrayList<>();
         for (Piece a:pieces) {
-            this.pieces.add(new GraphicalPiece(a.getPlayer(),a.getName(),a.getColor()));
+            this.pieces.add(new GraphicalPiece(a.getName(),a.getColor()));
         }
     }
 

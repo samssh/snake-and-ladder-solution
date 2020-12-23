@@ -3,15 +3,11 @@ package ir.sharif.math.bp99_1.snake_and_ladder.model;
 import java.util.List;
 
 public class Board {
-    private List<Cell> cells;
+    private Cell[][] cells;
     private List<Transmitter> transmitter;
 
     public Board(){
 
-    }
-
-    public List<Cell> getCells() {
-        return cells;
     }
 
     public List<Transmitter> getTransmitter() {
@@ -22,7 +18,11 @@ public class Board {
         this.transmitter = transmitter;
     }
 
-    public void setCells(List<Cell> cells) {
+    public Cell[][] getCells() {
+        return cells;
+    }
+
+    public void setCells(Cell[][] cells) {
         this.cells = cells;
     }
 }

@@ -4,9 +4,13 @@ import java.awt.*;
 
 public class GraphicalPrize extends GraphicalModel{
 
-    public GraphicalPrize(){
-    }
+    private final String name;
 
+    public GraphicalPrize(String name) {
+        this.name = name;
+
+
+    }
 
     @Override
     public void paint(Graphics2D graphics2D) {
