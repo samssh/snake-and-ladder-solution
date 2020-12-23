@@ -1,21 +1,15 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
 public class Piece {
-    private final String name;
     private Cell currentCell;
     private final Color color;
     private final Player player;
 
-    public Piece(Player player,String name,Cell currentCell,Color color){
+    public Piece(Player player,Color color){
         this.player = player;
-        this.name = name;
-        this.currentCell = currentCell;
         this.color = color;
     }
 
-    public String getName() {
-        return name;
-    }
 
     public Player getPlayer() {
         return player;
