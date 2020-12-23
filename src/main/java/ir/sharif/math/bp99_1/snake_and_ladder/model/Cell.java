@@ -9,16 +9,27 @@ public class Cell {
     private final boolean locked;
     private final Prize prize;
     private final Transmitter transmitter;
+    private final int X,Y;
     private Piece piece;
 
-    public Cell(Color color,List<Cell> adjacentCells,List<Cell> adjacentOpenCells,boolean locked,Prize prize,Transmitter transmitter,Piece piece){
+    public Cell(Color color,List<Cell> adjacentCells,List<Cell> adjacentOpenCells,boolean locked,Prize prize,Transmitter transmitter,int X,int Y,Piece piece){
         this.color = color;
         this.adjacentCells = adjacentCells;
         this.adjacentOpenCells = adjacentOpenCells;
         this.locked = locked;
         this.prize = prize;
         this.transmitter = transmitter;
+        this.X = X;
+        this.Y = Y;
         this.piece = piece;
+    }
+
+    public int getX() {
+        return X;
+    }
+
+    public int getY() {
+        return Y;
     }
 
     public Color getColor() {
