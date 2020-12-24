@@ -24,7 +24,7 @@ public class Snake extends GraphicalModel{
     private Shape irisR;
     private Shape irisL;
 
-    public Snake(Point2D start, Point2D end
+    private Snake(Point2D start, Point2D end
             , double bodyWidth, double waveHeight, double tailStart, double headLength, double headWidth
             , double eyeRadius, double irisRadius, int waves) {
         this.bodyWidth = bodyWidth;
