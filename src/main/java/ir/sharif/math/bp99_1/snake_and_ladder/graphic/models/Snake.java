@@ -12,17 +12,13 @@ public class Snake extends GraphicalModel{
     private final double bodyWidth;
     private final double waveHeight;
     private final double tailStart;
-    private final double headLength;
-    private final double headWidth;
-    private final double eyeRadius;
-    private final double irisRadius;
     private final int waves;
-    private Shape body;
-    private Shape head;
-    private Shape eyeR;
-    private Shape eyeL;
-    private Shape irisR;
-    private Shape irisL;
+    private final Shape body;
+    private final Shape head;
+    private final Shape eyeR;
+    private final Shape eyeL;
+    private final Shape irisR;
+    private final Shape irisL;
 
     private Snake(Point2D start, Point2D end
             , double bodyWidth, double waveHeight, double tailStart, double headLength, double headWidth
@@ -30,18 +26,26 @@ public class Snake extends GraphicalModel{
         this.bodyWidth = bodyWidth;
         this.waveHeight = waveHeight;
         this.tailStart = tailStart;
-        this.headLength = headLength;
-        this.headWidth = headWidth;
-        this.eyeRadius = eyeRadius;
-        this.irisRadius = irisRadius;
         this.waves = waves;
         this.start = start;
         this.end = end;
-        AffineTransform at = AffineTransform.getRotateInstance(
-                currentAngleRad(), start.getX(), start.getY());
+        AffineTransform at = AffineTransform.getRotateInstance(currentAngleRad(), start.getX(), start.getY());
         at.translate(start.getX(), start.getY());
-        createBody(at);
-        createHead(at);
+        this.body = createBody(at);
+        Shape head = new Ellipse2D.Double(-headLength, -headWidth, headLength + headLength, headWidth + headWidth);
+        this.head = at.createTransformedShape(head);
+        Shape eyeR = new Ellipse2D.Double(-headLength * 0.5 - eyeRadius, -headWidth * 0.6 - eyeRadius,
+                eyeRadius + eyeRadius, eyeRadius + eyeRadius);
+        Shape eyeL = new Ellipse2D.Double(-headLength * 0.5 - eyeRadius, headWidth * 0.6 - eyeRadius,
+                eyeRadius + eyeRadius, eyeRadius + eyeRadius);
+        this.eyeR = at.createTransformedShape(eyeR);
+        this.eyeL = at.createTransformedShape(eyeL);
+        Shape irisR = new Ellipse2D.Double(-headLength * 0.4 - eyeRadius, -headWidth * 0.6 - irisRadius,
+                irisRadius + irisRadius, irisRadius + irisRadius);
+        Shape irisL = new Ellipse2D.Double(-headLength * 0.4 - eyeRadius, headWidth * 0.6 - irisRadius,
+                irisRadius + irisRadius, irisRadius + irisRadius);
+        this.irisR = at.createTransformedShape(irisR);
+        this.irisL = at.createTransformedShape(irisL);
     }
 
     public static class SnakeBuilder {
@@ -109,7 +113,8 @@ public class Snake extends GraphicalModel{
         public Snake build() {
             if (start == null || end == null)
                 throw new NullPointerException("specify start and end of snake");
-            return new Snake(start, end, bodyWidth, waveHeight, tailStart, headLength, headWidth, eyeRadius, irisRadius, waves);
+            return new Snake(start, end, bodyWidth, waveHeight, tailStart
+                    , headLength, headWidth, eyeRadius, irisRadius, waves);
         }
     }
 
@@ -125,7 +130,7 @@ public class Snake extends GraphicalModel{
         g.fill(irisL);
     }
 
-    private void createBody(AffineTransform at) {
+    private Shape createBody(AffineTransform at) {
         double distance = end.distance(start);
         int steps = 100;
         Path2D body = new Path2D.Double();
@@ -155,7 +160,7 @@ public class Snake extends GraphicalModel{
             }
             previousPoint = point;
         }
-        this.body = at.createTransformedShape(body);
+        return at.createTransformedShape(body);
     }
 
     private Point2D computeBodyPoint(double alpha, Point2D point, Point2D previousPoint) {
@@ -177,25 +182,6 @@ public class Snake extends GraphicalModel{
         double y = Math.sin(r) * distance * waveHeight * verticalScaling;
         double x = alpha * distance;
         return new Point2D.Double(x, y);
-    }
-
-    private void createHead(AffineTransform at) {
-        Shape head = new Ellipse2D.Double(-headLength, -headWidth, headLength + headLength, headWidth + headWidth);
-        this.head = at.createTransformedShape(head);
-
-        Shape eyeR = new Ellipse2D.Double(-headLength * 0.5 - eyeRadius, -headWidth * 0.6 - eyeRadius,
-                eyeRadius + eyeRadius, eyeRadius + eyeRadius);
-        Shape eyeL = new Ellipse2D.Double(-headLength * 0.5 - eyeRadius, headWidth * 0.6 - eyeRadius,
-                eyeRadius + eyeRadius, eyeRadius + eyeRadius);
-        this.eyeR = at.createTransformedShape(eyeR);
-        this.eyeL = at.createTransformedShape(eyeL);
-
-        Shape irisR = new Ellipse2D.Double(-headLength * 0.4 - eyeRadius, -headWidth * 0.6 - irisRadius,
-                irisRadius + irisRadius, irisRadius + irisRadius);
-        Shape irisL = new Ellipse2D.Double(-headLength * 0.4 - eyeRadius, headWidth * 0.6 - irisRadius,
-                irisRadius + irisRadius, irisRadius + irisRadius);
-        this.irisR = at.createTransformedShape(irisR);
-        this.irisL = at.createTransformedShape(irisL);
     }
 
     private double currentAngleRad() {
