@@ -77,4 +77,12 @@ public class Cell {
         this.transmitter = transmitter;
     }
 
+    @Override
+    public String toString() {
+        return "Cell{" +
+                "color=" + color +
+                ", X=" + X +
+                ", Y=" + Y +
+                '}';
+    }
 }

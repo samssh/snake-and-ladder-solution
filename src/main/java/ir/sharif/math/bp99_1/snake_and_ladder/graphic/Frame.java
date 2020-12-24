@@ -12,10 +12,10 @@ public class Frame extends JFrame {
     private final MainPanel mainPanel;
 
     public Frame(MainPanel mainPanel) {
+        this.mainPanel = mainPanel;
         this.config();
         initialize();
         new Loop(fps, this::update).start();
-        this.mainPanel = mainPanel;
     }
 
     private void initialize() {

@@ -83,6 +83,7 @@ public class PlayerInfoPanel extends JPanel {
         whoseTurn.setFocusable(false);
 
 //        coloring(color, turn);
+        this.initialPieceLable();
         this.positioning();
         this.addElements();
     }

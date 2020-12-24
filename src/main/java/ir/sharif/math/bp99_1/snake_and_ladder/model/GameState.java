@@ -1,5 +1,7 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
+import java.awt.Color;
+
 public class GameState {
     private final Board board;
     private final Player playerOne;
@@ -46,5 +48,16 @@ public class GameState {
 
     public void nextTurn(){
         turn = 1 - turn;
+    }
+
+    @Override
+    public String toString() {
+        return "GameState{" +
+                "board=" + board +
+                ", playerOne=" + playerOne +
+                ", playerTwo=" + playerTwo +
+                ", turn=" + turn +
+                ", finished=" + finished +
+                '}';
     }
 }

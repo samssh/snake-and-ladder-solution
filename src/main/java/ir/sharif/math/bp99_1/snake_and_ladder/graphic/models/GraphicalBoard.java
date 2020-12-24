@@ -10,18 +10,16 @@ import java.util.List;
 public class GraphicalBoard extends GraphicalModel {
     private final List<GraphicalCell> graphicalCells;
     private final List<GraphicalTransmitter> graphicalTransmitters;
+    private final List<GraphicalWall> graphicalWalls;
 
-    public GraphicalBoard(LinkedList<GraphicalCell> gc, LinkedList<GraphicalTransmitter> gtl) {
-//        graphicalCells = new GraphicalCell[7][16]; // must be fix this numbers
-//        graphicalTransmitters = new LinkedList<>();
-
-        graphicalCells = gc;
-        graphicalTransmitters = gtl;
+    public GraphicalBoard(LinkedList<GraphicalCell> graphicalCells, LinkedList<GraphicalTransmitter> graphicalTransmitters, LinkedList<GraphicalWall> graphicalWalls) {
+        this.graphicalCells = graphicalCells;
+        this.graphicalTransmitters = graphicalTransmitters;
+        this.graphicalWalls = graphicalWalls;
     }
 
-
-    private void initialize(Board b) {
-
+    public List<GraphicalWall> getGraphicalWalls() {
+        return graphicalWalls;
     }
 
     public List<GraphicalCell> getGraphicalCells() {
@@ -38,11 +36,8 @@ public class GraphicalBoard extends GraphicalModel {
 
     @Override
     public void paint(Graphics2D graphics2D) {
-//        for (GraphicalCell[] graphicalCell : graphicalCells) {
-//            for (GraphicalCell cell : graphicalCell) {
-//                cell.paint(graphics2D);
-//            }
-//        }
+        graphicalCells.forEach(gt -> gt.paint(graphics2D));
+        graphicalWalls.forEach(gt ->gt.paint(graphics2D));
         graphicalTransmitters.forEach(gt -> gt.paint(graphics2D));
     }
 }

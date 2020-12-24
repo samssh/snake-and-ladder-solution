@@ -14,6 +14,7 @@ public class LogicalAgent {
         this.graphicalAgent = new GraphicalAgent(this);
         this.modelLoader = new ModelLoader();
         this.gameState = loadGameState();
+        System.out.println(gameState.toString());
         startGame();
     }
 

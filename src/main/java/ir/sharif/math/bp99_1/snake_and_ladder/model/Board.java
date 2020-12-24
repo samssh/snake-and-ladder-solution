@@ -1,5 +1,8 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
+import ir.sharif.math.bp99_1.snake_and_ladder.util.ThreadColor;
+
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,6 +13,14 @@ public class Board {
     private List<Cell> startingCells;
 
     public Board(String boardDate){
+
+        cells = new LinkedList<>();
+        transmitters = new LinkedList<>();
+        walls = new LinkedList<>();
+        startingCells = new LinkedList<>();
+
+        System.out.println(boardDate);
+
         Scanner scanner = new Scanner(boardDate);
 
         scanner.next();
@@ -119,7 +130,7 @@ public class Board {
             Cell cell = getCell(x,y);
             cell.setPrize(new Prize(cell,point,chance,chanceNumber,"prize"));
         }
-
+        System.out.println("finish");
     }
 
     public List<Cell> getCells() {
@@ -155,10 +166,18 @@ public class Board {
     }
 
     public Cell getCell(int X, int Y){
+        System.out.println(ThreadColor.ANSI_CYAN + cells.toString() + ThreadColor.ANSI_RESET);
         for(Cell cell : cells){
             if(cell.getX() == X && cell.getY() == Y)
                 return cell;
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Board{" +
+                ", transmitters=" + transmitters +
+                '}';
     }
 }

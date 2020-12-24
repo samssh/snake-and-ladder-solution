@@ -15,4 +15,12 @@ public class Wall {
     public Cell getCell2() {
         return cell2;
     }
+
+    @Override
+    public String toString() {
+        return "Wall{" +
+                "cell1=" + cell1 +
+                ", cell2=" + cell2 +
+                '}';
+    }
 }

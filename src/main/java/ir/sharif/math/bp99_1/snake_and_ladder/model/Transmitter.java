@@ -25,4 +25,13 @@ public class Transmitter {
     public void transmit(Piece piece){
         // Your Code
     }
+
+    @Override
+    public String toString() {
+        return "Transmitter{" +
+                "firstCell=" + firstCell +
+                ", lastCell=" + lastCell +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

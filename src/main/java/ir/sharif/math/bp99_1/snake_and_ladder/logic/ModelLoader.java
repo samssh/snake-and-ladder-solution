@@ -21,6 +21,7 @@ public class ModelLoader {
     public Board loadBord(){
         // load board from file
         try {
+            System.out.println(boardFile);
             Scanner scanner = new Scanner(boardFile);
             String boardData = "";
             while (scanner.hasNext()){
