@@ -14,7 +14,6 @@ public class LogicalAgent {
         this.graphicalAgent = new GraphicalAgent(this);
         this.modelLoader = new ModelLoader();
         this.gameState = loadGameState();
-        startGame();
     }
 
     private GameState loadGameState() {
@@ -24,7 +23,7 @@ public class LogicalAgent {
         return new GameState(board, player1, player2);
     }
 
-    private void startGame(){
+    public void startGame() {
         graphicalAgent.initialize(gameState);
     }
 }

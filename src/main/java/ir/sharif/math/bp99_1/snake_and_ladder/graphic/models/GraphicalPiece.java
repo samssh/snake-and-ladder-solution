@@ -1,36 +1,33 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic.models;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Color;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
+import ir.sharif.math.bp99_1.snake_and_ladder.graphic.ImageLoader;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
-public class GraphicalPiece extends GraphicalModel{
-    private final String name;
-    private final Color color;
-    private final Player player;
+public class GraphicalPiece extends GraphicalModel {
+    private final GraphicalColor color;
+    private BufferedImage image;
 
-    public GraphicalPiece(Player player, String name, Color color){
-        this.player = player;
-        this.name = name;
+    public GraphicalPiece(GraphicalColor color) {
         this.color = color;
+        image = ImageLoader.getImage(color.toString().toLowerCase());
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public Color getColor() {
+    public GraphicalColor getColor() {
         return color;
     }
 
+    public BufferedImage getImage() {
+        return image;
+    }
+
+    public void setImage(BufferedImage image) {
+        this.image = image;
+    }
 
     @Override
     public void paint(Graphics2D graphics2D) {
-
+        graphics2D.drawImage(image, 0, 0, 80, 80, null);
     }
 }

@@ -1,9 +1,9 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.BoardMouseListener;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalBoard;
+import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 
 import javax.swing.*;
 import java.awt.*;

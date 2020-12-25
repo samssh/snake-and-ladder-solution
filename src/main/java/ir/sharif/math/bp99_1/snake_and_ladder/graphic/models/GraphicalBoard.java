@@ -1,20 +1,29 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic.models;
 
 import java.awt.*;
-import java.util.LinkedList;
 import java.util.List;
 
 public class GraphicalBoard extends GraphicalModel {
-    private final GraphicalCell[][] graphicalCells;
+    private final List<GraphicalCell> graphicalCells;
     private final List<GraphicalTransmitter> graphicalTransmitters;
+    private final List<GraphicalWall> graphicalWalls;
 
-    public GraphicalBoard() {
-        graphicalCells = new GraphicalCell[10][10]; // must be fix this numbers
-        graphicalTransmitters = new LinkedList<>();
+    public GraphicalBoard(List<GraphicalCell> graphicalCells, List<GraphicalTransmitter> graphicalTransmitters, List<GraphicalWall> graphicalWalls) {
+        this.graphicalCells = graphicalCells;
+        this.graphicalTransmitters = graphicalTransmitters;
+        this.graphicalWalls = graphicalWalls;
     }
 
-    public GraphicalCell[][] getCells() {
+    public List<GraphicalWall> getGraphicalWalls() {
+        return graphicalWalls;
+    }
+
+    public List<GraphicalCell> getGraphicalCells() {
         return graphicalCells;
+    }
+
+    public List<GraphicalTransmitter> getGraphicalTransmitters() {
+        return graphicalTransmitters;
     }
 
     public List<GraphicalTransmitter> getTransmitter() {
@@ -23,11 +32,8 @@ public class GraphicalBoard extends GraphicalModel {
 
     @Override
     public void paint(Graphics2D graphics2D) {
-        for (GraphicalCell[] graphicalCell : graphicalCells) {
-            for (GraphicalCell cell : graphicalCell) {
-                cell.paint(graphics2D);
-            }
-        }
+        graphicalCells.forEach(gt -> gt.paint(graphics2D));
+        graphicalWalls.forEach(gt -> gt.paint(graphics2D));
         graphicalTransmitters.forEach(gt -> gt.paint(graphics2D));
     }
 }

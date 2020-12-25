@@ -23,8 +23,6 @@ public class GraphicalAgent {
     public GraphicalAgent(LogicalAgent logicalAgent) {
         this.logicalAgent = logicalAgent;
         this.paintLock = new Object();
-//        this.gameState = initializeGameState(gameState);
-//        this.frame = initializePanels();
     }
 
     /**
@@ -37,16 +35,9 @@ public class GraphicalAgent {
         }
     }
 
-    public void initialize(GameState gs) {
-        initializeGameState(gs);
-        frame = initializePanels();
-    }
-
-    public void initializeGameState(GameState gs) {
-        /*
-         * build Graphical game state
-         * */
-        this.gameState = null;
+    public void initialize(GameState gameState) {
+        this.gameState = new GraphicalGameStateBuilder(gameState).build();
+        this.frame = initializePanels();
     }
 
     private Frame initializePanels() {

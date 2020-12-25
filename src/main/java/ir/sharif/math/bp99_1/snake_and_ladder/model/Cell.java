@@ -10,10 +10,10 @@ public class Cell {
     private final boolean locked;
     private Prize prize;
     private Transmitter transmitter;
-    private final int X,Y;
+    private final int X, Y;
     private Piece piece;
 
-    public Cell(Color color,int X,int Y){
+    public Cell(Color color, int X, int Y) {
         this.color = color;
         this.locked = color == Color.BLACK;
         this.X = X;
@@ -65,8 +65,8 @@ public class Cell {
         this.piece = piece;
     }
 
-    public boolean canEnter(Piece piece){
-        return (this.piece==null) && (color.equals(piece.getColor()));
+    public boolean canEnter(Piece piece) {
+        return (this.piece == null) && (color.equals(piece.getColor()));
     }
 
     public void setPrize(Prize prize) {
@@ -77,4 +77,12 @@ public class Cell {
         this.transmitter = transmitter;
     }
 
+    @Override
+    public String toString() {
+        return "Cell{" +
+                "color=" + color +
+                ", X=" + X +
+                ", Y=" + Y +
+                '}';
+    }
 }

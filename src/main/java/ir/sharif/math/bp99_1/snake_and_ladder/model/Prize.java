@@ -3,13 +3,20 @@ package ir.sharif.math.bp99_1.snake_and_ladder.model;
 public class Prize {
     private final Cell cell;
     private final int point;
-    private final int chance,chanceNumber;
+    private final int chance, chanceNumber;
+    private final String name;
 
-    public Prize(Cell cell,int point,int chance,int chanceNumber){
+
+    public Prize(Cell cell, int point, int chance, int chanceNumber, String name) {
         this.cell = cell;
         this.point = point;
         this.chance = chance;
         this.chanceNumber = chanceNumber;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getPoint() {
@@ -28,7 +35,7 @@ public class Prize {
         return chanceNumber;
     }
 
-    public void using(Piece piece){
+    public void using(Piece piece) {
         piece.getPlayer().usePrize(this);
     }
 

@@ -6,16 +6,16 @@ import javax.swing.*;
 
 public class MainPanel extends JPanel {
     private final BoardPanel boardPanel;
-    private final PlayerInfoPanel player1InfoPanel,player2InfoPanel;
+    private final PlayerInfoPanel player1InfoPanel, player2InfoPanel;
 
-    public MainPanel(BoardPanel boardPanel,PlayerInfoPanel player1InfoPanel,PlayerInfoPanel player2InfoPanel) {
+    public MainPanel(BoardPanel boardPanel, PlayerInfoPanel player1InfoPanel, PlayerInfoPanel player2InfoPanel) {
         this.boardPanel = boardPanel;
         this.player1InfoPanel = player1InfoPanel;
         this.player2InfoPanel = player2InfoPanel;
         initialize();
     }
 
-    private void initialize(){
+    private void initialize() {
         config();
         this.add(boardPanel);
         this.add(player1InfoPanel);
