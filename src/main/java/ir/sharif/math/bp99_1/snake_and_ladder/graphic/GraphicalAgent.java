@@ -57,11 +57,11 @@ public class GraphicalAgent {
     }
 
     public void diceRequest(int player) {
-
+        System.out.println("sending dice request from player : " + player);
     }
 
     public void clickRequest(int x , int y){
-
+        System.out.println("Sending cordinates : " + x + " : " + y);
     }
 
     public void move(Player p, int startX, int startY, int endX, int endY) {

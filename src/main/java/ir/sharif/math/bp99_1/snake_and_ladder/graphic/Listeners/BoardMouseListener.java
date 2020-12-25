@@ -21,7 +21,7 @@ public class BoardMouseListener implements MouseListener {
         int xa = e.getX();
         int ya = e.getY();
 
-        graphicalAgent.clickRequest(ya/80 , xa/80);
+        graphicalAgent.clickRequest((ya/80)+1 , (xa/80)+1);
 
 
         /**   TO DO ...
