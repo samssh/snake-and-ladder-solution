@@ -1,7 +1,5 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
-import java.awt.Color;
-
 public class GameState {
     private final Board board;
     private final Player playerOne;
@@ -9,7 +7,7 @@ public class GameState {
     private int turn;
     private boolean finished;
 
-    public GameState(Board board,Player playerOne,Player playerTwo){
+    public GameState(Board board, Player playerOne, Player playerTwo) {
         this.board = board;
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
@@ -29,12 +27,12 @@ public class GameState {
         return playerTwo;
     }
 
-    public Player getPlayer(int i){
-        if(i==0) return playerOne;
+    public Player getPlayer(int i) {
+        if (i == 0) return playerOne;
         else return playerTwo;
     }
 
-    public Player getCurrentPlayer(){
+    public Player getCurrentPlayer() {
         return getPlayer(turn);
     }
 
@@ -42,11 +40,11 @@ public class GameState {
         return finished;
     }
 
-    public void finish(){
+    public void finish() {
         finished = true;
     }
 
-    public void nextTurn(){
+    public void nextTurn() {
         turn = 1 - turn;
     }
 

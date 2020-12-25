@@ -70,7 +70,7 @@ public class BoardBuilder {
         }
     }
 
-    private void buildWalls(Board board){
+    private void buildWalls(Board board) {
         scanner.next();
         int wallNumber = scanner.nextInt();
         scanner.nextLine();
@@ -84,7 +84,7 @@ public class BoardBuilder {
         }
     }
 
-    private void buildTransmitters(Board board){
+    private void buildTransmitters(Board board) {
         scanner.next();
         int transmittersNumber = scanner.nextInt();
         scanner.nextLine();
@@ -97,7 +97,7 @@ public class BoardBuilder {
         }
     }
 
-    private void addPrizes(Board board){
+    private void addPrizes(Board board) {
         scanner.next();
         int prizeNumber = scanner.nextInt();
         scanner.nextLine();
@@ -112,7 +112,7 @@ public class BoardBuilder {
         }
     }
 
-    private Cell getCell(Board board){
+    private Cell getCell(Board board) {
         int x = scanner.nextInt();
         int y = scanner.nextInt();
         return board.getCell(x, y);

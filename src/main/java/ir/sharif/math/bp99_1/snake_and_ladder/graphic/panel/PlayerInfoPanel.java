@@ -4,7 +4,6 @@ import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.ImageLoader;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.DiceMouseListener;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.PieceMouseListener;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalPiece;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalPlayer;
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 
@@ -25,9 +24,8 @@ public class PlayerInfoPanel extends JPanel {
     private JLabel dice;
     private JLabel diceNumber;
     private JButton whoseTurn;
-    private boolean  isPieceEditable=true;
+    private boolean isPieceEditable = true;
     ArrayList<JLabel> pieces;
-
 
 
     public PlayerInfoPanel(GraphicalPlayer player, GraphicalAgent agent, int id) {
@@ -55,13 +53,15 @@ public class PlayerInfoPanel extends JPanel {
         commonY = config.getProperty(Integer.class, "commonY");
         size = config.getProperty(Integer.class, "size");
     }
-    private void initialPieceLable(){
-        pieces=new ArrayList<>();
+
+    private void initialPieceLable() {
+        pieces = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            JLabel label=new JLabel((Icon) ImageLoader.getImage(player.getPieces().get(i).getColor().name()+"Pawn"));
+            JLabel label = new JLabel((Icon) ImageLoader.getImage(player.getPieces().get(i).getColor().name() + "Pawn"));
             pieces.add(label);
         }
     }
+
     private void initialize() {
         this.config();
         this.setVisible(true);
@@ -109,10 +109,10 @@ public class PlayerInfoPanel extends JPanel {
         diceNumber.setBounds(diceNX, commonY, size, size);
         dice.setBounds(diceX, commonY, size, size);
         dice.addMouseListener(new DiceMouseListener());
-        int i=1;
-        for (JLabel l: pieces ) {
+        int i = 1;
+        for (JLabel l : pieces) {
             l.addMouseListener(new PieceMouseListener());
-            l.setBounds(nameX+i*80, nameY,size,size);
+            l.setBounds(nameX + i * 80, nameY, size, size);
         }
     }
 

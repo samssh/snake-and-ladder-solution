@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 
 public class PieceMouseListener implements MouseListener {
 
-    public  PieceMouseListener(){
+    public PieceMouseListener() {
 
     }
 
@@ -18,11 +18,11 @@ public class PieceMouseListener implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
         try {
-            String [] myColor=new String[]{"red","blue","green","yello"};
-            String n="";
-            while (n.equalsIgnoreCase("")){
-            n = (String)JOptionPane.showInputDialog(null, "select piece color ",
-                    "select", JOptionPane.QUESTION_MESSAGE, null,myColor, myColor[0]);
+            String[] myColor = new String[]{"red", "blue", "green", "yello"};
+            String n = "";
+            while (n.equalsIgnoreCase("")) {
+                n = (String) JOptionPane.showInputDialog(null, "select piece color ",
+                        "select", JOptionPane.QUESTION_MESSAGE, null, myColor, myColor[0]);
             }
             /**
              *  TO DO ...
@@ -31,7 +31,9 @@ public class PieceMouseListener implements MouseListener {
              *
              *
              */
-        } catch (Exception e1) {e1.printStackTrace();}
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
     }
 
     @Override

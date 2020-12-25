@@ -11,7 +11,7 @@ public class Player {
     private Player rival;
     private int id;
 
-    public Player(int id,String name,List<Piece> pieces,Dice dice,int point){
+    public Player(int id, String name, List<Piece> pieces, Dice dice, int point) {
         this.id = id;
         this.dice = dice;
         this.name = name;
@@ -19,7 +19,7 @@ public class Player {
         this.point = point;
     }
 
-    public Player(int id,String name,int point){
+    public Player(int id, String name, int point) {
         this.id = id;
         this.name = name;
         this.point = point;
@@ -28,10 +28,10 @@ public class Player {
 
         pieces = new ArrayList<>();
 
-        pieces.add(new Piece(this,Color.RED));
-        pieces.add(new Piece(this,Color.BLUE));
-        pieces.add(new Piece(this,Color.GREEN));
-        pieces.add(new Piece(this,Color.YELLOW));
+        pieces.add(new Piece(this, Color.RED));
+        pieces.add(new Piece(this, Color.BLUE));
+        pieces.add(new Piece(this, Color.GREEN));
+        pieces.add(new Piece(this, Color.YELLOW));
     }
 
     public int getId() {
@@ -78,16 +78,16 @@ public class Player {
         this.point = point;
     }
 
-    public void usePrize(Prize prize){
+    public void usePrize(Prize prize) {
         point += prize.getPoint();
-        dice.addChance(prize.getChance(),prize.getChanceNumber());
+        dice.addChance(prize.getChance(), prize.getChanceNumber());
     }
 
     @Override
     public String toString() {
-        return  "PlayerID : " + id + '\n' +
+        return "PlayerID : " + id + '\n' +
                 "PlayerName : " + name + '\n' +
-                "PlayerScore : " + point + '\n' ;
+                "PlayerScore : " + point + '\n';
     }
 }
 

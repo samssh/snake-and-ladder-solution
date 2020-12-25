@@ -3,7 +3,7 @@ package ir.sharif.math.bp99_1.snake_and_ladder.model;
 public class Prize {
     private final Cell cell;
     private final int point;
-    private final int chance,chanceNumber;
+    private final int chance, chanceNumber;
     private final String name;
 
 
@@ -35,7 +35,7 @@ public class Prize {
         return chanceNumber;
     }
 
-    public void using(Piece piece){
+    public void using(Piece piece) {
         piece.getPlayer().usePrize(this);
     }
 

@@ -23,7 +23,7 @@ public class LogicalAgent {
         return new GameState(board, player1, player2);
     }
 
-    public void startGame(){
+    public void startGame() {
         graphicalAgent.initialize(gameState);
     }
 }

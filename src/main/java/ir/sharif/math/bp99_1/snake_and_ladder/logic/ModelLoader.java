@@ -7,7 +7,6 @@ import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.IllegalFormatException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -16,16 +15,16 @@ public class ModelLoader {
 
 
     public ModelLoader() {
-        boardFile = Config.getConfig("mainConfig").getProperty(File.class,"board");
-        playersDirectory = Config.getConfig("mainConfig").getProperty(File.class,"playersDirectory");
+        boardFile = Config.getConfig("mainConfig").getProperty(File.class, "board");
+        playersDirectory = Config.getConfig("mainConfig").getProperty(File.class, "playersDirectory");
     }
 
-    public Board loadBord(){
+    public Board loadBord() {
         try {
             System.out.println(boardFile);
             Scanner scanner = new Scanner(boardFile);
             StringBuilder boardData = new StringBuilder();
-            while (scanner.hasNext()){
+            while (scanner.hasNext()) {
                 boardData.append(scanner.nextLine()).append("\n");
             }
             return new BoardBuilder(boardData.toString()).build();
@@ -38,13 +37,13 @@ public class ModelLoader {
         return null;
     }
 
-    public Player loadPlayer(String name){
+    public Player loadPlayer(String name) {
         // check if player exist load that or creat file for this player
         File playerFile = getPlayerFile(name);
-        if(playerFile == null){
+        if (playerFile == null) {
             int id = Objects.requireNonNull(playersDirectory.list()).length;
-            new File(playersDirectory.getPath()+name+"_"+id+".player");
-            return new Player(id,name,0);
+            new File(playersDirectory.getPath() + name + "_" + id + ".player");
+            return new Player(id, name, 0);
         }
         try {
             Scanner scanner = new Scanner(playerFile);
@@ -60,7 +59,7 @@ public class ModelLoader {
             scanner.next();
             int point = scanner.nextInt();
             scanner.close();
-            return new Player(id,name,point);
+            return new Player(id, name, point);
         } catch (FileNotFoundException | IllegalArgumentException e) {
             e.printStackTrace();
             System.err.println("could not find player file");
@@ -69,10 +68,10 @@ public class ModelLoader {
         return null;
     }
 
-    public void savePlayer(Player player){
+    public void savePlayer(Player player) {
         File file = getPlayerFile(player.getName());
-        if(file == null){
-            file = new File(playersDirectory.getPath()+player.getName()+"_"+player.getId()+".player");
+        if (file == null) {
+            file = new File(playersDirectory.getPath() + player.getName() + "_" + player.getId() + ".player");
         }
         try {
             PrintWriter printWriter = new PrintWriter(file);
@@ -85,11 +84,11 @@ public class ModelLoader {
         }
     }
 
-    private File getPlayerFile(String name){
-        for(String fileName : Objects.requireNonNull(playersDirectory.list())){
-            String playerName = fileName.substring(0,fileName.indexOf('_'));
-            if(playerName.equals(name))
-                return new File(playersDirectory.getPath()+fileName);
+    private File getPlayerFile(String name) {
+        for (String fileName : Objects.requireNonNull(playersDirectory.list())) {
+            String playerName = fileName.substring(0, fileName.indexOf('_'));
+            if (playerName.equals(name))
+                return new File(playersDirectory.getPath() + fileName);
         }
         return null;
     }

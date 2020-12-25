@@ -1,10 +1,10 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
 public class Transmitter {
-    private final Cell firstCell,lastCell;
+    private final Cell firstCell, lastCell;
     private final String name;
 
-    public Transmitter(Cell firstCell,Cell lastCell , String name){
+    public Transmitter(Cell firstCell, Cell lastCell, String name) {
         this.firstCell = firstCell;
         this.lastCell = lastCell;
         this.name = name;
@@ -22,7 +22,7 @@ public class Transmitter {
         return name;
     }
 
-    public void transmit(Piece piece){
+    public void transmit(Piece piece) {
         // Your Code
     }
 
