@@ -45,7 +45,6 @@ public class GraphicalAgent {
         PlayerInfoPanel player2Info = new PlayerInfoPanel(gameState.getPlayer2(), this, 2);
         BoardPanel boardPanel = new BoardPanel(gameState.getBoard(), this);
         MainPanel mainPanel = new MainPanel(boardPanel, player1Info, player2Info);
-        System.out.println(mainPanel);
         return new Frame(mainPanel);
     }
 

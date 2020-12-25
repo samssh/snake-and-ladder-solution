@@ -1,7 +1,5 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.util.ThreadColor;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,13 +32,12 @@ public class Board {
         return transmitters;
     }
 
-    public Cell getCell(int X, int Y) {
-        System.out.println(ThreadColor.ANSI_CYAN + cells.toString() + ThreadColor.ANSI_RESET);
+    public Cell getCell(int x, int y) {
         for (Cell cell : cells) {
-            if (cell.getX() == X && cell.getY() == Y)
+            if (cell.getX() == x && cell.getY() == y)
                 return cell;
         }
-        return null;
+        throw new RuntimeException();
     }
 
     @Override

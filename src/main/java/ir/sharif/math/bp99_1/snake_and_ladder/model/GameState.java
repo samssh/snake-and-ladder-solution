@@ -2,15 +2,15 @@ package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
 public class GameState {
     private final Board board;
-    private final Player playerOne;
-    private final Player playerTwo;
+    private final Player player1;
+    private final Player player2;
     private int turn;
     private boolean finished;
 
-    public GameState(Board board, Player playerOne, Player playerTwo) {
+    public GameState(Board board, Player player1, Player player2) {
         this.board = board;
-        this.playerOne = playerOne;
-        this.playerTwo = playerTwo;
+        this.player1 = player1;
+        this.player2 = player2;
         turn = 0;
         finished = false;
     }
@@ -19,17 +19,18 @@ public class GameState {
         return board;
     }
 
-    public Player getPlayerOne() {
-        return playerOne;
+    public Player getPlayer1() {
+        return player1;
     }
 
-    public Player getPlayerTwo() {
-        return playerTwo;
+    public Player getPlayer2() {
+        return player2;
     }
 
     public Player getPlayer(int i) {
-        if (i == 0) return playerOne;
-        else return playerTwo;
+        if (i == 1) return player1;
+        else if (i == 2) return player2;
+        else throw new IllegalArgumentException();
     }
 
     public Player getCurrentPlayer() {
@@ -52,8 +53,8 @@ public class GameState {
     public String toString() {
         return "GameState{" +
                 "board=" + board +
-                ", playerOne=" + playerOne +
-                ", playerTwo=" + playerTwo +
+                ", playerOne=" + player1 +
+                ", playerTwo=" + player2 +
                 ", turn=" + turn +
                 ", finished=" + finished +
                 '}';
