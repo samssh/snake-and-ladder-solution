@@ -5,6 +5,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
+import java.util.Random;
 
 public class Snake extends GraphicalModel{
     private final Point2D start; // head
@@ -12,17 +13,18 @@ public class Snake extends GraphicalModel{
     private final double bodyWidth;
     private final double waveHeight;
     private final double tailStart;
-    private final int waves;
+    private final double waves;
     private final Shape body;
     private final Shape head;
     private final Shape eyeR;
     private final Shape eyeL;
     private final Shape irisR;
     private final Shape irisL;
+    private final Color color;
 
     private Snake(Point2D start, Point2D end
             , double bodyWidth, double waveHeight, double tailStart, double headLength, double headWidth
-            , double eyeRadius, double irisRadius, int waves) {
+            , double eyeRadius, double irisRadius, double waves ,Color color) {
         this.bodyWidth = bodyWidth;
         this.waveHeight = waveHeight;
         this.tailStart = tailStart;
@@ -46,19 +48,21 @@ public class Snake extends GraphicalModel{
                 irisRadius + irisRadius, irisRadius + irisRadius);
         this.irisR = at.createTransformedShape(irisR);
         this.irisL = at.createTransformedShape(irisL);
+        this.color = color;
     }
 
     public static class SnakeBuilder {
         private Point2D start; // head
         private Point2D end;
-        private double bodyWidth = 4;
-        private double waveHeight = 0.05;
-        private double tailStart = 0.32;
-        private double headLength = 10;
-        private double headWidth = 7;
-        private double eyeRadius = 2.4;
-        private double irisRadius = 1.2;
-        private int waves = 4;
+        private double bodyWidth = 5;
+        private double tailStart = 0.9;
+        private double headLength = 12;
+        private double headWidth = 12;
+        private double eyeRadius = 2.9;
+        private double irisRadius = 1.5;
+        private double waves = 5;
+        private double waveHeight = waves/200;
+        private Color color;
 
         public SnakeBuilder setStart(double startX, double startY) {
             this.start = new Point2D.Double(startX, startY);
@@ -114,12 +118,22 @@ public class Snake extends GraphicalModel{
             if (start == null || end == null)
                 throw new NullPointerException("specify start and end of snake");
             return new Snake(start, end, bodyWidth, waveHeight, tailStart
-                    , headLength, headWidth, eyeRadius, irisRadius, waves);
+                    , headLength, headWidth, eyeRadius, irisRadius, waves,randomColor());
         }
+
+
+        public Color randomColor(){
+            Random random = new Random();
+            int r = random.nextInt(255);
+            int g = random.nextInt(255);
+            int b = random.nextInt(255);
+            return new Color(r,g,b);
+        }
+
     }
 
     public void paint(Graphics2D g) {
-        g.setColor(new Color(0, 128, 0));
+        g.setColor(color);
         g.fill(body);
         g.fill(head);
         g.setColor(Color.WHITE);
