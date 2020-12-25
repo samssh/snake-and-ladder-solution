@@ -1,13 +1,17 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners;
 
+import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
+
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class PieceMouseListener implements MouseListener {
 
-    public PieceMouseListener() {
+    private GraphicalAgent graphicalAgent;
 
+    public PieceMouseListener(GraphicalAgent graphicalAgent) {
+        this.graphicalAgent = graphicalAgent;
     }
 
     @Override

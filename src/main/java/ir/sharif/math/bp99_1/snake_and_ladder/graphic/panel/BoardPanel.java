@@ -12,11 +12,12 @@ public class BoardPanel extends JPanel {
     protected final GraphicalBoard board;
     protected final GraphicalAgent agent;
 
+
     public BoardPanel(GraphicalBoard board, GraphicalAgent agent) {
         this.board = board;
         this.agent = agent;
         config();
-        addMouseListener(new BoardMouseListener());
+        addMouseListener(new BoardMouseListener(agent));
         requestFocus();
     }
 

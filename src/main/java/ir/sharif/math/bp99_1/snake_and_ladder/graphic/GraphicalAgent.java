@@ -56,7 +56,11 @@ public class GraphicalAgent {
 
     }
 
-    public void diceRequest(Player p) {
+    public void diceRequest(int player) {
+
+    }
+
+    public void clickRequest(int x , int y){
 
     }
 

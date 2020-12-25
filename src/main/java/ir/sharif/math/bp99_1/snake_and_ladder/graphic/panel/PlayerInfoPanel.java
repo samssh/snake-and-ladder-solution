@@ -103,10 +103,10 @@ public class PlayerInfoPanel extends JPanel {
         whoseTurn.setBounds(turnX, commonY, size, size);
         diceNumber.setBounds(diceNX, commonY, size, size);
         dice.setBounds(diceX, commonY, size, size);
-        dice.addMouseListener(new DiceMouseListener());
+        dice.addMouseListener(new DiceMouseListener(agent ,id));
         int i = 1;
         for (JLabel l : pieces) {
-            l.addMouseListener(new PieceMouseListener());
+            l.addMouseListener(new PieceMouseListener(agent));
             l.setBounds(nameX + i * 80, nameY, size, size);
         }
     }
