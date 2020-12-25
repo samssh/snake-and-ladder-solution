@@ -21,7 +21,6 @@ public class ModelLoader {
 
     public Board loadBord() {
         try {
-            System.out.println(boardFile);
             Scanner scanner = new Scanner(boardFile);
             StringBuilder boardData = new StringBuilder();
             while (scanner.hasNext()) {
@@ -42,8 +41,9 @@ public class ModelLoader {
         File playerFile = getPlayerFile(name);
         if (playerFile == null) {
             int id = Objects.requireNonNull(playersDirectory.list()).length;
-            new File(playersDirectory.getPath() + name + "_" + id + ".player");
-            return new Player(id, name, 0);
+            Player player = new Player(id, name, 0);
+            savePlayer(player);
+            return player;
         }
         try {
             Scanner scanner = new Scanner(playerFile);
@@ -71,7 +71,7 @@ public class ModelLoader {
     public void savePlayer(Player player) {
         File file = getPlayerFile(player.getName());
         if (file == null) {
-            file = new File(playersDirectory.getPath() + player.getName() + "_" + player.getId() + ".player");
+            file = new File(playersDirectory.getPath() + "/" + player.getName() + "_" + player.getId() + ".player");
         }
         try {
             PrintWriter printWriter = new PrintWriter(file);
@@ -88,7 +88,7 @@ public class ModelLoader {
         for (String fileName : Objects.requireNonNull(playersDirectory.list())) {
             String playerName = fileName.substring(0, fileName.indexOf('_'));
             if (playerName.equals(name))
-                return new File(playersDirectory.getPath() + fileName);
+                return new File(playersDirectory.getPath() + "/" + fileName);
         }
         return null;
     }
