@@ -8,7 +8,9 @@ public class GraphicalPlayer extends GraphicalModel {
     private String name;
     private int score;
     private final List<GraphicalPiece> pieces;
-
+    private boolean isReady;
+    private int diceNumber = 0;
+    private boolean itsTurn =false;
 
     public GraphicalPlayer(String name, int score, List<GraphicalPiece> pieces) {
         this.name = name;
@@ -34,6 +36,30 @@ public class GraphicalPlayer extends GraphicalModel {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public boolean isReady() {
+        return isReady;
+    }
+
+    public void setReady(boolean ready) {
+        isReady = ready;
+    }
+
+    public int getDiceNumber() {
+        return diceNumber;
+    }
+
+    public void setDiceNumber(int diceNumber) {
+        this.diceNumber = diceNumber;
+    }
+
+    public boolean isItsTurn() {
+        return itsTurn;
+    }
+
+    public void setItsTurn(boolean itsTurn) {
+        this.itsTurn = itsTurn;
     }
 
     @Override

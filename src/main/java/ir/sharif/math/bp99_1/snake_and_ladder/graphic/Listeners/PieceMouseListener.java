@@ -1,13 +1,21 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners;
 
+import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
+
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class PieceMouseListener implements MouseListener {
 
-    public PieceMouseListener() {
+    private final GraphicalAgent graphicalAgent;
+    private final int player;
+    private final int piece;
 
+    public PieceMouseListener(GraphicalAgent graphicalAgent, int player, int piece) {
+        this.graphicalAgent = graphicalAgent;
+        this.player = player;
+        this.piece = piece;
     }
 
     @Override
@@ -18,12 +26,16 @@ public class PieceMouseListener implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
         try {
-            String[] myColor = new String[]{"red", "blue", "green", "yello"};
-            String n = "";
-            while (n.equalsIgnoreCase("")) {
-                n = (String) JOptionPane.showInputDialog(null, "select piece color ",
+            String[] myColor = new String[]{"red", "blue", "green", "yellow"};
+            String color = "";
+            while (color.equalsIgnoreCase("")) {
+                color = (String) JOptionPane.showInputDialog(null, "select piece color ",
                         "select", JOptionPane.QUESTION_MESSAGE, null, myColor, myColor[0]);
+                if (color == null) return;
             }
+
+            graphicalAgent.changecolorRequest(player,piece,color);
+
             /**
              *  TO DO ...
              *

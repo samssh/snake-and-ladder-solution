@@ -1,6 +1,7 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
+import ir.sharif.math.bp99_1.snake_and_ladder.util.ThreadColor;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
