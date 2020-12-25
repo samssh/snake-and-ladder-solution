@@ -11,6 +11,7 @@ public class GraphicalPiece extends GraphicalModel {
 
     public GraphicalPiece(GraphicalColor color) {
         this.color = color;
+        System.out.println(color.toString().toLowerCase());
         image = ImageLoader.getImage(color.toString().toLowerCase());
     }
 

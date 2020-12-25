@@ -64,6 +64,11 @@ public class GraphicalAgent {
         System.out.println("Sending cordinates : " + x + " : " + y);
     }
 
+    public void changecolorRequest(int player , int piece , String color){
+        System.out.println("Player " + player + " request to change his " + piece +" piece to color " + color);
+    }
+
+
     public void move(Player p, int startX, int startY, int endX, int endY) {
 
     }

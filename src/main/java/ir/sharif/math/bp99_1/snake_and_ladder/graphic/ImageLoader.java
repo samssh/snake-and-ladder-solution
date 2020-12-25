@@ -1,6 +1,7 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
+import ir.sharif.math.bp99_1.snake_and_ladder.util.ThreadColor;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class ImageLoader {
     }
 
     public static Icon getIcon(String dice) {
+        System.out.println(ThreadColor.ANSI_CYAN + dice + ThreadColor.ANSI_RESET);
         return instance.dice.get(dice);
     }
 

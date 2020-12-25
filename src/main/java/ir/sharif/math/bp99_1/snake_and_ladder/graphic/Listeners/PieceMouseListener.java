@@ -8,10 +8,14 @@ import java.awt.event.MouseListener;
 
 public class PieceMouseListener implements MouseListener {
 
-    private GraphicalAgent graphicalAgent;
+    private final GraphicalAgent graphicalAgent;
+    private final int player;
+    private final int piece;
 
-    public PieceMouseListener(GraphicalAgent graphicalAgent) {
+    public PieceMouseListener(GraphicalAgent graphicalAgent, int player, int piece) {
         this.graphicalAgent = graphicalAgent;
+        this.player = player;
+        this.piece = piece;
     }
 
     @Override
@@ -22,12 +26,15 @@ public class PieceMouseListener implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
         try {
-            String[] myColor = new String[]{"red", "blue", "green", "yello"};
-            String n = "";
-            while (n.equalsIgnoreCase("")) {
-                n = (String) JOptionPane.showInputDialog(null, "select piece color ",
+            String[] myColor = new String[]{"red", "blue", "green", "yellow"};
+            String color = "";
+            while (color.equalsIgnoreCase("")) {
+                color = (String) JOptionPane.showInputDialog(null, "select piece color ",
                         "select", JOptionPane.QUESTION_MESSAGE, null, myColor, myColor[0]);
             }
+
+            graphicalAgent.changecolorRequest(player,piece,color);
+
             /**
              *  TO DO ...
              *

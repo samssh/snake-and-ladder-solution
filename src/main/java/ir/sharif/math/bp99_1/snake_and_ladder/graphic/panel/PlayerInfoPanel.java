@@ -23,9 +23,8 @@ public class PlayerInfoPanel extends JPanel {
     private JLabel score;
     private JLabel dice;
     private JLabel diceNumber;
-    private JButton whoseTurn;
     private boolean isPieceEditable = true;
-    ArrayList<JLabel> pieces;
+    private ArrayList<JLabel> pieces;
 
 
     public PlayerInfoPanel(GraphicalPlayer player, GraphicalAgent agent, int id) {
@@ -57,9 +56,14 @@ public class PlayerInfoPanel extends JPanel {
     private void initialPieceLable() {
         pieces = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            JLabel label = new JLabel((Icon) ImageLoader.getImage(player.getPieces().get(i).getColor().name() + "Pawn"));
+            Icon s = ImageLoader.getIcon(player.getPieces().get(i).getColor().name().toLowerCase());
+            System.out.println(s);
+            JLabel label = new JLabel();
+            label.setIcon(s);
             pieces.add(label);
+//            add(label);
         }
+        System.out.println("***********");
     }
 
     private void initialize() {
@@ -79,8 +83,6 @@ public class PlayerInfoPanel extends JPanel {
 
         diceNumber = new JLabel();
         diceNumber.setFocusable(false);
-        whoseTurn = new JButton();
-        whoseTurn.setFocusable(false);
 
         coloring();
         this.initialPieceLable();
@@ -90,33 +92,36 @@ public class PlayerInfoPanel extends JPanel {
 
     private void coloring() {
         if (this.id == 1) {
-            setBackground(Color.CYAN);
+            setBackground(new Color(221, 110, 245, 243));
         } else {
-            setBackground(Color.yellow);
+            setBackground(new Color(94, 180, 246, 243));
         }
-        whoseTurn.setEnabled(false);
     }
 
     private void positioning() {
         name.setBounds(nameX, nameY, componentWidth, componentHeight);
         score.setBounds(scoreX, scoreY, componentWidth, componentHeight);
-        whoseTurn.setBounds(turnX, commonY, size, size);
         diceNumber.setBounds(diceNX, commonY, size, size);
         dice.setBounds(diceX, commonY, size, size);
         dice.addMouseListener(new DiceMouseListener(agent ,id));
-        int i = 1;
+        int i = 2;
         for (JLabel l : pieces) {
-            l.addMouseListener(new PieceMouseListener(agent));
+            l.addMouseListener(new PieceMouseListener(agent,id , i-1));
             l.setBounds(nameX + i * 80, nameY, size, size);
+            i++;
         }
     }
 
     private void addElements() {
         add(name);
         add(score);
-        add(whoseTurn);
         add(diceNumber);
         add(dice);
+        for (JLabel piece : pieces) {
+            piece.setVisible(true);
+            piece.setText("sds");
+            add(piece);
+        }
     }
 
 //    void turn(int i, int r) {
