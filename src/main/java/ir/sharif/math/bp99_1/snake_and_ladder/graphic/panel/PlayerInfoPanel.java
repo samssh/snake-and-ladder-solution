@@ -82,25 +82,20 @@ public class PlayerInfoPanel extends JPanel {
         whoseTurn = new JButton();
         whoseTurn.setFocusable(false);
 
-//        coloring(color, turn);
+        coloring();
         this.initialPieceLable();
         this.positioning();
         this.addElements();
     }
 
-//    private void coloring(int color, int turn) {
-//        if (color == 1) {
-//            setBackground(Color.CYAN);
-//        } else {
-//            setBackground(Color.yellow);
-//        }
-//        if (turn % 2 == 0) {
-//            whoseTurn.setBackground(Color.green);
-//        } else {
-//            whoseTurn.setBackground(Color.red);
-//        }
-//        whoseTurn.setEnabled(false);
-//    }
+    private void coloring() {
+        if (this.id == 1) {
+            setBackground(Color.CYAN);
+        } else {
+            setBackground(Color.yellow);
+        }
+        whoseTurn.setEnabled(false);
+    }
 
     private void positioning() {
         name.setBounds(nameX, nameY, componentWidth, componentHeight);
