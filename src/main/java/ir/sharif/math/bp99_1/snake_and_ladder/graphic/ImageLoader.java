@@ -21,7 +21,6 @@ public class ImageLoader {
     }
 
     public static Icon getIcon(String dice) {
-        System.out.println(ThreadColor.ANSI_CYAN + dice + ThreadColor.ANSI_RESET);
         return instance.dice.get(dice);
     }
 

@@ -31,6 +31,7 @@ public class PieceMouseListener implements MouseListener {
             while (color.equalsIgnoreCase("")) {
                 color = (String) JOptionPane.showInputDialog(null, "select piece color ",
                         "select", JOptionPane.QUESTION_MESSAGE, null, myColor, myColor[0]);
+                if (color == null) return;
             }
 
             graphicalAgent.changecolorRequest(player,piece,color);

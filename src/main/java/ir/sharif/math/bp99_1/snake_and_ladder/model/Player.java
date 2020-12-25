@@ -10,6 +10,7 @@ public class Player {
     private Dice dice;
     private Player rival;
     private int id;
+    private boolean isReady;
 
     public Player(int id, String name, List<Piece> pieces, Dice dice, int point) {
         this.id = id;
@@ -81,6 +82,18 @@ public class Player {
     public void usePrize(Prize prize) {
         point += prize.getPoint();
         dice.addChance(prize.getChance(), prize.getChanceNumber());
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isReady() {
+        return isReady;
+    }
+
+    public void setReady(boolean ready) {
+        isReady = ready;
     }
 
     @Override
