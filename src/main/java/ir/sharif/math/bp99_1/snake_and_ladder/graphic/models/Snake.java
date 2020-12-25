@@ -7,7 +7,7 @@ import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
-public class Snake extends GraphicalModel{
+public class Snake extends GraphicalModel {
     private final Point2D start; // head
     private final Point2D end;
     private final double bodyWidth;
@@ -24,7 +24,7 @@ public class Snake extends GraphicalModel{
 
     private Snake(Point2D start, Point2D end
             , double bodyWidth, double waveHeight, double tailStart, double headLength, double headWidth
-            , double eyeRadius, double irisRadius, double waves ,Color color) {
+            , double eyeRadius, double irisRadius, double waves, Color color) {
         this.bodyWidth = bodyWidth;
         this.waveHeight = waveHeight;
         this.tailStart = tailStart;
@@ -61,7 +61,7 @@ public class Snake extends GraphicalModel{
         private double eyeRadius = 2.9;
         private double irisRadius = 1.5;
         private double waves = 5;
-        private double waveHeight = waves/200;
+        private double waveHeight = waves / 200;
         private Color color;
 
         public SnakeBuilder setStart(double startX, double startY) {
@@ -118,16 +118,16 @@ public class Snake extends GraphicalModel{
             if (start == null || end == null)
                 throw new NullPointerException("specify start and end of snake");
             return new Snake(start, end, bodyWidth, waveHeight, tailStart
-                    , headLength, headWidth, eyeRadius, irisRadius, waves,randomColor());
+                    , headLength, headWidth, eyeRadius, irisRadius, waves, randomColor());
         }
 
 
-        public Color randomColor(){
+        public Color randomColor() {
             Random random = new Random();
             int r = random.nextInt(255);
             int g = random.nextInt(255);
             int b = random.nextInt(255);
-            return new Color(r,g,b);
+            return new Color(r, g, b);
         }
 
     }

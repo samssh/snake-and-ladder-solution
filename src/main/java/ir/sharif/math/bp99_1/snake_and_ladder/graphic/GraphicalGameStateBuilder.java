@@ -70,10 +70,10 @@ public class GraphicalGameStateBuilder {
             if (transmitter == null) {
                 graphicalTransmitters.add(null);
             } else {
-                int y1 = transmitter.getFirstCell().getX();
-                int x1 = transmitter.getFirstCell().getY();
-                int y2 = transmitter.getLastCell().getY();
-                int x2 = transmitter.getLastCell().getX();
+                int y1 = (transmitter.getFirstCell().getX() - 1) * 80 + 40;
+                int x1 = (transmitter.getFirstCell().getY() - 1) * 80 + 40;
+                int y2 = (transmitter.getLastCell().getX() - 1) * 80 + 40;
+                int x2 = (transmitter.getLastCell().getY() - 1) * 80 + 40;
                 graphicalTransmitters.add(new GraphicalTransmitter(new Snake.SnakeBuilder().setStart(x1, y1).setEnd(x2, y2).build()));
             }
         }
@@ -97,7 +97,6 @@ public class GraphicalGameStateBuilder {
     }
 
     private GraphicalCell convertCell(Cell cell) {
-        System.out.println(cell);
         if (cell == null) {
             return null;
         }
