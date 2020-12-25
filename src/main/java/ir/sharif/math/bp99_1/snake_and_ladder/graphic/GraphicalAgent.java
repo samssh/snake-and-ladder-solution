@@ -2,7 +2,6 @@ package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
 
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalGameState;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalGameStateBuilder;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.BoardPanel;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.MainPanel;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.PlayerInfoPanel;
@@ -24,8 +23,6 @@ public class GraphicalAgent {
     public GraphicalAgent(LogicalAgent logicalAgent) {
         this.logicalAgent = logicalAgent;
         this.paintLock = new Object();
-//        this.gameState = initializeGameState(gameState);
-//        this.frame = initializePanels();
     }
 
     /**
@@ -38,21 +35,12 @@ public class GraphicalAgent {
         }
     }
 
-    public void initialize(GameState gs) {
-        initializeGameState(gs);
-        frame = initializePanels();
-    }
-
-    public void initializeGameState(GameState gs) {
-        /*
-         * build Graphical game state
-         * */
-        GraphicalGameState gss = GraphicalGameStateBuilder.build(gs);
-        this.gameState = gss;
+    public void initialize(GameState gameState) {
+        this.gameState = new GraphicalGameStateBuilder(gameState).build();
+        this.frame = initializePanels();
     }
 
     private Frame initializePanels() {
-
         PlayerInfoPanel player1Info = new PlayerInfoPanel(gameState.getPlayer1(), this, 1);
         PlayerInfoPanel player2Info = new PlayerInfoPanel(gameState.getPlayer2(), this, 2);
         BoardPanel boardPanel = new BoardPanel(gameState.getBoard(), this);

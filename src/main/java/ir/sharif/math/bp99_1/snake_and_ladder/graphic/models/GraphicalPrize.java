@@ -5,20 +5,19 @@ import ir.sharif.math.bp99_1.snake_and_ladder.graphic.ImageLoader;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class GraphicalPrize extends GraphicalModel{
-
+public class GraphicalPrize extends GraphicalModel {
     private final String name;
     private BufferedImage image;
+
     public GraphicalPrize(String name) {
         this.name = name;
-        if (name!=null)
-        image= ImageLoader.getImage("prize");
+        if (name != null)
+            image = ImageLoader.getImage("prize");
     }
 
     @Override
     public void paint(Graphics2D graphics2D) {
-        if (image!=null)
-        graphics2D.drawImage(image,0,0,80,80,null);
-
+        if (image != null)
+            graphics2D.drawImage(image, 0, 0, 80, 80, null);
     }
 }

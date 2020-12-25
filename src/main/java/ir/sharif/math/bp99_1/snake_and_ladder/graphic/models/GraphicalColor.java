@@ -5,7 +5,7 @@ import java.awt.*;
 public enum GraphicalColor {
     WHITE(Color.white),
     BLACK(Color.LIGHT_GRAY),
-    RED(Color.PINK) ,
+    RED(Color.PINK),
     BLUE(Color.cyan),
     GREEN(Color.green.brighter()),
     YELLOW(Color.yellow.brighter());

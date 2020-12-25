@@ -1,13 +1,11 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic.models;
 
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.ImageLoader;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Color;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class GraphicalPiece extends GraphicalModel{
+public class GraphicalPiece extends GraphicalModel {
     private final GraphicalColor color;
     private BufferedImage image;
 
@@ -30,6 +28,6 @@ public class GraphicalPiece extends GraphicalModel{
 
     @Override
     public void paint(Graphics2D graphics2D) {
-        graphics2D.drawImage(image,0,0,80,80,null);
+        graphics2D.drawImage(image, 0, 0, 80, 80, null);
     }
 }

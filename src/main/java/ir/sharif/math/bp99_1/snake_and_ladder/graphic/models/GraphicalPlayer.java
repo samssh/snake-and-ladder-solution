@@ -1,43 +1,23 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic.models;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Piece;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.List;
 
-public class GraphicalPlayer extends GraphicalModel{
+public class GraphicalPlayer extends GraphicalModel {
     private String name;
     private int score;
-    private ArrayList<GraphicalPiece> pieces;
+    private final List<GraphicalPiece> pieces;
 
 
-    public GraphicalPlayer(String name, int score, ArrayList<GraphicalPiece> pieces) {
+    public GraphicalPlayer(String name, int score, List<GraphicalPiece> pieces) {
         this.name = name;
         this.score = score;
         this.pieces = pieces;
     }
 
-//    public GraphicalPlayer(Player p){
-//        name = p.getName();
-//        score = p.getPoint();
-//        initialPiece((ArrayList<Piece>) p.getPieces());
-//    }
-
-
-//    private void initialPiece(ArrayList<Piece> pieces){
-//        this.pieces=new ArrayList<>();
-//        for (Piece a:pieces) {
-//            this.pieces.add(new GraphicalPiece(a.getName(),a.getColor()));
-//        }
-//    }
-
-    public ArrayList<GraphicalPiece> getPieces() {
+    public List<GraphicalPiece> getPieces() {
         return pieces;
-    }
-
-    public void setPieces(ArrayList<GraphicalPiece> pieces) {
-        this.pieces = pieces;
     }
 
     public String getName() {

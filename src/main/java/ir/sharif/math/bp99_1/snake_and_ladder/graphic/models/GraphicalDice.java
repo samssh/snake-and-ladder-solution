@@ -1,18 +1,12 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic.models;
 
 import java.awt.*;
-import java.util.Random;
-import java.util.TreeMap;
 
-public class GraphicalDice extends GraphicalModel{
-
-
-    public GraphicalDice(){
-
+public class GraphicalDice extends GraphicalModel {
+    public GraphicalDice() {
     }
 
     @Override
     public void paint(Graphics2D graphics2D) {
-
     }
 }

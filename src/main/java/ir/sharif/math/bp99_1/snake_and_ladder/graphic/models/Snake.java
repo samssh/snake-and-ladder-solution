@@ -6,7 +6,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
 
-public class Snake extends GraphicalModel{
+public class Snake extends GraphicalModel {
     private final Point2D start; // head
     private final Point2D end;
     private final double bodyWidth;
@@ -49,7 +49,7 @@ public class Snake extends GraphicalModel{
     }
 
     public static class SnakeBuilder {
-        private Point2D start; // head
+        private Point2D start;
         private Point2D end;
         private double bodyWidth = 4;
         private double waveHeight = 0.05;
@@ -58,7 +58,7 @@ public class Snake extends GraphicalModel{
         private double headWidth = 7;
         private double eyeRadius = 2.4;
         private double irisRadius = 1.2;
-        private int waves = 4;
+        private int waves = 8;
 
         public SnakeBuilder setStart(double startX, double startY) {
             this.start = new Point2D.Double(startX, startY);
