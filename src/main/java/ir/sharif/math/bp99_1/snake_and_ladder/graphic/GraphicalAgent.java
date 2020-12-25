@@ -63,6 +63,9 @@ public class GraphicalAgent {
          *
          *  THEN SEND NUMBER ON THE DICE TO GRAPHIC, SO WE CAN SHOW THAT.
          *
+         *  DON'T FORGET TO UPDATE GRAPHICAL GAMESTATE AND SPECIALLY
+         *  GRAPHICAL PLAYER ( diceNumber field )
+         *
          */
     }
 
