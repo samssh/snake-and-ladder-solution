@@ -27,5 +27,13 @@ public class GraphicalPiece extends GraphicalModel {
     @Override
     public void paint(Graphics2D graphics2D) {
         graphics2D.drawImage(image, 0, 0, 80, 80, null);
+        if (isSelected){
+            Stroke stroke = graphics2D.getStroke();
+            graphics2D.setStroke(new BasicStroke(5));
+            graphics2D.setColor(Color.MAGENTA);
+            graphics2D.drawRect(0,0,80,80);
+            graphics2D.setColor(Color.BLACK);
+            graphics2D.setStroke(stroke);
+        }
     }
 }

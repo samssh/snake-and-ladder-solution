@@ -70,6 +70,7 @@ public class GraphicalAgent {
     }
 
     public void clickRequest(int x , int y){
+        logicalAgent.selectPiece(x,y);
         /*
          *  TO DO
          *  WE SEND X , Y TO LOGIC, LOGIC SHOULD DECIDE WEATHER WE CHOOSE
@@ -100,6 +101,18 @@ public class GraphicalAgent {
     }
 
 
+    public void requestEndTurn(int playerNumber){
+
+        /**
+         * TO DO
+         * SEND A REQUEST TO LOGIC THAT PLAYER # Turn is ended and switch the turns
+         *
+         * NOT FORGOT TO UPDATE THE GRAPHIC AFTER THIS REQUEST.
+         **/
+
+    }
+
+
     public void move(Player p, int startX, int startY, int endX, int endY) {
 
     }
@@ -115,5 +128,13 @@ public class GraphicalAgent {
             result = JOptionPane.showInputDialog(frame, "Enter " + s[number - 1] + " player name ");
         } while (result == null);
         return result;
+    }
+
+    public GraphicalGameState getGraphicalGameState() {
+        return graphicalGameState;
+    }
+
+    public void setGraphicalGameState(GraphicalGameState graphicalGameState) {
+        this.graphicalGameState = graphicalGameState;
     }
 }

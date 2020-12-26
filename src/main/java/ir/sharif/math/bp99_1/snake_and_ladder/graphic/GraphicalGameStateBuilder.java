@@ -25,6 +25,7 @@ public class GraphicalGameStateBuilder {
         updateGPlayer(logicalGameState.getPlayer1(), graphicalGameState.getPlayer1());
         updateGPlayer(logicalGameState.getPlayer2(), graphicalGameState.getPlayer2());
         updateBoard(logicalGameState.getBoard(), graphicalGameState.getBoard());
+        graphicalGameState.setStarted(logicalGameState.isStarted());
     }
 
 

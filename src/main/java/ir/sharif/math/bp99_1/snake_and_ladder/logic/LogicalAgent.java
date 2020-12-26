@@ -10,6 +10,7 @@ public class LogicalAgent {
     private final GraphicalAgent graphicalAgent;
     private final GameState gameState;
     private final PreStart preStart;
+    private boolean isAPieceSelected;
 
     public LogicalAgent() {
         this.graphicalAgent = new GraphicalAgent(this);
@@ -38,5 +39,12 @@ public class LogicalAgent {
         if (!gameState.isStarted())
             preStart.playerReady(playerNumber);
         graphicalAgent.update(gameState);
+    }
+
+    public void selectPiece(int x , int y){
+            if (gameState.getBoard().getCell(x, y).getPiece() != null) {
+                gameState.getBoard().getCell(x, y).getPiece().setSelected(!gameState.getBoard().getCell(x, y).getPiece().isSelected());
+                graphicalAgent.update(gameState);
+            }
     }
 }

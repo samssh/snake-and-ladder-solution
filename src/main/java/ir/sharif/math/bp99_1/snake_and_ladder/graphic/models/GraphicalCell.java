@@ -16,6 +16,11 @@ public class GraphicalCell extends GraphicalModel {
         this.y = (x - 1) * 80;
     }
 
+        public void setGraphicalPiece(GraphicalPiece graphicalPiece) {
+        this.graphicalPiece = graphicalPiece;
+    }
+
+
     public GraphicalColor getColor() {
         return color;
     }
