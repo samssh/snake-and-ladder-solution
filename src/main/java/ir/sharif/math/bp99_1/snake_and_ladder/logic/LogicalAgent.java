@@ -9,24 +9,34 @@ public class LogicalAgent {
     private final ModelLoader modelLoader;
     private final GraphicalAgent graphicalAgent;
     private final GameState gameState;
+    private final PreStart preStart;
 
     public LogicalAgent() {
         this.graphicalAgent = new GraphicalAgent(this);
         this.modelLoader = new ModelLoader();
         this.gameState = loadGameState();
+        this.preStart = new PreStart(gameState);
     }
 
     private GameState loadGameState() {
         Board board = modelLoader.loadBord();
         Player player1 = modelLoader.loadPlayer(graphicalAgent.getPlayerNames(1));
-        Player player2 = modelLoader.loadPlayer(graphicalAgent.getPlayerNames(2));
+        Player player2;
+        do {
+            player2 = modelLoader.loadPlayer(graphicalAgent.getPlayerNames(2));
+        } while (player1.equals(player2));
+        player1.setRival(player2);
+        player2.setRival(player1);
         return new GameState(board, player1, player2);
     }
 
-    public void startGame() {
+    public void initialize() {
         graphicalAgent.initialize(gameState);
     }
 
-
-
+    public void readyPlayer(int playerNumber) {
+        if (!gameState.isStarted())
+            preStart.playerReady(playerNumber);
+        graphicalAgent.update(gameState);
+    }
 }

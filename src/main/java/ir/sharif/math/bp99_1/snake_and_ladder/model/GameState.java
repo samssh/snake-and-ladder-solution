@@ -5,14 +5,14 @@ public class GameState {
     private final Player player1;
     private final Player player2;
     private int turn;
-    private boolean finished;
+    private boolean started;
 
     public GameState(Board board, Player player1, Player player2) {
         this.board = board;
         this.player1 = player1;
         this.player2 = player2;
         turn = 0;
-        finished = false;
+        started = false;
     }
 
     public Board getBoard() {
@@ -30,23 +30,24 @@ public class GameState {
     public Player getPlayer(int i) {
         if (i == 1) return player1;
         else if (i == 2) return player2;
-        else throw new IllegalArgumentException();
+        else return null;
     }
 
     public Player getCurrentPlayer() {
         return getPlayer(turn);
     }
 
-    public boolean isFinished() {
-        return finished;
+    public boolean isStarted() {
+        return started;
     }
 
-    public void finish() {
-        finished = true;
+    public void start() {
+        started = true;
+        turn = 1;
     }
 
     public void nextTurn() {
-        turn = 1 - turn;
+        turn = 3 - turn;
     }
 
     @Override
@@ -56,7 +57,7 @@ public class GameState {
                 ", playerOne=" + player1 +
                 ", playerTwo=" + player2 +
                 ", turn=" + turn +
-                ", finished=" + finished +
+                ", finished=" + started +
                 '}';
     }
 }

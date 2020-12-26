@@ -3,7 +3,6 @@ package ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.ImageLoader;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.DiceMouseListener;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.PieceMouseListener;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.ReadyButtonListener;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalPlayer;
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
@@ -81,7 +80,7 @@ public class PlayerInfoPanel extends JPanel {
         startGame = new JButton("READY");
         startGame.setFont(startGame.getFont().deriveFont(20.0f));
         startGame.setFocusable(false);
-        startGame.addActionListener(new ReadyButtonListener(startGame, agent, player, id));
+        startGame.addActionListener(new ReadyButtonListener(agent, id));
         dice = new JLabel(ImageLoader.getIcon("diceGif"));
         dice.setFocusable(false);
         diceNumber = new JLabel();
@@ -115,7 +114,7 @@ public class PlayerInfoPanel extends JPanel {
         dice.addMouseListener(new DiceMouseListener(agent ,id));
         int i = 0;
         for (JLabel l : pieces) {
-            l.addMouseListener(new PieceMouseListener(agent,id , i+1));
+//            l.addMouseListener(new PieceMouseListener(agent,id , i+1));
             l.setBounds(pieceX , commonY, size, size);
             pieceX +=55;
             i++;
@@ -142,12 +141,17 @@ public class PlayerInfoPanel extends JPanel {
         super.paintComponent(g);
         synchronized (agent.getPaintLock()) {
             player.paint((Graphics2D) g);
-            score.setText(player.getScore()+"");
-            diceNumber.setIcon(ImageLoader.getIcon(player.getDiceNumber()+""));
-            if (player.isItsTurn()){
+            score.setText(player.getScore() + "");
+            diceNumber.setIcon(ImageLoader.getIcon(player.getDiceNumber() + ""));
+            if (player.isItsTurn()) {
                 whoseTurn.setBackground(Color.green);
-            }else {
+            } else {
                 whoseTurn.setBackground(Color.RED);
+            }
+            if (player.isReady()) {
+                startGame.setBackground(Color.GREEN);
+            } else {
+                startGame.setBackground(Color.WHITE);
             }
         }
     }

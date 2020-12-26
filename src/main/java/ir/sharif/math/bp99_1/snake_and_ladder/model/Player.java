@@ -12,7 +12,9 @@ public class Player {
     private Player rival;
     private final int id;
     private boolean isReady;
+    private boolean playedThisTurn;
     private int moveLeft;
+    private Piece selectedPiece;
 
     public Player(int id, String name, int score) {
         this.id = id;
@@ -25,6 +27,7 @@ public class Player {
         this.pieces.add(new Piece(this, Color.GREEN));
         this.pieces.add(new Piece(this, Color.YELLOW));
         this.moveLeft = 0;
+        this.selectedPiece = null;
     }
 
     public int getId() {
@@ -53,6 +56,22 @@ public class Player {
 
     public int getMoveLeft() {
         return moveLeft;
+    }
+
+    public Piece getSelectedPiece() {
+        return selectedPiece;
+    }
+
+    public boolean isPlayedThisTurn() {
+        return playedThisTurn;
+    }
+
+    public void setPlayedThisTurn(boolean playedThisTurn) {
+        this.playedThisTurn = playedThisTurn;
+    }
+
+    public void setSelectedPiece(Piece selectedPiece) {
+        this.selectedPiece = selectedPiece;
     }
 
     public void setMoveLeft(int moveLeft) {

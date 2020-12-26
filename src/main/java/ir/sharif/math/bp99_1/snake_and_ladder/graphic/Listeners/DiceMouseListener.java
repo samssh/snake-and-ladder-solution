@@ -23,7 +23,6 @@ public class DiceMouseListener implements MouseListener {
      */
 
 
-
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -31,7 +30,7 @@ public class DiceMouseListener implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-            graphicalAgent.diceRequest(player);
+        graphicalAgent.diceRequest(player);
     }
 
     @Override

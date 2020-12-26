@@ -1,19 +1,21 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class Board {
     private final List<Cell> cells;
     private final List<Transmitter> transmitters;
     private final List<Wall> walls;
-    private final List<Cell> startingCells;
+    private final Map<Cell, Integer> startingCells;
 
     public Board() {
         cells = new LinkedList<>();
         transmitters = new LinkedList<>();
         walls = new LinkedList<>();
-        startingCells = new LinkedList<>();
+        startingCells = new HashMap<>();
     }
 
     public List<Cell> getCells() {
@@ -24,7 +26,7 @@ public class Board {
         return walls;
     }
 
-    public List<Cell> getStartingCells() {
+    public Map<Cell, Integer> getStartingCells() {
         return startingCells;
     }
 

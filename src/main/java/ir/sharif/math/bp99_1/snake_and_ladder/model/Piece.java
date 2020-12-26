@@ -7,11 +7,9 @@ public class Piece {
     private boolean isSelected;
 
     public Piece(Player player, Color color) {
-        this.player = player;
         this.color = color;
-        this.isSelected = false;
+        this.player = player;
     }
-
 
     public Player getPlayer() {
         return player;

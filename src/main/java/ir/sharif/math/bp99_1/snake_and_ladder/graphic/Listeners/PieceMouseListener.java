@@ -28,13 +28,13 @@ public class PieceMouseListener implements MouseListener {
         try {
             String[] myColor = new String[]{"red", "blue", "green", "yellow"};
             String color = "";
-            while (color.equalsIgnoreCase("")) {
+            while (color.length() == 0) {
                 color = (String) JOptionPane.showInputDialog(null, "select piece color ",
                         "select", JOptionPane.QUESTION_MESSAGE, null, myColor, myColor[0]);
                 if (color == null) return;
             }
 
-            graphicalAgent.changecolorRequest(player,piece,color);
+            graphicalAgent.changeColorRequest(player, piece, color);
 
             /**
              *  TO DO ...

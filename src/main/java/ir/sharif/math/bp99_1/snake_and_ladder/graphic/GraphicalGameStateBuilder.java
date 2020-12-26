@@ -38,7 +38,7 @@ public class GraphicalGameStateBuilder {
         graphicalPlayer.setName(graphicalPlayer.getName());
         setList(graphicalPlayer.getPieces(), graphicalPieces);
         graphicalPlayer.setScore(player.getScore());
-        graphicalPlayer.setItsTurn(logicalGameState.getCurrentPlayer().equals(player));
+        graphicalPlayer.setItsTurn(player.equals(logicalGameState.getCurrentPlayer()));
         graphicalPlayer.setDiceNumber(player.getMoveLeft());
         graphicalPlayer.setReady(player.isReady());
     }
@@ -50,8 +50,6 @@ public class GraphicalGameStateBuilder {
 
     private void updateBoard(Board board, GraphicalBoard graphicalBoard) {
         setList(graphicalBoard.getGraphicalCells(), convertCells(board.getCells()));
-        setList(graphicalBoard.getGraphicalTransmitters(), convertTransmitter(board.getTransmitter()));
-        setList(graphicalBoard.getGraphicalWalls(), convertWalls(board.getWalls()));
     }
 
 

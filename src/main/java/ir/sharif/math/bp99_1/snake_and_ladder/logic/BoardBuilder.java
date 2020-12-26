@@ -66,7 +66,7 @@ public class BoardBuilder {
         for (int i = 0; i < startingCellsNumber; ++i) {
             int x = scanner.nextInt();
             int y = scanner.nextInt();
-            board.getStartingCells().add(board.getCell(x, y));
+            board.getStartingCells().put(board.getCell(x, y), scanner.nextInt());
         }
     }
 

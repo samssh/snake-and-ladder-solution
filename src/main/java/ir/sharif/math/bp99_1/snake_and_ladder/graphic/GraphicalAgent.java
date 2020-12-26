@@ -57,7 +57,7 @@ public class GraphicalAgent {
     }
 
     public void diceRequest(int player) {
-        /**
+        /*
          *  TO DO
          *  SEND REQUEST TO LOGIC , TO ROLL A DICE FOR THIS PLAYER;
          *
@@ -70,7 +70,7 @@ public class GraphicalAgent {
     }
 
     public void clickRequest(int x , int y){
-        /**
+        /*
          *  TO DO
          *  WE SEND X , Y TO LOGIC, LOGIC SHOULD DECIDE WEATHER WE CHOOSE
          *  A PIECE , OR WE WANT TO MOVE A (ALREADY) CHOSEN PIECE TO A NEW CORDINATES.
@@ -82,9 +82,9 @@ public class GraphicalAgent {
          */
     }
 
-    public void changecolorRequest(int player , int piece , String color){
+    public void changeColorRequest(int player, int piece, String color) {
 
-        /**
+        /*
          * TO DO
          * SEND A REQUEST TO LOGIC THAT PLAYER # WANT TO CHANGE THE COLOR OF
          * ONE OF HIS PIECES .
@@ -95,26 +95,8 @@ public class GraphicalAgent {
 
     }
 
-    public boolean requestStart(int player){
-
-        /**
-         *
-         * TO DO
-         * SEND A REQUEST TO LOGIC THAT PLAYER # IS READY .
-         *
-         * IF PLAYER SEND THIS REQUEST TWICE, HIS READYNESS WILL BE CANCLED .
-         *
-         *  I SUGGEST LOGIC SEND BACK A BOOLEAN (OR STRING ), SO WE UNDERSTAND IF
-         *  OUR REQUEST IS DONE OR NOT .
-         *
-         *  I ALSO SUGGEST AFTER THE GAME IS START , THE START BUTTON DEACTIVATE
-         *  AND LISTENERS FROM PIECE LABELS, REMOVE( SO PLAYER CAN'T  CHANGE THEM
-         *  DURING GAME )
-         *
-         * NOT FORGOT TO UPDATE THE GRAPHIC AFTER THIS REQUEST.
-         */
-
-        return true;
+    public void requestStart(int playerNumber) {
+        logicalAgent.readyPlayer(playerNumber);
     }
 
 
