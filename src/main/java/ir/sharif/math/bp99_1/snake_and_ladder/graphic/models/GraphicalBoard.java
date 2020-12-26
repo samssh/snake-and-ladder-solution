@@ -26,10 +26,6 @@ public class GraphicalBoard extends GraphicalModel {
         return graphicalTransmitters;
     }
 
-    public List<GraphicalTransmitter> getTransmitter() {
-        return graphicalTransmitters;
-    }
-
     @Override
     public void paint(Graphics2D graphics2D) {
         graphicalCells.forEach(gt -> gt.paint(graphics2D));

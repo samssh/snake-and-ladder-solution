@@ -4,10 +4,12 @@ public class Piece {
     private Cell currentCell;
     private final Color color;
     private final Player player;
+    private boolean isSelected;
 
     public Piece(Player player, Color color) {
         this.player = player;
         this.color = color;
+        this.isSelected = false;
     }
 
 
@@ -21,6 +23,14 @@ public class Piece {
 
     public Cell getCurrentCell() {
         return currentCell;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 
     public void setCurrentCell(Cell currentCell) {

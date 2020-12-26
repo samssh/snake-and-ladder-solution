@@ -15,20 +15,43 @@ public class GraphicalGameStateBuilder {
     }
 
     public GraphicalGameState build() {
-        GraphicalPlayer p1 = createGP(logicalGameState.getPlayer(1));
-        GraphicalPlayer p2 = createGP(logicalGameState.getPlayer(2));
+        GraphicalPlayer p1 = createGPlayer(logicalGameState.getPlayer(1));
+        GraphicalPlayer p2 = createGPlayer(logicalGameState.getPlayer(2));
         GraphicalBoard b = createBoard(logicalGameState.getBoard());
         return new GraphicalGameState(b, p1, p2);
     }
 
-
-    private GraphicalPlayer createGP(Player p) {
-        List<GraphicalPiece> gp = convertPieces(p.getPieces());
-        return new GraphicalPlayer(p.getName(), p.getPoint(), gp);
+    public void update(GraphicalGameState graphicalGameState) {
+        updateGPlayer(logicalGameState.getPlayer1(), graphicalGameState.getPlayer1());
+        updateGPlayer(logicalGameState.getPlayer2(), graphicalGameState.getPlayer2());
+        updateBoard(logicalGameState.getBoard(), graphicalGameState.getBoard());
     }
 
-    private GraphicalBoard createBoard(Board b) {
-        return new GraphicalBoard(convertCells(b.getCells()), convertTransmitter(b.getTransmitter()), convertWalls(b.getWalls()));
+
+    private GraphicalPlayer createGPlayer(Player p) {
+        List<GraphicalPiece> gp = convertPieces(p.getPieces());
+        return new GraphicalPlayer(p.getName(), p.getScore(), gp);
+    }
+
+    private void updateGPlayer(Player player, GraphicalPlayer graphicalPlayer) {
+        List<GraphicalPiece> graphicalPieces = convertPieces(player.getPieces());
+        graphicalPlayer.setName(graphicalPlayer.getName());
+        setList(graphicalPlayer.getPieces(), graphicalPieces);
+        graphicalPlayer.setScore(player.getScore());
+        graphicalPlayer.setItsTurn(logicalGameState.getCurrentPlayer().equals(player));
+        graphicalPlayer.setDiceNumber(player.getMoveLeft());
+        graphicalPlayer.setReady(player.isReady());
+    }
+
+    private GraphicalBoard createBoard(Board board) {
+        return new GraphicalBoard(convertCells(board.getCells()), convertTransmitter(board.getTransmitter())
+                , convertWalls(board.getWalls()));
+    }
+
+    private void updateBoard(Board board, GraphicalBoard graphicalBoard) {
+        setList(graphicalBoard.getGraphicalCells(), convertCells(board.getCells()));
+        setList(graphicalBoard.getGraphicalTransmitters(), convertTransmitter(board.getTransmitter()));
+        setList(graphicalBoard.getGraphicalWalls(), convertWalls(board.getWalls()));
     }
 
 
@@ -96,19 +119,11 @@ public class GraphicalGameStateBuilder {
         }
     }
 
-    private GraphicalCell convertCell(Cell cell) {
-        if (cell == null) {
-            return null;
-        }
-        return new GraphicalCell(getColor(cell.getColor()), convertPrize(cell.getPrize()), convertPiece(cell.getPiece())
-                , cell.getX(), cell.getY());
-    }
-
     private GraphicalPiece convertPiece(Piece piece) {
         if (piece == null) {
             return null;
         }
-        return new GraphicalPiece(getColor(piece.getColor()));
+        return new GraphicalPiece(getColor(piece.getColor()), piece.isSelected());
     }
 
     private GraphicalPrize convertPrize(Prize prize) {
@@ -118,14 +133,19 @@ public class GraphicalGameStateBuilder {
         return new GraphicalPrize("prize");
     }
 
-    private List<GraphicalPiece> convertPieces(List<Piece> l) {
-        List<GraphicalPiece> pi = new ArrayList<>();
-        for (Piece a : l) {
-            if (a == null) {
-                pi.add(null);
+    private List<GraphicalPiece> convertPieces(List<Piece> pieces) {
+        List<GraphicalPiece> graphicalPieces = new ArrayList<>();
+        for (Piece piece : pieces) {
+            if (piece == null) {
+                graphicalPieces.add(null);
             } else
-                pi.add(new GraphicalPiece(getColor(a.getColor())));
+                graphicalPieces.add(new GraphicalPiece(getColor(piece.getColor()), piece.isSelected()));
         }
-        return pi;
+        return graphicalPieces;
+    }
+
+    private <T> void setList(List<? super T> target, List<? extends T> values) {
+        target.clear();
+        target.addAll(values);
     }
 }

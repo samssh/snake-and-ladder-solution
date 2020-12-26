@@ -7,11 +7,13 @@ import java.awt.image.BufferedImage;
 
 public class GraphicalPiece extends GraphicalModel {
     private final GraphicalColor color;
-    private BufferedImage image;
+    private final BufferedImage image;
+    private final boolean isSelected;
 
-    public GraphicalPiece(GraphicalColor color) {
+    public GraphicalPiece(GraphicalColor color, boolean isSelected) {
         this.color = color;
         image = ImageLoader.getImage(color.toString().toLowerCase());
+        this.isSelected = isSelected;
     }
 
     public GraphicalColor getColor() {
@@ -20,10 +22,6 @@ public class GraphicalPiece extends GraphicalModel {
 
     public BufferedImage getImage() {
         return image;
-    }
-
-    public void setImage(BufferedImage image) {
-        this.image = image;
     }
 
     @Override

@@ -17,7 +17,7 @@ import javax.swing.*;
 public class GraphicalAgent {
     private final LogicalAgent logicalAgent; // maybe deleted
     private final Object paintLock;
-    private GraphicalGameState gameState;
+    private GraphicalGameState graphicalGameState;
     private Frame frame;
 
     public GraphicalAgent(LogicalAgent logicalAgent) {
@@ -29,21 +29,21 @@ public class GraphicalAgent {
      * this method get game state and build or update a graphical models
      * and save this models somewhere
      */
-    public void update(GameState gs) {
+    public void update(GameState gameState) {
         synchronized (paintLock) {
-            // update game state
+            new GraphicalGameStateBuilder(gameState).update(this.graphicalGameState);
         }
     }
 
     public void initialize(GameState gameState) {
-        this.gameState = new GraphicalGameStateBuilder(gameState).build();
+        this.graphicalGameState = new GraphicalGameStateBuilder(gameState).build();
         this.frame = initializePanels();
     }
 
     private Frame initializePanels() {
-        PlayerInfoPanel player1Info = new PlayerInfoPanel(gameState.getPlayer1(), this, 1);
-        PlayerInfoPanel player2Info = new PlayerInfoPanel(gameState.getPlayer2(), this, 2);
-        BoardPanel boardPanel = new BoardPanel(gameState.getBoard(), this);
+        PlayerInfoPanel player1Info = new PlayerInfoPanel(graphicalGameState.getPlayer1(), this, 1);
+        PlayerInfoPanel player2Info = new PlayerInfoPanel(graphicalGameState.getPlayer2(), this, 2);
+        BoardPanel boardPanel = new BoardPanel(graphicalGameState.getBoard(), this);
         MainPanel mainPanel = new MainPanel(boardPanel, player1Info, player2Info);
         return new Frame(mainPanel);
     }

@@ -10,7 +10,7 @@ public enum GraphicalColor {
     GREEN(new Color(122, 241, 93)),
     YELLOW(new Color(255, 229, 119));
 
-    private Color color;
+    private final Color color;
 
     GraphicalColor(Color color) {
         this.color = color;
@@ -18,9 +18,5 @@ public enum GraphicalColor {
 
     public Color getColor() {
         return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
     }
 }

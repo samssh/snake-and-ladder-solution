@@ -144,7 +144,6 @@ public class PlayerInfoPanel extends JPanel {
             player.paint((Graphics2D) g);
             score.setText(player.getScore()+"");
             diceNumber.setIcon(ImageLoader.getIcon(player.getDiceNumber()+""));
-
             if (player.isItsTurn()){
                 whoseTurn.setBackground(Color.green);
             }else {

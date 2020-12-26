@@ -5,20 +5,19 @@ import java.util.List;
 
 public class Cell {
     private final Color color;
-    private List<Cell> adjacentCells;
-    private List<Cell> adjacentOpenCells;
+    private final List<Cell> adjacentCells;
+    private final List<Cell> adjacentOpenCells;
     private final boolean locked;
     private Prize prize;
     private Transmitter transmitter;
-    private final int X, Y;
+    private final int x, y;
     private Piece piece;
 
-    public Cell(Color color, int X, int Y) {
+    public Cell(Color color, int x, int y) {
         this.color = color;
         this.locked = color == Color.BLACK;
-        this.X = X;
-        this.Y = Y;
-
+        this.x = x;
+        this.y = y;
         transmitter = null;
         prize = null;
         adjacentOpenCells = new ArrayList<>();
@@ -26,11 +25,11 @@ public class Cell {
     }
 
     public int getX() {
-        return X;
+        return x;
     }
 
     public int getY() {
-        return Y;
+        return y;
     }
 
     public Color getColor() {
@@ -81,8 +80,8 @@ public class Cell {
     public String toString() {
         return "Cell{" +
                 "color=" + color +
-                ", X=" + X +
-                ", Y=" + Y +
+                ", X=" + x +
+                ", Y=" + y +
                 '}';
     }
 }

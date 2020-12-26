@@ -9,13 +9,14 @@ public class GraphicalPlayer extends GraphicalModel {
     private int score;
     private final List<GraphicalPiece> pieces;
     private boolean isReady;
-    private int diceNumber = 0;
-    private boolean itsTurn =false;
+    private int diceNumber;
+    private boolean itsTurn;
 
     public GraphicalPlayer(String name, int score, List<GraphicalPiece> pieces) {
         this.name = name;
         this.score = score;
         this.pieces = pieces;
+        this.diceNumber = 0;
     }
 
     public List<GraphicalPiece> getPieces() {
