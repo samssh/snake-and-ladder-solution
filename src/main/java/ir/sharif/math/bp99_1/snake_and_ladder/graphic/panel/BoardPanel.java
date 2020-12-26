@@ -23,9 +23,10 @@ public class BoardPanel extends JPanel {
 
     private void config() {
         Config config = Config.getConfig("boardPanel");
+        setLayout(null);
         setBounds(config.getProperty(Integer.class, "x"), config.getProperty(Integer.class, "y")
                 , config.getProperty(Integer.class, "width"), config.getProperty(Integer.class, "height"));
-        setLayout(null);
+//        setPreferredSize(new Dimension(config.getProperty(Integer.class, "width"), config.getProperty(Integer.class, "height")));
     }
 
     @Override

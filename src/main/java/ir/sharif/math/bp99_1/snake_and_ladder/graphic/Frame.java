@@ -40,7 +40,8 @@ public class Frame extends JFrame {
     public void setContentPane(Container contentPane) {
         super.setContentPane(contentPane);
         super.revalidate();
-        super.repaint();
+        super.repaint(1L);
+        super.pack();
     }
 
     private void update() {

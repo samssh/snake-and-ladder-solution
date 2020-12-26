@@ -25,7 +25,7 @@ public class Config extends Properties {
             Reader fileReader = new FileReader(address);
             this.load(fileReader);
         } catch (IOException e) {
-            System.out.println(address);
+            System.err.println(address);
             e.printStackTrace();
         }
     }
