@@ -34,11 +34,17 @@ public class GameState {
     }
 
     public Player getCurrentPlayer() {
-        return getPlayer(turn);
+        if (turn == 0)
+            return null;
+        return getPlayer(2 - turn % 2);
     }
 
     public boolean isStarted() {
         return started;
+    }
+
+    public int getTurn() {
+        return turn;
     }
 
     public void start() {

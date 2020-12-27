@@ -1,5 +1,9 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
+import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
+import ir.sharif.math.bp99_1.snake_and_ladder.model.prizes.Prize;
+import ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters.Transmitter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -76,6 +80,15 @@ public class Cell {
 
     public void setTransmitter(Transmitter transmitter) {
         this.transmitter = transmitter;
+    }
+
+    public Cell getOpenNeighbor(int dx, int dy) {
+        int neighborX = x + dx, neighborY = y + dy;
+        for (Cell neighbor : adjacentOpenCells) {
+            if (neighbor.getX() == neighborX && neighbor.getY() == neighborY)
+                return neighbor;
+        }
+        return null;
     }
 
     @Override

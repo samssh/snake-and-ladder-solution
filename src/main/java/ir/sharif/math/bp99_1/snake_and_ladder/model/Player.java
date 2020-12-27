@@ -1,5 +1,8 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
+import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
+import ir.sharif.math.bp99_1.snake_and_ladder.model.prizes.Prize;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +15,7 @@ public class Player {
     private Player rival;
     private final int id;
     private boolean isReady;
-    private boolean playedThisTurn;
+    private boolean dicePlayedThisTurn;
     private int moveLeft;
     private Piece selectedPiece;
 
@@ -62,12 +65,12 @@ public class Player {
         return selectedPiece;
     }
 
-    public boolean isPlayedThisTurn() {
-        return playedThisTurn;
+    public boolean isDicePlayedThisTurn() {
+        return dicePlayedThisTurn;
     }
 
-    public void setPlayedThisTurn(boolean playedThisTurn) {
-        this.playedThisTurn = playedThisTurn;
+    public void setDicePlayedThisTurn(boolean dicePlayedThisTurn) {
+        this.dicePlayedThisTurn = dicePlayedThisTurn;
     }
 
     public void setSelectedPiece(Piece selectedPiece) {
@@ -114,6 +117,12 @@ public class Player {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public void endTurn() {
+        selectedPiece = null;
+        moveLeft = 0;
+        dicePlayedThisTurn = false;
     }
 
     @Override

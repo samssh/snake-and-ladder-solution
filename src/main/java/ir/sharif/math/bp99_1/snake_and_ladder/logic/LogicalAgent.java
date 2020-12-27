@@ -2,6 +2,7 @@ package ir.sharif.math.bp99_1.snake_and_ladder.logic;
 
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.Board;
+import ir.sharif.math.bp99_1.snake_and_ladder.model.Cell;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 
@@ -10,13 +11,14 @@ public class LogicalAgent {
     private final GraphicalAgent graphicalAgent;
     private final GameState gameState;
     private final PreStart preStart;
-    private boolean isAPieceSelected;
+    private final Game game;
 
     public LogicalAgent() {
         this.graphicalAgent = new GraphicalAgent(this);
         this.modelLoader = new ModelLoader();
         this.gameState = loadGameState();
         this.preStart = new PreStart(gameState);
+        this.game = new Game(gameState);
     }
 
     private GameState loadGameState() {
@@ -41,10 +43,15 @@ public class LogicalAgent {
         graphicalAgent.update(gameState);
     }
 
-    public void selectPiece(int x , int y){
-            if (gameState.getBoard().getCell(x, y).getPiece() != null) {
-                gameState.getBoard().getCell(x, y).getPiece().setSelected(!gameState.getBoard().getCell(x, y).getPiece().isSelected());
-                graphicalAgent.update(gameState);
-            }
+    public void selectPiece(int x, int y) {
+        Cell cell = gameState.getBoard().getCell(x, y);
+        if (cell.getPiece() != null) game.selectPiece(cell.getPiece());
+        else game.selectEmptyCell(cell);
+        graphicalAgent.update(gameState);
+    }
+
+    public void rollDice(int playerNumber) {
+        game.rollDice(playerNumber);
+        graphicalAgent.update(gameState);
     }
 }

@@ -56,14 +56,15 @@ public class GraphicalAgent {
 
     }
 
-    public void diceRequest(int player) {
+    public void diceRequest(int playerNumber) {
+        logicalAgent.rollDice(playerNumber);
         /*
          *  TO DO
          *  SEND REQUEST TO LOGIC , TO ROLL A DICE FOR THIS PLAYER;
          *
          *  THEN SEND NUMBER ON THE DICE TO GRAPHIC, SO WE CAN SHOW THAT.
          *
-         *  DON'T FORGET TO UPDATE GRAPHICAL GAMESTATE AND SPECIALLY
+         *  DON'T FORGET TO UPDATE GRAPHICAL GAME-STATE AND SPECIALLY
          *  GRAPHICAL PLAYER ( diceNumber field )
          *
          */
@@ -132,9 +133,5 @@ public class GraphicalAgent {
 
     public GraphicalGameState getGraphicalGameState() {
         return graphicalGameState;
-    }
-
-    public void setGraphicalGameState(GraphicalGameState graphicalGameState) {
-        this.graphicalGameState = graphicalGameState;
     }
 }
