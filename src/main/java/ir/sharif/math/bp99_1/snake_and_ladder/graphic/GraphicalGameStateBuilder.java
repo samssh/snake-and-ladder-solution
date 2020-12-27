@@ -125,7 +125,7 @@ public class GraphicalGameStateBuilder {
         if (piece == null) {
             return null;
         }
-        return new GraphicalPiece(getColor(piece.getColor()), piece.isSelected());
+        return new GraphicalPiece(getColor(piece.getColor()), piece.getPlayer().getPlayerNumber(), piece.isSelected());
     }
 
     private GraphicalPrize convertPrize(Prize prize) {
@@ -141,7 +141,7 @@ public class GraphicalGameStateBuilder {
             if (piece == null) {
                 graphicalPieces.add(null);
             } else
-                graphicalPieces.add(new GraphicalPiece(getColor(piece.getColor()), piece.isSelected()));
+                graphicalPieces.add(new GraphicalPiece(getColor(piece.getColor()), piece.getPlayer().getPlayerNumber(), piece.isSelected()));
         }
         return graphicalPieces;
     }

@@ -67,7 +67,7 @@ public class PlayerInfoPanel extends JPanel {
     private void initialPieceLabel() {
         pieces = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            Icon s = ImageLoader.getIcon(player.getPieces().get(i).getColor().name().toLowerCase());
+            Icon s = ImageLoader.getIcon(player.getPieces().get(i).getColor().name().toLowerCase()+id);
             JLabel label = new JLabel(s);
             pieces.add(label);
         }
