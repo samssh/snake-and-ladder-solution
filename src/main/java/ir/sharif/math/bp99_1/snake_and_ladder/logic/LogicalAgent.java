@@ -44,17 +44,21 @@ public class LogicalAgent {
     }
 
     public void selectPiece(int x, int y) {
-        Cell cell = gameState.getBoard().getCell(x, y);
-        if (cell.getPiece() != null) game.selectPiece(cell.getPiece());
-        else game.selectCell(cell);
-        graphicalAgent.update(gameState);
-        checkForEndGame();
+        if (gameState.isStarted()) {
+            Cell cell = gameState.getBoard().getCell(x, y);
+            if (cell.getPiece() != null) game.selectPiece(cell.getPiece());
+            else game.selectCell(cell);
+            graphicalAgent.update(gameState);
+            checkForEndGame();
+        }
     }
 
     public void rollDice(int playerNumber) {
-        game.rollDice(playerNumber);
-        graphicalAgent.update(gameState);
-        checkForEndGame();
+        if (gameState.isStarted()) {
+            game.rollDice(playerNumber);
+            graphicalAgent.update(gameState);
+            checkForEndGame();
+        }
     }
 
     private void checkForEndGame() {
@@ -74,6 +78,7 @@ public class LogicalAgent {
              */
             LogicalAgent logicalAgent = new LogicalAgent();
             logicalAgent.initialize();
+
         }
     }
 

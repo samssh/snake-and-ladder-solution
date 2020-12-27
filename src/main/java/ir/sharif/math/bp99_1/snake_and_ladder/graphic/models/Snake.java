@@ -54,8 +54,8 @@ public class Snake extends GraphicalModel {
     public static class SnakeBuilder {
         private Point2D start; // head
         private Point2D end;
-        private double bodyWidth = 5;
-        private double tailStart = 0.9;
+        private double bodyWidth = 6;
+        private double tailStart = 0.5;
         private double headLength = 12;
         private double headWidth = 12;
         private double eyeRadius = 2.9;

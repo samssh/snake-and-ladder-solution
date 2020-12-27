@@ -30,7 +30,6 @@ public class Transmitter {
         if (lastCell.getPiece() == null)
             piece.moveTo(lastCell);
         piece.getPlayer().applyOnScore(-negativeScore);
-        // what happened if lastCell is has piece
     }
 
     @Override
