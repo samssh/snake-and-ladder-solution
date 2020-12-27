@@ -48,7 +48,7 @@ public class GraphicalGameStateBuilder {
     }
 
     private GraphicalBoard createBoard(Board board) {
-        return new GraphicalBoard(convertCells(board.getCells()), convertTransmitter(board.getTransmitter())
+        return new GraphicalBoard(convertCells(board.getCells()), convertTransmitter(board.getTransmitters())
                 , convertWalls(board.getWalls()));
     }
 

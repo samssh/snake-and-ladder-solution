@@ -32,7 +32,7 @@ public class Board {
         return startingCells;
     }
 
-    public List<Transmitter> getTransmitter() {
+    public List<Transmitter> getTransmitters() {
         return transmitters;
     }
 

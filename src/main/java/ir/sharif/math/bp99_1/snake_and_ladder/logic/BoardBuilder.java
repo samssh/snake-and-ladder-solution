@@ -97,7 +97,7 @@ public class BoardBuilder {
             Cell cell1 = getCell(board);
             Cell cell2 = getCell(board);
             Transmitter transmitter = new Transmitter(cell1, cell2, "snake");
-            board.getTransmitter().add(transmitter);
+            board.getTransmitters().add(transmitter);
             cell1.setTransmitter(transmitter);
         }
     }

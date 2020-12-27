@@ -26,7 +26,10 @@ public class Transmitter {
     }
 
     public void transmit(Piece piece) {
-        // Your Code
+        int negativeScore = 10;
+        piece.moveTo(lastCell);
+        piece.getPlayer().applyOnScore(-negativeScore);
+        // what happened if lastCell is has piece
     }
 
     @Override

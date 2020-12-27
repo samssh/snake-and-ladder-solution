@@ -89,6 +89,10 @@ public class Player {
         this.score = score;
     }
 
+    public void applyOnScore(int score) {
+        this.score += score;
+    }
+
     public void usePrize(Prize prize) {
         score += prize.getPoint();
         dice.addChance(prize.getChance(), prize.getChanceNumber());
@@ -112,6 +116,14 @@ public class Player {
         return false;
     }
 
+    public void endTurn() {
+        if (selectedPiece != null)
+            selectedPiece.setSelected(false);
+        selectedPiece = null;
+        moveLeft = 0;
+        dicePlayedThisTurn = false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -123,14 +135,6 @@ public class Player {
     @Override
     public int hashCode() {
         return Objects.hash(name);
-    }
-
-    public void endTurn() {
-        if (selectedPiece != null)
-            selectedPiece.setSelected(false);
-        selectedPiece = null;
-        moveLeft = 0;
-        dicePlayedThisTurn = false;
     }
 
     @Override

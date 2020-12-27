@@ -22,8 +22,9 @@ public class Game {
         player.setMoveLeft(diceNumber);
         player.setDicePlayedThisTurn(true);
         if (!player.hasMove(gameState.getBoard(), diceNumber)) {
+            int decreasingScore = 10;
+            player.applyOnScore(-decreasingScore);
             gameState.nextTurn();
-            // todo decrease score
         }
     }
 
@@ -55,9 +56,31 @@ public class Game {
             return;
         if (piece.isValidMove(cell, player.getMoveLeft())) {
             piece.moveTo(cell);
+            check(cell, piece);
             gameState.nextTurn();
-            // todo check prize and snakes
         }
+    }
+
+    private void check(Cell cell, Piece piece) {
+        checkPrize(cell, piece);
+        checkTransmitter(cell, piece);
+        checkSameColor(cell, piece);
+    }
+
+    private void checkPrize(Cell cell, Piece piece) {
+        if (cell.getPrize() != null)
+            cell.getPrize().using(piece);
+    }
+
+    private void checkTransmitter(Cell cell, Piece piece) {
+        if (cell.getTransmitter() != null)
+            cell.getTransmitter().transmit(piece);
+    }
+
+    private void checkSameColor(Cell cell, Piece piece) {
+        int increasingScore = 10;
+        if (cell.getColor().equals(piece.getColor()))
+            piece.getPlayer().applyOnScore(increasingScore);
     }
 
 }
