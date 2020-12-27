@@ -55,7 +55,7 @@ public class Piece {
             if (neighbor == null)
                 return false;
         }
-        return true;
+        return destination.getPiece() == null;
     }
 
     public void moveTo(Cell destination) {

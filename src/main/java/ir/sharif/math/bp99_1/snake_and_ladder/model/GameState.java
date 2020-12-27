@@ -53,6 +53,7 @@ public class GameState {
     }
 
     public void nextTurn() {
+        getCurrentPlayer().endTurn();
         turn = 3 - turn;
     }
 

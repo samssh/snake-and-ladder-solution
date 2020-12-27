@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Player {
-    private String name;
+    private final String name;
     private int score;
     private final List<Piece> pieces;
     private final Dice dice;
@@ -85,10 +85,6 @@ public class Player {
         this.rival = rival;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setScore(int score) {
         this.score = score;
     }
@@ -106,6 +102,16 @@ public class Player {
         isReady = ready;
     }
 
+    public boolean hasMove(Board board, int diceNumber) {
+        for (Piece piece : pieces) {
+            for (Cell cell : board.getCells()) {
+                if (piece.isValidMove(cell, diceNumber))
+                    return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -120,6 +126,8 @@ public class Player {
     }
 
     public void endTurn() {
+        if (selectedPiece != null)
+            selectedPiece.setSelected(false);
         selectedPiece = null;
         moveLeft = 0;
         dicePlayedThisTurn = false;

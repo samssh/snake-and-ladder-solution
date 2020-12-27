@@ -18,18 +18,23 @@ public class Game {
             return;
         if (player.isDicePlayedThisTurn())
             return;
-        int result = player.getDice().roll();
-        player.setMoveLeft(result);
+        int diceNumber = player.getDice().roll();
+        player.setMoveLeft(diceNumber);
         player.setDicePlayedThisTurn(true);
-        // todo check have move
+        if (!player.hasMove(gameState.getBoard(), diceNumber)) {
+            gameState.nextTurn();
+            // todo decrease score
+        }
     }
 
     public void selectPiece(Piece piece) {
         Player player = gameState.getCurrentPlayer();
         if (!player.isDicePlayedThisTurn())
             return;
-        if (!player.equals(piece.getPlayer()))
+        if (!player.equals(piece.getPlayer())) {
+            selectCell(piece.getCurrentCell());
             return;
+        }
         if (piece.isSelected()) {
             piece.setSelected(false);
             player.setSelectedPiece(null);
@@ -41,7 +46,7 @@ public class Game {
         }
     }
 
-    public void selectEmptyCell(Cell cell) {
+    public void selectCell(Cell cell) {
         Player player = gameState.getCurrentPlayer();
         Piece piece = player.getSelectedPiece();
         if (!player.isDicePlayedThisTurn())
@@ -50,12 +55,9 @@ public class Game {
             return;
         if (piece.isValidMove(cell, player.getMoveLeft())) {
             piece.moveTo(cell);
-            piece.setSelected(false);
-            player.endTurn();
             gameState.nextTurn();
             // todo check prize and snakes
         }
     }
-
 
 }

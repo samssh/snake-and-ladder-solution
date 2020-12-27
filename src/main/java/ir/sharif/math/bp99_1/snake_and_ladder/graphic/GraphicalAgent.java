@@ -70,8 +70,8 @@ public class GraphicalAgent {
          */
     }
 
-    public void clickRequest(int x , int y){
-        logicalAgent.selectPiece(x,y);
+    public void clickRequest(int x, int y) {
+        logicalAgent.selectPiece(x, y);
         /*
          *  TO DO
          *  WE SEND X , Y TO LOGIC, LOGIC SHOULD DECIDE WEATHER WE CHOOSE
@@ -102,7 +102,7 @@ public class GraphicalAgent {
     }
 
 
-    public void requestEndTurn(int playerNumber){
+    public void requestEndTurn(int playerNumber) {
 
         /**
          * TO DO
@@ -127,7 +127,7 @@ public class GraphicalAgent {
         String result;
         do {
             result = JOptionPane.showInputDialog(frame, "Enter " + s[number - 1] + " player name ");
-        } while (result == null);
+        } while (result == null || result.length() == 0);
         return result;
     }
 
