@@ -21,6 +21,8 @@ public class Game {
         int diceNumber = player.getDice().roll();
         player.setMoveLeft(diceNumber);
         player.setDicePlayedThisTurn(true);
+        if (diceNumber >= 6)
+            player.applyOnScore(1);
         if (!player.hasMove(gameState.getBoard(), diceNumber)) {
             int decreasingScore = 5;
             player.applyOnScore(-decreasingScore);
