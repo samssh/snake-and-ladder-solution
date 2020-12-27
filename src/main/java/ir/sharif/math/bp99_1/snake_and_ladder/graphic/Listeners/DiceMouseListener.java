@@ -3,16 +3,15 @@ package ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
 
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-public class DiceMouseListener implements MouseListener {
+public class DiceMouseListener implements DummyListener {
 
     private final GraphicalAgent graphicalAgent;
-    private final int player;
+    private final int playerNumber;
 
-    public DiceMouseListener(GraphicalAgent graphicalAgent, int player) {
+    public DiceMouseListener(GraphicalAgent graphicalAgent, int playerNumber) {
         this.graphicalAgent = graphicalAgent;
-        this.player = player;
+        this.playerNumber = playerNumber;
     }
 
     /**
@@ -22,29 +21,8 @@ public class DiceMouseListener implements MouseListener {
      * send a request to the logic to roll the dice for him
      */
 
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
     @Override
     public void mousePressed(MouseEvent e) {
-        graphicalAgent.diceRequest(player);
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
+        graphicalAgent.diceRequest(playerNumber);
     }
 }

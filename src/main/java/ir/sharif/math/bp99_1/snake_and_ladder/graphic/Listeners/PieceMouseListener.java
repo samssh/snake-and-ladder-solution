@@ -4,9 +4,8 @@ import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-public class PieceMouseListener implements MouseListener {
+public class PieceMouseListener implements DummyListener {
 
     private final GraphicalAgent graphicalAgent;
     private final int player;
@@ -16,11 +15,6 @@ public class PieceMouseListener implements MouseListener {
         this.graphicalAgent = graphicalAgent;
         this.player = player;
         this.piece = piece;
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
     }
 
     @Override
@@ -46,20 +40,5 @@ public class PieceMouseListener implements MouseListener {
         } catch (Exception e1) {
             e1.printStackTrace();
         }
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
     }
 }

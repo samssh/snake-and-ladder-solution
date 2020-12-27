@@ -30,15 +30,15 @@ public class PlayerInfoPanel extends JPanel {
     private JButton startGame;
     private List<JLabel> pieces;
     private boolean started = false;
-    private ReadyButtonListener rbl;
-    private EndTurnListener etl;
+    private final ReadyButtonListener readyButtonListener;
+    private final EndTurnListener endTurnListener;
 
     public PlayerInfoPanel(GraphicalPlayer player, GraphicalAgent agent, int id) {
         this.id = id;
         this.player = player;
         this.agent = agent;
-        this.rbl = new ReadyButtonListener(agent, id);
-        this.etl = new EndTurnListener(agent, id);
+        this.readyButtonListener = new ReadyButtonListener(agent, id);
+        this.endTurnListener = new EndTurnListener(agent, id);
         this.initialize();
         this.setFocusable(false);
     }
@@ -85,7 +85,8 @@ public class PlayerInfoPanel extends JPanel {
         startGame = new JButton("READY");
         startGame.setFont(startGame.getFont().deriveFont(20.0f));
         startGame.setFocusable(false);
-        startGame.addActionListener(rbl);
+        startGame.setBorder(null);
+        startGame.addActionListener(readyButtonListener);
         dice = new JLabel(ImageLoader.getIcon("diceGif"));
         dice.setFocusable(false);
         diceNumber = new JLabel();
@@ -117,12 +118,12 @@ public class PlayerInfoPanel extends JPanel {
         whoseTurn.setBounds(turnX, commonY, size, size);
         dice.setBounds(diceX, commonY, size, size);
         dice.addMouseListener(new DiceMouseListener(agent, id));
-        int i = 0;
+//        int i = 0;
         for (JLabel l : pieces) {
 //            l.addMouseListener(new PieceMouseListener(agent,id , i+1));
             l.setBounds(pieceX, commonY, size, size);
             pieceX += 55;
-            i++;
+//            i++;
         }
     }
 
@@ -173,11 +174,10 @@ public class PlayerInfoPanel extends JPanel {
 
     private void starting() {
         if (!started && agent.getGraphicalGameState().isStarted()) {
-            System.out.println("1");
             startGame.setText("End Turn");
             startGame.setBackground(Color.white);
-            startGame.removeActionListener(rbl);
-            startGame.addActionListener(etl);
+            startGame.removeActionListener(readyButtonListener);
+            startGame.addActionListener(endTurnListener);
             started = true;
         }
     }
