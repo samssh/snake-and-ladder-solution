@@ -8,18 +8,18 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Frame extends JFrame {
+    private static Frame instance;
     private int fps;
-    private final MainPanel mainPanel;
+    private MainPanel mainPanel;
 
-    public Frame(MainPanel mainPanel) {
-        this.mainPanel = mainPanel;
-        this.config();
-        initialize();
-        new Loop(fps, this::update).start();
+    public static Frame getInstance() {
+        if (instance == null) instance = new Frame();
+        return instance;
     }
 
-    private void initialize() {
-        this.setContentPane(mainPanel);
+    private Frame() {
+        this.config();
+        new Loop(fps, this::update).start();
     }
 
     private void config() {
@@ -36,9 +36,9 @@ public class Frame extends JFrame {
         this.setLocationRelativeTo(null);
     }
 
-    @Override
-    public void setContentPane(Container contentPane) {
-        super.setContentPane(contentPane);
+    public void setContentPane(MainPanel mainPanel) {
+        this.mainPanel = mainPanel;
+        super.setContentPane(mainPanel);
         super.revalidate();
         super.repaint(1L);
         super.pack();

@@ -44,7 +44,9 @@ public class GraphicalAgent {
         PlayerInfoPanel player2Info = new PlayerInfoPanel(graphicalGameState.getPlayer2(), this, 2);
         BoardPanel boardPanel = new BoardPanel(graphicalGameState.getBoard(), this);
         MainPanel mainPanel = new MainPanel(boardPanel, player1Info, player2Info);
-        return new Frame(mainPanel);
+        Frame frame = Frame.getInstance();
+        frame.setContentPane(mainPanel);
+        return frame;
     }
 
     public void diceRequest(int playerNumber) {
@@ -105,6 +107,14 @@ public class GraphicalAgent {
             result = JOptionPane.showInputDialog(frame, "Enter " + s[number - 1] + " player name ");
         } while (result == null || result.length() == 0);
         return result;
+    }
+
+    public void playerWin(int playerNumber) {
+        String[] s = new String[]{"one", "two"};
+        String message;
+        if (playerNumber == 3) message = "draw";
+        else message = "player " + s[playerNumber - 1] + " wins";
+        JOptionPane.showMessageDialog(frame, message);
     }
 
     public GraphicalGameState getGraphicalGameState() {

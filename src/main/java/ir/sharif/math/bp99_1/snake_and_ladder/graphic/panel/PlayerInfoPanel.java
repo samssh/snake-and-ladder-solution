@@ -27,9 +27,9 @@ public class PlayerInfoPanel extends JPanel {
     private JLabel dice;
     private JLabel diceNumber;
     private JButton whoseTurn;
-    private JButton startGame;
+    private JButton endTurn;
+    private JButton ready;
     private List<JLabel> pieces;
-    private boolean started = false;
     private final ReadyButtonListener readyButtonListener;
     private final EndTurnListener endTurnListener;
 
@@ -76,17 +76,23 @@ public class PlayerInfoPanel extends JPanel {
     private void initialize() {
         this.config();
         this.setVisible(true);
-        name = new JLabel("Name :  " + player.getName());
+        name = new JLabel();
         name.setFocusable(false);
         name.setFont(name.getFont().deriveFont(20.0f));
-        score = new JLabel("Score :  " + player.getScore());
+        score = new JLabel();
         score.setFont(score.getFont().deriveFont(20.0f));
         score.setFocusable(false);
-        startGame = new JButton("READY");
-        startGame.setFont(startGame.getFont().deriveFont(20.0f));
-        startGame.setFocusable(false);
-        startGame.setBorder(null);
-        startGame.addActionListener(readyButtonListener);
+        ready = new JButton("READY");
+        ready.setFont(ready.getFont().deriveFont(20.0f));
+        ready.setFocusable(false);
+        ready.setBorder(null);
+        ready.addActionListener(readyButtonListener);
+        endTurn = new JButton("END TURN");
+        endTurn.setFont(endTurn.getFont().deriveFont(20.0f));
+        endTurn.setFocusable(false);
+        endTurn.setBorder(null);
+        endTurn.setBackground(Color.white);
+        endTurn.addActionListener(endTurnListener);
         dice = new JLabel(ImageLoader.getIcon("diceGif"));
         dice.setFocusable(false);
         diceNumber = new JLabel();
@@ -113,7 +119,8 @@ public class PlayerInfoPanel extends JPanel {
     private void positioning() {
         name.setBounds(nameX, nameY, componentWidth, componentHeight);
         score.setBounds(scoreX, scoreY, componentWidth, componentHeight);
-        startGame.setBounds(startX, startY, componentWidth, componentHeight);
+        ready.setBounds(startX, startY, componentWidth, componentHeight);
+        endTurn.setBounds(startX, startY, componentWidth, componentHeight);
         diceNumber.setBounds(diceNX, commonY, size, size);
         whoseTurn.setBounds(turnX, commonY, size, size);
         dice.setBounds(diceX, commonY, size, size);
@@ -132,7 +139,7 @@ public class PlayerInfoPanel extends JPanel {
         add(score);
         add(diceNumber);
         add(dice);
-        add(startGame);
+        add(ready);
         add(whoseTurn);
         for (JLabel piece : pieces) {
             piece.setVisible(true);
@@ -146,6 +153,7 @@ public class PlayerInfoPanel extends JPanel {
         super.paintComponent(g);
         synchronized (agent.getPaintLock()) {
             player.paint((Graphics2D) g);
+            name.setText("Name :  " + player.getName());
             score.setText(player.getScore() + "");
             diceNumber.setIcon(ImageLoader.getIcon(player.getDiceNumber() + ""));
             playerTurns();
@@ -163,22 +171,18 @@ public class PlayerInfoPanel extends JPanel {
     }
 
     private void isReady() {
-        if (!started) {
+        if (!agent.getGraphicalGameState().isStarted()) {
+            add(ready);
             if (player.isReady()) {
-                startGame.setBackground(Color.GREEN);
+                ready.setBackground(Color.GREEN);
             } else {
-                startGame.setBackground(Color.WHITE);
+                ready.setBackground(Color.WHITE);
             }
-        }
+        } else remove(ready);
     }
 
     private void starting() {
-        if (!started && agent.getGraphicalGameState().isStarted()) {
-            startGame.setText("End Turn");
-            startGame.setBackground(Color.white);
-            startGame.removeActionListener(readyButtonListener);
-            startGame.addActionListener(endTurnListener);
-            started = true;
-        }
+        if (agent.getGraphicalGameState().isStarted()) add(endTurn);
+        else remove(endTurn);
     }
 }

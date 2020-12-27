@@ -22,7 +22,7 @@ public class Game {
         player.setMoveLeft(diceNumber);
         player.setDicePlayedThisTurn(true);
         if (!player.hasMove(gameState.getBoard(), diceNumber)) {
-            int decreasingScore = 10;
+            int decreasingScore = 5;
             player.applyOnScore(-decreasingScore);
             gameState.nextTurn();
         }
@@ -78,7 +78,7 @@ public class Game {
     }
 
     private void checkSameColor(Cell cell, Piece piece) {
-        int increasingScore = 10;
+        int increasingScore = 2;
         if (cell.getColor().equals(piece.getColor()))
             piece.getPlayer().applyOnScore(increasingScore);
     }
