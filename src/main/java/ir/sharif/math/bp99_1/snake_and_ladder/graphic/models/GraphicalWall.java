@@ -6,10 +6,10 @@ public class GraphicalWall extends GraphicalModel {
     private final int startX, startY, endX, endY;
 
     public GraphicalWall(int startX, int startY, int endX, int endY) {
-        this.startX = (startX - 1) * 80;
-        this.startY = (startY - 1) * 80;
-        this.endX = (endX - 1) * 80;
-        this.endY = (endY - 1) * 80;
+        this.startX = (startX - 1) * GraphicalCell.CELL_SIZE;
+        this.startY = (startY - 1) * GraphicalCell.CELL_SIZE;
+        this.endX = (endX - 1) * GraphicalCell.CELL_SIZE;
+        this.endY = (endY - 1) * GraphicalCell.CELL_SIZE;
     }
 
     @Override

@@ -18,6 +18,6 @@ public class GraphicalPrize extends GraphicalModel {
     @Override
     public void paint(Graphics2D graphics2D) {
         if (image != null)
-            graphics2D.drawImage(image, 0, 0, 80, 80, null);
+            graphics2D.drawImage(image, 0, 0, GraphicalCell.CELL_SIZE, GraphicalCell.CELL_SIZE, null);
     }
 }
