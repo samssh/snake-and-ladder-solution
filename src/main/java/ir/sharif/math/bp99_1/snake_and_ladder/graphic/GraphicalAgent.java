@@ -7,7 +7,6 @@ import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.MainPanel;
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.PlayerInfoPanel;
 import ir.sharif.math.bp99_1.snake_and_ladder.logic.LogicalAgent;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 
 import javax.swing.*;
 
@@ -48,26 +47,13 @@ public class GraphicalAgent {
         return new Frame(mainPanel);
     }
 
-    public void loadFirstPlayer(String name) {
-
-    }
-
-    public void loadSecondPlayer(String name) {
-
-    }
-
     public void diceRequest(int playerNumber) {
         logicalAgent.rollDice(playerNumber);
-        /*
-         *  TO DO
-         *  SEND REQUEST TO LOGIC , TO ROLL A DICE FOR THIS PLAYER;
-         *
-         *  THEN SEND NUMBER ON THE DICE TO GRAPHIC, SO WE CAN SHOW THAT.
-         *
-         *  DON'T FORGET TO UPDATE GRAPHICAL GAME-STATE AND SPECIALLY
-         *  GRAPHICAL PLAYER ( diceNumber field )
-         *
-         */
+    }
+
+    public void showDiceDetails(int playerNumber) {
+        String details = logicalAgent.getDiceDetail(playerNumber);
+        JOptionPane.showMessageDialog(frame, details, "dice details", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void clickRequest(int x, int y) {
@@ -85,7 +71,6 @@ public class GraphicalAgent {
     }
 
     public void changeColorRequest(int player, int piece, String color) {
-
         /*
          * TO DO
          * SEND A REQUEST TO LOGIC THAT PLAYER # WANT TO CHANGE THE COLOR OF
@@ -94,28 +79,19 @@ public class GraphicalAgent {
          *
          * NOT FORGOT TO UPDATE THE GRAPHIC AFTER THIS REQUEST.
          */
-
     }
 
     public void requestStart(int playerNumber) {
         logicalAgent.readyPlayer(playerNumber);
     }
 
-
     public void requestEndTurn(int playerNumber) {
-
-        /**
+        /*
          * TO DO
          * SEND A REQUEST TO LOGIC THAT PLAYER # Turn is ended and switch the turns
          *
          * NOT FORGOT TO UPDATE THE GRAPHIC AFTER THIS REQUEST.
          **/
-
-    }
-
-
-    public void move(Player p, int startX, int startY, int endX, int endY) {
-
     }
 
     public Object getPaintLock() {

@@ -1,5 +1,6 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
+import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
 
@@ -35,5 +36,16 @@ public class Dice {
         if (newChance < 0)
             newChance = 0;
         chances.put(number, newChance);
+    }
+
+    public String getDetails() {
+        StringBuilder builder = new StringBuilder();
+        for (Map.Entry<Integer, Integer> entry : chances.entrySet()) {
+            builder.append(entry.getKey());
+            builder.append(" with ");
+            builder.append(entry.getValue());
+            builder.append(" chance\n");
+        }
+        return builder.toString();
     }
 }

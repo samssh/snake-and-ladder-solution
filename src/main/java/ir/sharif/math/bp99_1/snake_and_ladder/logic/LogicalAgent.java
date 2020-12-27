@@ -54,4 +54,8 @@ public class LogicalAgent {
         game.rollDice(playerNumber);
         graphicalAgent.update(gameState);
     }
+
+    public String getDiceDetail(int playerNumber) {
+        return gameState.getPlayer(playerNumber).getDice().getDetails();
+    }
 }

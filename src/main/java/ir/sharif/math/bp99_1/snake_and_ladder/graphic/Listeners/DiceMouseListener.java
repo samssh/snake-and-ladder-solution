@@ -2,6 +2,7 @@ package ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners;
 
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 
 public class DiceMouseListener implements DummyListener {
@@ -23,6 +24,9 @@ public class DiceMouseListener implements DummyListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        graphicalAgent.diceRequest(playerNumber);
+        if (SwingUtilities.isLeftMouseButton(e))
+            graphicalAgent.diceRequest(playerNumber);
+        if (SwingUtilities.isRightMouseButton(e))
+            graphicalAgent.showDiceDetails(playerNumber);
     }
 }
