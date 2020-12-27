@@ -14,15 +14,31 @@ public class Player {
     private final Dice dice;
     private Player rival;
     private final int id;
+    private int playerNumber;
     private boolean isReady;
     private boolean dicePlayedThisTurn;
     private int moveLeft;
     private Piece selectedPiece;
 
-    public Player(int id, String name, int score) {
-        this.id = id;
+//    public Player(int id, String name, int score) {
+//        this.id = id;
+//        this.name = name;
+//        this.score = score;
+//        this.dice = new Dice();
+//        this.pieces = new ArrayList<>();
+//        this.pieces.add(new Piece(this, Color.RED));
+//        this.pieces.add(new Piece(this, Color.BLUE));
+//        this.pieces.add(new Piece(this, Color.GREEN));
+//        this.pieces.add(new Piece(this, Color.YELLOW));
+//        this.moveLeft = 0;
+//        this.selectedPiece = null;
+//    }
+
+    public Player(String name, int score, int id, int playerNumber) {
         this.name = name;
         this.score = score;
+        this.id = id;
+        this.playerNumber = playerNumber;
         this.dice = new Dice();
         this.pieces = new ArrayList<>();
         this.pieces.add(new Piece(this, Color.RED));
@@ -51,6 +67,14 @@ public class Player {
 
     public List<Piece> getPieces() {
         return pieces;
+    }
+
+    public int getPlayerNumber() {
+        return playerNumber;
+    }
+
+    public void setPlayerNumber(int playerNumber) {
+        this.playerNumber = playerNumber;
     }
 
     public Player getRival() {

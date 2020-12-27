@@ -23,10 +23,10 @@ public class LogicalAgent {
 
     private GameState loadGameState() {
         Board board = modelLoader.loadBord();
-        Player player1 = modelLoader.loadPlayer(graphicalAgent.getPlayerNames(1));
+        Player player1 = modelLoader.loadPlayer(graphicalAgent.getPlayerNames(1) , 1);
         Player player2;
         do {
-            player2 = modelLoader.loadPlayer(graphicalAgent.getPlayerNames(2));
+            player2 = modelLoader.loadPlayer(graphicalAgent.getPlayerNames(2),2);
         } while (player1.equals(player2));
         player1.setRival(player2);
         player2.setRival(player1);

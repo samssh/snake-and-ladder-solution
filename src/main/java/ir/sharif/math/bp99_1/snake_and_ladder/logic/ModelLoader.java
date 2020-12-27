@@ -36,12 +36,12 @@ public class ModelLoader {
         return null;
     }
 
-    public Player loadPlayer(String name) {
+    public Player loadPlayer(String name , int playernumber) {
         // check if player exist load that or creat file for this player
         File playerFile = getPlayerFile(name);
         if (playerFile == null) {
             int id = Objects.requireNonNull(playersDirectory.list()).length;
-            Player player = new Player(id, name, 0);
+            Player player = new Player(name,0,id,  playernumber);
             savePlayer(player);
             return player;
         }
@@ -59,7 +59,7 @@ public class ModelLoader {
             scanner.next();
             int point = scanner.nextInt();
             scanner.close();
-            return new Player(id, name, point);
+            return new Player(name, point,id , playernumber);
         } catch (FileNotFoundException | IllegalArgumentException e) {
             e.printStackTrace();
             System.err.println("could not find player file");

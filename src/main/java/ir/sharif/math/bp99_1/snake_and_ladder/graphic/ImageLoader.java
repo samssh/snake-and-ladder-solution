@@ -17,6 +17,7 @@ public class ImageLoader {
     private final Map<String, Icon> dice;
 
     public static BufferedImage getImage(String name) {
+        System.out.println(name);
         return instance.imageMap.get(name);
     }
 
