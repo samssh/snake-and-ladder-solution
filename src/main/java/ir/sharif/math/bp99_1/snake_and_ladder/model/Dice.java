@@ -15,7 +15,7 @@ public class Dice {
             chances.put(i, 1);
     }
 
-    public int getRandom() {
+    public int roll() {
         int total = 0;
         for (int i : chances.values())
             total += i;

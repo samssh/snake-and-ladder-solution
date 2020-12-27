@@ -1,5 +1,7 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
+import ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters.Transmitter;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;

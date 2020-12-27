@@ -1,4 +1,7 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.model;
+package ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters;
+
+import ir.sharif.math.bp99_1.snake_and_ladder.model.Cell;
+import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
 
 public class Transmitter {
     private final Cell firstCell, lastCell;

@@ -2,6 +2,9 @@ package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
 import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.*;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.*;
+import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
+import ir.sharif.math.bp99_1.snake_and_ladder.model.prizes.Prize;
+import ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters.Transmitter;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
