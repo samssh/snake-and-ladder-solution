@@ -61,17 +61,20 @@ public class LogicalAgent {
         if (gameState.getTurn() > 30) {
             // game ends
             int winner;
-            if (gameState.getPlayer1().getScore() > gameState.getPlayer2().getScore())
+            if (gameState.getPlayer1().getScore() > gameState.getPlayer2().getScore()) {
                 winner = 1;
-            else if (gameState.getPlayer1().getScore() < gameState.getPlayer2().getScore())
+            }
+            else if (gameState.getPlayer1().getScore() < gameState.getPlayer2().getScore()) {
                 winner = 2;
+            }
             else winner = 3;
             graphicalAgent.playerWin(winner);
-            /* save players
-            .
-            .
-            .
-             */
+            /* save players*/
+            modelLoader.savePlayer(gameState.getPlayer1());
+            modelLoader.savePlayer(gameState.getPlayer2());
+
+            game.archive(gameState.getPlayer1(),gameState.getPlayer2());
+
             LogicalAgent logicalAgent = new LogicalAgent();
             logicalAgent.initialize();
         }
