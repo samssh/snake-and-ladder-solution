@@ -4,9 +4,7 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.Board;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -91,6 +89,19 @@ public class ModelLoader {
                 return new File(playersDirectory.getPath() + "/" + fileName);
         }
         return null;
+    }
+
+    public void archive(Player player1, Player player2) {
+        try {
+            PrintStream printStream = new PrintStream(new FileOutputStream(new File("/src/main/resources/ir/sharif/math/bp99_1/snake_and_ladder/games.archive"), true));
+            printStream.println("\n" + player1.getName() + " : " + player1.getScore());
+            printStream.println(player2.getName() + " : " + player2.getScore());
+            printStream.flush();
+            printStream.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }

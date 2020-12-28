@@ -5,11 +5,6 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
-
 public class Game {
     private final GameState gameState;
 
@@ -88,18 +83,5 @@ public class Game {
         int increasingScore = 2;
         if (cell.getColor().equals(piece.getColor()))
             piece.getPlayer().applyOnScore(increasingScore);
-    }
-
-    public void archive(Player player1,Player player2){
-        try {
-            PrintStream printStream = new PrintStream(new FileOutputStream(new File("/src/main/resources/ir/sharif/math/bp99_1/snake_and_ladder/games.archive"),true));
-            printStream.println("\n"+player1.getName()+" : "+player1.getScore());
-            printStream.println(     player2.getName()+" : "+player2.getScore());
-            printStream.flush();
-            printStream.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 }

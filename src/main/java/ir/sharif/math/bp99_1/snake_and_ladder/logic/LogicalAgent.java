@@ -76,12 +76,9 @@ public class LogicalAgent {
             /* save players*/
             modelLoader.savePlayer(gameState.getPlayer1());
             modelLoader.savePlayer(gameState.getPlayer2());
-
-            game.archive(gameState.getPlayer1(),gameState.getPlayer2());
-
+            modelLoader.archive(gameState.getPlayer1(), gameState.getPlayer2());
             LogicalAgent logicalAgent = new LogicalAgent();
             logicalAgent.initialize();
-
         }
     }
 
