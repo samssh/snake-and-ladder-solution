@@ -9,12 +9,13 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class ModelLoader {
-    private final File boardFile, playersDirectory;
+    private final File boardFile, playersDirectory, archiveFile;
 
 
     public ModelLoader() {
         boardFile = Config.getConfig("mainConfig").getProperty(File.class, "board");
         playersDirectory = Config.getConfig("mainConfig").getProperty(File.class, "playersDirectory");
+        archiveFile = Config.getConfig("mainConfig").getProperty(File.class, "archive");
     }
 
     public Board loadBord() {
@@ -93,12 +94,11 @@ public class ModelLoader {
 
     public void archive(Player player1, Player player2) {
         try {
-            PrintStream printStream = new PrintStream(new FileOutputStream(new File("/src/main/resources/ir/sharif/math/bp99_1/snake_and_ladder/games.archive"), true));
+            PrintStream printStream = new PrintStream(new FileOutputStream(archiveFile, true));
             printStream.println("\n" + player1.getName() + " : " + player1.getScore());
             printStream.println(player2.getName() + " : " + player2.getScore());
             printStream.flush();
             printStream.close();
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

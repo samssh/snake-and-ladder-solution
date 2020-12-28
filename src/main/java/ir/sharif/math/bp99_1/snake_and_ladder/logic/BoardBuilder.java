@@ -96,7 +96,7 @@ public class BoardBuilder {
         for (int i = 0; i < transmittersNumber; ++i) {
             Cell cell1 = getCell(board);
             Cell cell2 = getCell(board);
-            Transmitter transmitter = new Transmitter(cell1, cell2, "snake");
+            Transmitter transmitter = new Transmitter(cell1, cell2);
             board.getTransmitters().add(transmitter);
             cell1.setTransmitter(transmitter);
         }
@@ -113,7 +113,7 @@ public class BoardBuilder {
             int chance = scanner.nextInt();
             int chanceNumber = scanner.nextInt();
             Cell cell = board.getCell(x, y);
-            cell.setPrize(new Prize(cell, point, chance, chanceNumber, "prize"));
+            cell.setPrize(new Prize(cell, point, chance, chanceNumber));
         }
     }
 
