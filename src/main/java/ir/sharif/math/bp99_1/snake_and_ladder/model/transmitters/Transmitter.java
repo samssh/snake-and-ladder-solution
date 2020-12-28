@@ -5,12 +5,10 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
 
 public class Transmitter {
     private final Cell firstCell, lastCell;
-    private final String name;
 
-    public Transmitter(Cell firstCell, Cell lastCell, String name) {
+    public Transmitter(Cell firstCell, Cell lastCell) {
         this.firstCell = firstCell;
         this.lastCell = lastCell;
-        this.name = name;
     }
 
     public Cell getFirstCell() {
@@ -19,10 +17,6 @@ public class Transmitter {
 
     public Cell getLastCell() {
         return lastCell;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void transmit(Piece piece) {
@@ -37,7 +31,6 @@ public class Transmitter {
         return "Transmitter{" +
                 "firstCell=" + firstCell +
                 ", lastCell=" + lastCell +
-                ", name='" + name + '\'' +
                 '}';
     }
 }
