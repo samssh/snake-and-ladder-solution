@@ -50,7 +50,6 @@ public class Piece {
      *
      * if your movement is valid, return "true" , else return " false"
      */
-    //***
     public boolean isValidMove(Cell destination, int diceNumber) {
 
 

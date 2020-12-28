@@ -49,7 +49,6 @@ public class Dice {
      * . "
      * where #i is the chance of number i.
      */
-    //***
     public String getDetails() {
 
 

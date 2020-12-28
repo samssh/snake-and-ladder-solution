@@ -131,7 +131,6 @@ public class Player {
      * <p>
      * you can use method "isValidMove" in class "Piece"(not necessary, but recommended)
      */
-    //***
     public boolean hasMove(Board board, int diceNumber) {
 
 
