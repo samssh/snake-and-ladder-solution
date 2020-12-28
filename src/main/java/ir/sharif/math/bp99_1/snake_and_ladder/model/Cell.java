@@ -77,11 +77,10 @@ public class Cell {
         return (this.piece == null) && (color.equals(piece.getColor()) || color.equals(Color.WHITE));
     }
 
-    //***
-    public Cell getOpenNeighbor(int dx, int dy) {
-        int neighborX = x + dx, neighborY = y + dy;
+    // //
+    public Cell getOpenNeighbor(int x, int y) {
         for (Cell neighbor : adjacentOpenCells) {
-            if (neighbor.getX() == neighborX && neighbor.getY() == neighborY)
+            if (neighbor.getX() == x && neighbor.getY() == y)
                 return neighbor;
         }
         return null;

@@ -9,6 +9,7 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters.Transmitter;
 
 import java.util.Scanner;
 
+// ***
 public class BoardBuilder {
     private final Scanner scanner;
 
@@ -25,6 +26,8 @@ public class BoardBuilder {
         addPrizes(board);
         return board;
     }
+
+    // //
 
     private void buildCells(Board board) {
         scanner.next();

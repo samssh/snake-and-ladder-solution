@@ -5,7 +5,9 @@ import java.util.Random;
 import java.util.TreeMap;
 
 public class Dice {
-    private final TreeMap<Integer, Integer> chances;
+    // ***
+    private final Map<Integer, Integer> chances;
+    // ***
     private final Random random;
 
     public Dice() {

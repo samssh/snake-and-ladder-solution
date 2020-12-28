@@ -128,6 +128,7 @@ public class Player {
         return false;
     }
 
+    // **
     public void endTurn() {
         if (selectedPiece != null)
             selectedPiece.setSelected(false);
@@ -151,6 +152,7 @@ public class Player {
         return Objects.hash(name);
     }
 
+    // //
     @Override
     public String toString() {
         return "PlayerID : " + id + '\n' +

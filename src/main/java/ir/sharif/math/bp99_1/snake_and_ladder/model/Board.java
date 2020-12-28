@@ -42,7 +42,7 @@ public class Board {
             if (cell.getX() == x && cell.getY() == y)
                 return cell;
         }
-        throw new RuntimeException();
+        return null;
     }
 
     @Override

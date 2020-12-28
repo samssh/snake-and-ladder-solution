@@ -52,7 +52,7 @@ public class Piece {
             return false;
         Cell neighbor = this.currentCell;
         for (int i = 0; i < diceNumber; i++) {
-            neighbor = neighbor.getOpenNeighbor(dx, dy);
+            neighbor = neighbor.getOpenNeighbor(dx + neighbor.getX(), dy + neighbor.getY());
             if (neighbor == null)
                 return false;
         }

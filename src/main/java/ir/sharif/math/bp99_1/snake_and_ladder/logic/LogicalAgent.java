@@ -41,6 +41,9 @@ public class LogicalAgent {
     public void readyPlayer(int playerNumber) {
         if (!gameState.isStarted())
             preStart.playerReady(playerNumber);
+
+
+        // dont touch it
         graphicalAgent.update(gameState);
     }
 

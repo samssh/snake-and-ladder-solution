@@ -32,7 +32,6 @@ public class ModelLoader {
             System.err.println("could not find board file");
             System.exit(-2);
         }
-
         return null;
     }
 
