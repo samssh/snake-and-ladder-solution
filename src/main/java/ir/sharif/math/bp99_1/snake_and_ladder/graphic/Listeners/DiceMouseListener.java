@@ -17,11 +17,9 @@ public class DiceMouseListener implements DummyListener {
 
     /**
      * TO DO ...
-     * <p>
      * when user click the dice label ,
      * send a request to the logic to roll the dice for him
      */
-
     @Override
     public void mousePressed(MouseEvent e) {
         if (SwingUtilities.isLeftMouseButton(e))

@@ -42,10 +42,8 @@ public class GameState {
 
     /**
      * return null if game is not started.
-     *
      * else return a player who's turn is now.
      */
-    // ***
     public Player getCurrentPlayer() {
 
 
@@ -55,10 +53,8 @@ public class GameState {
 
     /**
      * finish current player's turn and update some fields of this class;
-     * <p>
      * you can use method "endTurn" in class "Player" (not necessary, but recommanded)
      */
-    //***
     public void nextTurn() {
 
 

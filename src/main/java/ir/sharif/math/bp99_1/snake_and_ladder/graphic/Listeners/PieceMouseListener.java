@@ -29,11 +29,10 @@ public class PieceMouseListener implements DummyListener {
             }
 
             graphicalAgent.changeColorRequest(player, piece, color);
-
-            /**
+            /*
              *  TO DO ...
              *
-             *  send request to logic to chang color of picee
+             *  send request to logic to chang color of piece
              *
              *
              */

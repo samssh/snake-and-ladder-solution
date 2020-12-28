@@ -17,16 +17,5 @@ public class BoardMouseListener implements DummyListener {
         int xa = e.getX();
         int ya = e.getY();
         graphicalAgent.clickRequest((ya / GraphicalCell.CELL_SIZE) + 1, (xa / GraphicalCell.CELL_SIZE) + 1);
-        /**   TO DO ...
-         *     try to send xa and ya to logic .
-         *     if these cordinates are valid :
-         *
-         *     a) if there is no selected pawn, select a pawn
-         *     b) if there is a selected pawn , try to move the pawn to the destination
-         *
-         *
-         *
-         */
-
     }
 }

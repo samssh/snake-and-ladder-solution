@@ -35,7 +35,7 @@ public class Prize {
 
     /**
      * apply the prize.
-     * you can use method "usePrize" in class "Player" (not necessary, but recommanded)
+     * you can use method "usePrize" in class "Player" (not necessary, but recommended)
      */
     public void using(Piece piece) {
 

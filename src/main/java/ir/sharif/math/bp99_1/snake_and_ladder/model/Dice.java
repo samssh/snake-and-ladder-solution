@@ -1,6 +1,5 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.model;
 
-import java.util.Map;
 
 public class Dice {
 
@@ -20,10 +19,8 @@ public class Dice {
     /**
      * create an algorithm generate a random number(between 1 to 6) according to the
      * chance of each dice number( you store them somewhere)
-     *
      * return the generated number
      */
-    //***
     public int roll() {
 
 
@@ -32,12 +29,9 @@ public class Dice {
     }
 
     /**
-     *
      * give a dice number and a chance, you should UPDATE chance
      * of that number.
-     *
      * pay attention chance of none of the numbers must not be negetive(it can be zero)
-     *
      */
     public void addChance(int number, int chance) {
 
@@ -53,7 +47,6 @@ public class Dice {
      * .
      * .
      * . "
-     *
      * where #i is the chance of number i.
      */
     //***

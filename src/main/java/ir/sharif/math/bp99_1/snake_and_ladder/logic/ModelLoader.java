@@ -4,8 +4,10 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.Board;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 
-import java.io.*;
-import java.util.Objects;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class ModelLoader {
@@ -29,7 +31,6 @@ public class ModelLoader {
      *
      * pay attention add your codes in "try".
      */
-    // ***
     public Board loadBord() {
         try {
             Scanner scanner = new Scanner(boardFile);
@@ -55,7 +56,6 @@ public class ModelLoader {
      *
      * add your codes in "try" block .
      */
-    //***
     public Player loadPlayer(String name, int playerNumber) {
         try {
 
@@ -89,14 +89,11 @@ public class ModelLoader {
      * add your codes in "try" block .
      *
      */
-    //***
     public void savePlayer(Player player) {
         try {
             // add your codes in this part
-
             File file = getPlayerFile(player.getName());
-
-            PrintWriter printWriter = new PrintWriter(file);
+            PrintStream printStream = new PrintStream(new FileOutputStream(file));
 
 
 
@@ -115,23 +112,20 @@ public class ModelLoader {
      * return null if not.
      *
      */
-    //***
     private File getPlayerFile(String name) {
-
-
-
 
         return null;
     }
 
-    //***
+    /**
+     * at the end of the game save game details
+     */
     public void archive(Player player1, Player player2) {
         try {
+            // add your codes in this part
             PrintStream printStream = new PrintStream(new FileOutputStream(archiveFile, true));
-            printStream.println("\n" + player1.getName() + " : " + player1.getScore());
-            printStream.println(player2.getName() + " : " + player2.getScore());
-            printStream.flush();
-            printStream.close();
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

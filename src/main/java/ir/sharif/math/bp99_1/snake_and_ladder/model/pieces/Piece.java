@@ -40,13 +40,11 @@ public class Piece {
     }
 
     /**
-     * @param destination
-     * @param diceNumber
      * @return "true" if your movement is valid  , else return " false"
      *
      * In this method, you should check if the movement is valid of not.
      *
-     * You can use some methods ( they are recomendded )
+     * You can use some methods ( they are recommended )
      *
      * 1) "canEnter" method in class "Cell"
      *

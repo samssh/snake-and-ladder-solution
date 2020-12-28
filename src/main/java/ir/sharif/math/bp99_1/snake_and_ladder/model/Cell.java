@@ -73,11 +73,8 @@ public class Cell {
     }
 
     /**
-     *
      * @return true if piece can enter this cell, else return false
-     *
      */
-    //***
     public boolean canEnter(Piece piece) {
 
 
@@ -86,20 +83,8 @@ public class Cell {
 
 
     /**
-     *
      * DO NOT CHANGE FOLLOWING METHODS.
      */
-
-
-    @Override
-    public String toString() {
-        return "Cell{" +
-                "color=" + color +
-                ", X=" + x +
-                ", Y=" + y +
-                '}';
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

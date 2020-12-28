@@ -38,17 +38,10 @@ public class Board {
 
 
     /**
-     * give x,y , return a cell with that cordinates
+     * give x,y , return a cell with that coordinates
      * return null if not exist.
      */
     public Cell getCell(int x, int y) {
         return null;
-    }
-
-    @Override
-    public String toString() {
-        return "Board{" +
-                ", transmitters=" + transmitters +
-                '}';
     }
 }
