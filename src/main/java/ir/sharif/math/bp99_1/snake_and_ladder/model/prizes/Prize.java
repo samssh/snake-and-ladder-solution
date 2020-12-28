@@ -32,9 +32,13 @@ public class Prize {
         return chanceNumber;
     }
 
-    //***
+
+    /**
+     * apply the prize.
+     * you can use method "usePrize" in class "Player" (not necessary, but recommanded)
+     */
     public void using(Piece piece) {
-        piece.getPlayer().usePrize(this);
+
     }
 
 }

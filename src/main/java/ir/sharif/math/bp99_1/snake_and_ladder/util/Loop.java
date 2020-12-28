@@ -1,6 +1,9 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.util;
 
 
+/**
+ * Do not change anything in this class
+ */
 public class Loop {
     private final int fps;
     private volatile boolean running = false;

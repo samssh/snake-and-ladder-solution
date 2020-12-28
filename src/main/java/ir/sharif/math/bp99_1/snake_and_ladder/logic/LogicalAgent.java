@@ -10,15 +10,11 @@ public class LogicalAgent {
     private final ModelLoader modelLoader;
     private final GraphicalAgent graphicalAgent;
     private final GameState gameState;
-    private final PreStart preStart;
-    private final Game game;
 
     public LogicalAgent() {
         this.graphicalAgent = new GraphicalAgent(this);
         this.modelLoader = new ModelLoader();
         this.gameState = loadGameState();
-        this.preStart = new PreStart(gameState);
-        this.game = new Game(gameState);
     }
 
     private GameState loadGameState() {

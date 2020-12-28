@@ -31,13 +31,6 @@ public class GameState {
         else return null;
     }
 
-    // ***
-    public Player getCurrentPlayer() {
-        if (turn == 0)
-            return null;
-        return getPlayer(2 - turn % 2);
-    }
-
     public boolean isStarted() {
         return turn != 0;
     }
@@ -46,16 +39,31 @@ public class GameState {
         return turn;
     }
 
-    // //
-    public void start() {
-        turn = 1;
+
+    /**
+     * return null if game is not started.
+     * <p>
+     * else return a player who's turn is now.
+     */
+    // ***
+    public Player getCurrentPlayer() {
+
+
+        return null;
     }
 
+
+    /**
+     * finish current player's turn and update some fields of this class;
+     * <p>
+     * you can use method "endTurn" in class "Player" (not necessary, but recommanded)
+     */
     //***
     public void nextTurn() {
-        getCurrentPlayer().endTurn();
-        turn++;
+
+
     }
+
 
     @Override
     public String toString() {
