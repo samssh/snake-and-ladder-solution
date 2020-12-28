@@ -18,6 +18,7 @@ public class ModelLoader {
         archiveFile = Config.getConfig("mainConfig").getProperty(File.class, "archive");
     }
 
+    // ***
     public Board loadBord() {
         try {
             Scanner scanner = new Scanner(boardFile);
@@ -35,12 +36,13 @@ public class ModelLoader {
         return null;
     }
 
-    public Player loadPlayer(String name , int playernumber) {
+    //***
+    public Player loadPlayer(String name, int playerNumber) {
         // check if player exist load that or creat file for this player
         File playerFile = getPlayerFile(name);
         if (playerFile == null) {
             int id = Objects.requireNonNull(playersDirectory.list()).length;
-            Player player = new Player(name,0,id,  playernumber);
+            Player player = new Player(name, 0, id, playerNumber);
             savePlayer(player);
             return player;
         }
@@ -58,7 +60,7 @@ public class ModelLoader {
             scanner.next();
             int point = scanner.nextInt();
             scanner.close();
-            return new Player(name, point,id , playernumber);
+            return new Player(name, point, id, playerNumber);
         } catch (FileNotFoundException | IllegalArgumentException e) {
             e.printStackTrace();
             System.err.println("could not find player file");
@@ -67,6 +69,7 @@ public class ModelLoader {
         return null;
     }
 
+    //***
     public void savePlayer(Player player) {
         File file = getPlayerFile(player.getName());
         if (file == null) {
@@ -83,6 +86,7 @@ public class ModelLoader {
         }
     }
 
+    //***
     private File getPlayerFile(String name) {
         for (String fileName : Objects.requireNonNull(playersDirectory.list())) {
             String playerName = fileName.substring(0, fileName.indexOf('_'));
@@ -92,6 +96,7 @@ public class ModelLoader {
         return null;
     }
 
+    //***
     public void archive(Player player1, Player player2) {
         try {
             PrintStream printStream = new PrintStream(new FileOutputStream(archiveFile, true));

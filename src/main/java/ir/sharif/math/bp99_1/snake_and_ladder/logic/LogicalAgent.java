@@ -37,12 +37,14 @@ public class LogicalAgent {
         graphicalAgent.initialize(gameState);
     }
 
+    // ***
     public void readyPlayer(int playerNumber) {
         if (!gameState.isStarted())
             preStart.playerReady(playerNumber);
         graphicalAgent.update(gameState);
     }
 
+    // ***
     public void selectPiece(int x, int y) {
         if (gameState.isStarted()) {
             Cell cell = gameState.getBoard().getCell(x, y);
@@ -53,6 +55,7 @@ public class LogicalAgent {
         }
     }
 
+    // ***
     public void rollDice(int playerNumber) {
         if (gameState.isStarted()) {
             game.rollDice(playerNumber);
@@ -61,17 +64,16 @@ public class LogicalAgent {
         }
     }
 
+    //***
     private void checkForEndGame() {
         if (gameState.getTurn() > 30) {
             // game ends
             int winner;
             if (gameState.getPlayer1().getScore() > gameState.getPlayer2().getScore()) {
                 winner = 1;
-            }
-            else if (gameState.getPlayer1().getScore() < gameState.getPlayer2().getScore()) {
+            } else if (gameState.getPlayer1().getScore() < gameState.getPlayer2().getScore()) {
                 winner = 2;
-            }
-            else winner = 3;
+            } else winner = 3;
             graphicalAgent.playerWin(winner);
             /* save players*/
             modelLoader.savePlayer(gameState.getPlayer1());
@@ -82,6 +84,7 @@ public class LogicalAgent {
         }
     }
 
+    //***
     public String getDiceDetail(int playerNumber) {
         return gameState.getPlayer(playerNumber).getDice().getDetails();
     }

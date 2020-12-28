@@ -72,11 +72,12 @@ public class Cell {
         this.transmitter = transmitter;
     }
 
+    //***
     public boolean canEnter(Piece piece) {
         return (this.piece == null) && (color.equals(piece.getColor()) || color.equals(Color.WHITE));
     }
 
-    // dont touch it
+    //***
     public Cell getOpenNeighbor(int dx, int dy) {
         int neighborX = x + dx, neighborY = y + dy;
         for (Cell neighbor : adjacentOpenCells) {

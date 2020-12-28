@@ -12,6 +12,7 @@ public class Game {
         this.gameState = gameState;
     }
 
+    // ***
     public void rollDice(int playerNumber) {
         Player player = gameState.getPlayer(playerNumber);
         if (!player.equals(gameState.getCurrentPlayer()))
@@ -30,6 +31,7 @@ public class Game {
         }
     }
 
+    // ***
     public void selectPiece(Piece piece) {
         Player player = gameState.getCurrentPlayer();
         if (!player.isDicePlayedThisTurn())
@@ -49,6 +51,7 @@ public class Game {
         }
     }
 
+    // ***
     public void selectCell(Cell cell) {
         Player player = gameState.getCurrentPlayer();
         Piece piece = player.getSelectedPiece();
@@ -63,22 +66,26 @@ public class Game {
         }
     }
 
+    // //
     private void check(Cell cell, Piece piece) {
         checkPrize(cell, piece);
         checkTransmitter(cell, piece);
         checkSameColor(cell, piece);
     }
 
+    // //
     private void checkPrize(Cell cell, Piece piece) {
         if (cell.getPrize() != null)
             cell.getPrize().using(piece);
     }
 
+    // //
     private void checkTransmitter(Cell cell, Piece piece) {
         if (cell.getTransmitter() != null)
             cell.getTransmitter().transmit(piece);
     }
 
+    // //
     private void checkSameColor(Cell cell, Piece piece) {
         int increasingScore = 2;
         if (cell.getColor().equals(piece.getColor()))

@@ -36,6 +36,7 @@ public class Board {
         return transmitters;
     }
 
+    //***
     public Cell getCell(int x, int y) {
         for (Cell cell : cells) {
             if (cell.getX() == x && cell.getY() == y)

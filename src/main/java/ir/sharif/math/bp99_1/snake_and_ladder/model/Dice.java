@@ -11,11 +11,11 @@ public class Dice {
     public Dice() {
         random = new Random();
         chances = new TreeMap<>();
-
         for (int i = 1; i <= 6; ++i)
             chances.put(i, 1);
     }
 
+    //***
     public int roll() {
         int total = 0;
         for (int i : chances.values())
@@ -29,6 +29,7 @@ public class Dice {
         return -1;
     }
 
+    //***
     public void addChance(int number, int chance) {
         int newChance = chance;
         if (chances.containsKey(number))
@@ -38,6 +39,7 @@ public class Dice {
         chances.put(number, newChance);
     }
 
+    //***
     public String getDetails() {
         StringBuilder builder = new StringBuilder();
         for (Map.Entry<Integer, Integer> entry : chances.entrySet()) {

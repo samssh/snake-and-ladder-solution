@@ -39,6 +39,7 @@ public class Piece {
         this.currentCell = currentCell;
     }
 
+    //***
     public boolean isValidMove(Cell destination, int diceNumber) {
         int dx = Integer.compare(destination.getX() - currentCell.getX(), 0);
         int dy = Integer.compare(destination.getY() - currentCell.getY(), 0);
@@ -58,6 +59,7 @@ public class Piece {
         return destination.getPiece() == null;
     }
 
+    //***
     public void moveTo(Cell destination) {
         currentCell.setPiece(null);
         destination.setPiece(this);

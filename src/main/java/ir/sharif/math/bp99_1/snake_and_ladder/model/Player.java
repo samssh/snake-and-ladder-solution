@@ -111,11 +111,13 @@ public class Player {
         isReady = ready;
     }
 
+    //***
     public void usePrize(Prize prize) {
         score += prize.getPoint();
         dice.addChance(prize.getChance(), prize.getChanceNumber());
     }
 
+    //***
     public boolean hasMove(Board board, int diceNumber) {
         for (Piece piece : pieces) {
             for (Cell cell : board.getCells()) {

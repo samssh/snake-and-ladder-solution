@@ -19,6 +19,7 @@ public class Transmitter {
         return lastCell;
     }
 
+    //***
     public void transmit(Piece piece) {
         int negativeScore = 3;
         if (lastCell.getPiece() == null)

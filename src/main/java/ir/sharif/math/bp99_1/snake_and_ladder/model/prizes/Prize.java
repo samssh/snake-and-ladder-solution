@@ -32,6 +32,7 @@ public class Prize {
         return chanceNumber;
     }
 
+    //***
     public void using(Piece piece) {
         piece.getPlayer().usePrize(this);
     }

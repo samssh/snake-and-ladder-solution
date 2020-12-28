@@ -52,6 +52,7 @@ public class GameState {
         turn = 1;
     }
 
+    //***
     public void nextTurn() {
         getCurrentPlayer().endTurn();
         turn++;
