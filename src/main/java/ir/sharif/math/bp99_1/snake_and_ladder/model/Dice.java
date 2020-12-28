@@ -10,11 +10,7 @@ public class Dice {
      *      currently our dice has 1 to 6.
      * 2) generate a random number
      *
-     */
-
-
-    /**
-     * initialize the fields.
+     * initialize these fields in constructor.
      */
     public Dice() {
 
@@ -47,15 +43,24 @@ public class Dice {
 
     }
 
+
+    /**
+     * you should return the details of the dice number.
+     * sth like:
+     * "1 with #1 chance.
+     * 2 with #2 chance.
+     * 3 with #3 chance
+     * .
+     * .
+     * . "
+     *
+     * where #i is the chance of number i.
+     */
     //***
     public String getDetails() {
-        StringBuilder builder = new StringBuilder();
-        for (Map.Entry<Integer, Integer> entry : chances.entrySet()) {
-            builder.append(entry.getKey());
-            builder.append(" with ");
-            builder.append(entry.getValue());
-            builder.append(" chance\n");
-        }
-        return builder.toString();
+
+
+
+        return null;
     }
 }

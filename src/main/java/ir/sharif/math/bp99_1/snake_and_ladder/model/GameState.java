@@ -42,7 +42,7 @@ public class GameState {
 
     /**
      * return null if game is not started.
-     * <p>
+     *
      * else return a player who's turn is now.
      */
     // ***
