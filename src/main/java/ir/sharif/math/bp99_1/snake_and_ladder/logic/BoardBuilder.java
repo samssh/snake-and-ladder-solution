@@ -113,8 +113,8 @@ public class BoardBuilder {
             int x = scanner.nextInt();
             int y = scanner.nextInt();
             int point = scanner.nextInt();
-            int chance = scanner.nextInt();
             int chanceNumber = scanner.nextInt();
+            int chance = scanner.nextInt();
             Cell cell = board.getCell(x, y);
             cell.setPrize(new Prize(cell, point, chance, chanceNumber));
         }
