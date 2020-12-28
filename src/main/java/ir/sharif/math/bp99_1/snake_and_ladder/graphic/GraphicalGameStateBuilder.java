@@ -56,9 +56,10 @@ public class GraphicalGameStateBuilder {
         GraphicalBoard graphicalBoard = new GraphicalBoard(convertCells(board.getCells()), convertTransmitter(board.getTransmitters())
                 , convertWalls(board.getWalls()));
         if (loop != null) loop.stop();
+        List<Transmitter> transmitters = new LinkedList<>(board.getTransmitters());
         loop = new Loop(2, () -> {
             synchronized (agent.getPaintLock()) {
-                setList(graphicalBoard.getGraphicalTransmitters(), convertTransmitter(board.getTransmitters()));
+                setList(graphicalBoard.getGraphicalTransmitters(), convertTransmitter(transmitters));
             }
         });
         loop.start();
@@ -119,19 +120,12 @@ public class GraphicalGameStateBuilder {
     }
 
     private GraphicalColor getColor(Color c) {
-        if (c.equals(Color.BLACK)) {
-            return GraphicalColor.BLACK;
-        } else if (c.equals(Color.WHITE)) {
-            return GraphicalColor.WHITE;
-        } else if (c.equals(Color.RED)) {
-            return GraphicalColor.RED;
-        } else if (c.equals(Color.BLUE)) {
-            return GraphicalColor.BLUE;
-        } else if (c.equals(Color.GREEN)) {
-            return GraphicalColor.GREEN;
-        } else {
-            return GraphicalColor.YELLOW;
-        }
+        if (c.equals(Color.BLACK)) return GraphicalColor.BLACK;
+        else if (c.equals(Color.WHITE)) return GraphicalColor.WHITE;
+        else if (c.equals(Color.RED)) return GraphicalColor.RED;
+        else if (c.equals(Color.BLUE)) return GraphicalColor.BLUE;
+        else if (c.equals(Color.GREEN)) return GraphicalColor.GREEN;
+        else return GraphicalColor.YELLOW;
     }
 
     private GraphicalPiece convertPiece(Piece piece) {

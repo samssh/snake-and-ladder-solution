@@ -10,7 +10,6 @@ import java.util.Objects;
 
 public class Cell {
     private final Color color;
-    private final boolean locked;
     private final int x, y;
     private Transmitter transmitter;
     private Prize prize;
@@ -20,7 +19,6 @@ public class Cell {
 
     public Cell(Color color, int x, int y) {
         this.color = color;
-        this.locked = color == Color.BLACK;
         this.x = x;
         this.y = y;
         this.transmitter = null;
@@ -62,16 +60,8 @@ public class Cell {
         return transmitter;
     }
 
-    public boolean isLocked() {
-        return locked;
-    }
-
     public void setPiece(Piece piece) {
         this.piece = piece;
-    }
-
-    public boolean canEnter(Piece piece) {
-        return (this.piece == null) && (color.equals(piece.getColor()) || color.equals(Color.WHITE));
     }
 
     public void setPrize(Prize prize) {
@@ -82,6 +72,11 @@ public class Cell {
         this.transmitter = transmitter;
     }
 
+    public boolean canEnter(Piece piece) {
+        return (this.piece == null) && (color.equals(piece.getColor()) || color.equals(Color.WHITE));
+    }
+
+    // dont touch it
     public Cell getOpenNeighbor(int dx, int dy) {
         int neighborX = x + dx, neighborY = y + dy;
         for (Cell neighbor : adjacentOpenCells) {
