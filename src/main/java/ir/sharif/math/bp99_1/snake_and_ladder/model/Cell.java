@@ -72,29 +72,19 @@ public class Cell {
         this.transmitter = transmitter;
     }
 
-    //***
+    /**
+     * @return true if piece can enter this cell, else return false
+     */
     public boolean canEnter(Piece piece) {
-        return (this.piece == null) && (color.equals(piece.getColor()) || color.equals(Color.WHITE));
+
+
+        return false;
     }
 
-    // //
-    public Cell getOpenNeighbor(int x, int y) {
-        for (Cell neighbor : adjacentOpenCells) {
-            if (neighbor.getX() == x && neighbor.getY() == y)
-                return neighbor;
-        }
-        return null;
-    }
 
-    @Override
-    public String toString() {
-        return "Cell{" +
-                "color=" + color +
-                ", X=" + x +
-                ", Y=" + y +
-                '}';
-    }
-
+    /**
+     * DO NOT CHANGE FOLLOWING METHODS.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

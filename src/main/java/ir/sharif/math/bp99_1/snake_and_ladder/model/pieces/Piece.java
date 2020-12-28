@@ -39,30 +39,35 @@ public class Piece {
         this.currentCell = currentCell;
     }
 
+    /**
+     * @return "true" if your movement is valid  , else return " false"
+     *
+     * In this method, you should check if the movement is valid of not.
+     *
+     * You can use some methods ( they are recommended )
+     *
+     * 1) "canEnter" method in class "Cell"
+     *
+     * if your movement is valid, return "true" , else return " false"
+     */
     //***
     public boolean isValidMove(Cell destination, int diceNumber) {
-        int dx = Integer.compare(destination.getX() - currentCell.getX(), 0);
-        int dy = Integer.compare(destination.getY() - currentCell.getY(), 0);
-        if (dx != 0 && dy != 0)
-            return false;
-        int dist = Math.abs(destination.getX() - currentCell.getX()) + Math.abs(destination.getY() - currentCell.getY());
-        if (dist != diceNumber)
-            return false;
-        if (!destination.canEnter(this))
-            return false;
-        Cell neighbor = this.currentCell;
-        for (int i = 0; i < diceNumber; i++) {
-            neighbor = neighbor.getOpenNeighbor(dx + neighbor.getX(), dy + neighbor.getY());
-            if (neighbor == null)
-                return false;
-        }
-        return destination.getPiece() == null;
+
+
+
+
+
+
+        return false;
     }
 
-    //***
+    /**
+     * @param destination
+     *
+     * move selected piece from "currentCell" to "destination"
+     *
+     */
     public void moveTo(Cell destination) {
-        currentCell.setPiece(null);
-        destination.setPiece(this);
-        currentCell = destination;
+
     }
 }

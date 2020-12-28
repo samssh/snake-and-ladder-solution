@@ -111,34 +111,59 @@ public class Player {
         isReady = ready;
     }
 
-    //***
+    /**
+     * @param prize
+     *
+     * according to input prize , apply necessary changes to score and dice chance
+     *
+     * you can use method "addChance" in class "Dice"(not necessary, but recommended)
+     *
+     */
     public void usePrize(Prize prize) {
-        score += prize.getPoint();
-        dice.addChance(prize.getChance(), prize.getChanceNumber());
+
     }
 
+
+    /**
+     * check if any of player pieces can move to another cell.
+     *
+     * @return true if at least 1 piece has a move , else return false
+     * <p>
+     * you can use method "isValidMove" in class "Piece"(not necessary, but recommended)
+     */
     //***
     public boolean hasMove(Board board, int diceNumber) {
-        for (Piece piece : pieces) {
-            for (Cell cell : board.getCells()) {
-                if (piece.isValidMove(cell, diceNumber))
-                    return true;
-            }
-        }
+
+
+
+
+
         return false;
     }
 
+
+
+
+    /**
+     * Deselect selectedPiece and make some changes in this class fields.
+     */
     // **
     public void endTurn() {
-        if (selectedPiece != null)
-            selectedPiece.setSelected(false);
-        selectedPiece = null;
-        moveLeft = 0;
-        dicePlayedThisTurn = false;
+
+
+
     }
 
 
-    // dont touch it
+
+
+
+
+    /**
+     *
+     * DO NOT CHANGE FOLLOWING METHODS.
+     */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -150,14 +175,6 @@ public class Player {
     @Override
     public int hashCode() {
         return Objects.hash(name);
-    }
-
-    // //
-    @Override
-    public String toString() {
-        return "PlayerID : " + id + '\n' +
-                "PlayerName : " + name + '\n' +
-                "PlayerScore : " + score + '\n';
     }
 }
 

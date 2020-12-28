@@ -1,5 +1,8 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.util;
 
+/**
+ * Do not change anything in this class
+ */
 public class ThreadColor {
 
     public static final String ANSI_RESET = "\u001B[0m";

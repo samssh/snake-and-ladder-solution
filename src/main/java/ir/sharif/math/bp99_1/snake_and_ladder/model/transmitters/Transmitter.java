@@ -9,6 +9,7 @@ public class Transmitter {
     public Transmitter(Cell firstCell, Cell lastCell) {
         this.firstCell = firstCell;
         this.lastCell = lastCell;
+
     }
 
     public Cell getFirstCell() {
@@ -19,19 +20,11 @@ public class Transmitter {
         return lastCell;
     }
 
-    //***
+    /**
+     * transmit piece to lastCell
+     */
     public void transmit(Piece piece) {
-        int negativeScore = 3;
-        if (lastCell.getPiece() == null)
-            piece.moveTo(lastCell);
-        piece.getPlayer().applyOnScore(-negativeScore);
+
     }
 
-    @Override
-    public String toString() {
-        return "Transmitter{" +
-                "firstCell=" + firstCell +
-                ", lastCell=" + lastCell +
-                '}';
-    }
 }

@@ -14,7 +14,7 @@ import javax.swing.*;
  * this class is a connection between the graphic and logics
  */
 public class GraphicalAgent {
-    private final LogicalAgent logicalAgent; // maybe deleted
+    private final LogicalAgent logicalAgent;
     private final Object paintLock;
     private GraphicalGameState graphicalGameState;
     private Frame frame;
@@ -59,7 +59,7 @@ public class GraphicalAgent {
     }
 
     public void clickRequest(int x, int y) {
-        logicalAgent.selectPiece(x, y);
+        logicalAgent.selectCell(x, y);
         /*
          *  TO DO
          *  WE SEND X , Y TO LOGIC, LOGIC SHOULD DECIDE WEATHER WE CHOOSE

@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+
+/**
+ * Do not change anything in this class
+ */
 public class Config extends Properties {
     private static final String DEFAULT_ADDRESS = "./src/main/resources/ir/sharif/math/bp99_1/snake_and_ladder/configurations/main.properties";
     private static final Config MAIN_CONFIG = new Config(DEFAULT_ADDRESS);
