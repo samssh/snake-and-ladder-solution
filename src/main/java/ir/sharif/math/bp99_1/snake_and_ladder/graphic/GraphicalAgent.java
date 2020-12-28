@@ -30,12 +30,12 @@ public class GraphicalAgent {
      */
     public void update(GameState gameState) {
         synchronized (paintLock) {
-            new GraphicalGameStateBuilder(gameState).update(this.graphicalGameState);
+            new GraphicalGameStateBuilder(gameState, this).update(this.graphicalGameState);
         }
     }
 
     public void initialize(GameState gameState) {
-        this.graphicalGameState = new GraphicalGameStateBuilder(gameState).build();
+        this.graphicalGameState = new GraphicalGameStateBuilder(gameState, this).build();
         this.frame = initializePanels();
     }
 

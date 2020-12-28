@@ -37,49 +37,57 @@ public class LogicalAgent {
         graphicalAgent.initialize(gameState);
     }
 
+    // ***
     public void readyPlayer(int playerNumber) {
         if (!gameState.isStarted())
             preStart.playerReady(playerNumber);
+
+
+        // dont touch it
         graphicalAgent.update(gameState);
     }
 
+    // ***
     public void selectPiece(int x, int y) {
-        Cell cell = gameState.getBoard().getCell(x, y);
-        if (cell.getPiece() != null) game.selectPiece(cell.getPiece());
-        else game.selectCell(cell);
-        graphicalAgent.update(gameState);
-        checkForEndGame();
+        if (gameState.isStarted()) {
+            Cell cell = gameState.getBoard().getCell(x, y);
+            if (cell.getPiece() != null) game.selectPiece(cell.getPiece());
+            else game.selectCell(cell);
+            graphicalAgent.update(gameState);
+            checkForEndGame();
+        }
     }
 
+    // ***
     public void rollDice(int playerNumber) {
-        game.rollDice(playerNumber);
-        graphicalAgent.update(gameState);
-        checkForEndGame();
+        if (gameState.isStarted()) {
+            game.rollDice(playerNumber);
+            graphicalAgent.update(gameState);
+            checkForEndGame();
+        }
     }
 
+    //***
     private void checkForEndGame() {
         if (gameState.getTurn() > 30) {
             // game ends
             int winner;
             if (gameState.getPlayer1().getScore() > gameState.getPlayer2().getScore()) {
                 winner = 1;
-            }
-            else if (gameState.getPlayer1().getScore() < gameState.getPlayer2().getScore()) {
+            } else if (gameState.getPlayer1().getScore() < gameState.getPlayer2().getScore()) {
                 winner = 2;
-            }
-            else winner = 3;
+            } else winner = 3;
             graphicalAgent.playerWin(winner);
             /* save players*/
             modelLoader.savePlayer(gameState.getPlayer1());
             modelLoader.savePlayer(gameState.getPlayer2());
-
-            game.archive(gameState.getPlayer1(),gameState.getPlayer2());
-
+            modelLoader.archive(gameState.getPlayer1(), gameState.getPlayer2());
             LogicalAgent logicalAgent = new LogicalAgent();
             logicalAgent.initialize();
         }
     }
 
+    //***
     public String getDiceDetail(int playerNumber) {
         return gameState.getPlayer(playerNumber).getDice().getDetails();
     }

@@ -7,19 +7,13 @@ public class Prize {
     private final Cell cell;
     private final int point;
     private final int chance, chanceNumber;
-    private final String name;
 
 
-    public Prize(Cell cell, int point, int chance, int chanceNumber, String name) {
+    public Prize(Cell cell, int point, int chance, int chanceNumber) {
         this.cell = cell;
         this.point = point;
         this.chance = chance;
         this.chanceNumber = chanceNumber;
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getPoint() {
@@ -38,6 +32,7 @@ public class Prize {
         return chanceNumber;
     }
 
+    //***
     public void using(Piece piece) {
         piece.getPlayer().usePrize(this);
     }

@@ -5,6 +5,7 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.*;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.prizes.Prize;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters.Transmitter;
+import ir.sharif.math.bp99_1.snake_and_ladder.util.Loop;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -12,8 +13,12 @@ import java.util.List;
 
 public class GraphicalGameStateBuilder {
     private final GameState logicalGameState;
+    private final GraphicalAgent agent;
+    private static Loop loop;
 
-    public GraphicalGameStateBuilder(GameState gameState) {
+
+    public GraphicalGameStateBuilder(GameState gameState, GraphicalAgent agent) {
+        this.agent = agent;
         this.logicalGameState = gameState;
     }
 
@@ -48,8 +53,17 @@ public class GraphicalGameStateBuilder {
     }
 
     private GraphicalBoard createBoard(Board board) {
-        return new GraphicalBoard(convertCells(board.getCells()), convertTransmitter(board.getTransmitters())
+        GraphicalBoard graphicalBoard = new GraphicalBoard(convertCells(board.getCells()), convertTransmitter(board.getTransmitters())
                 , convertWalls(board.getWalls()));
+        if (loop != null) loop.stop();
+        List<Transmitter> transmitters = new LinkedList<>(board.getTransmitters());
+        loop = new Loop(2, () -> {
+            synchronized (agent.getPaintLock()) {
+                setList(graphicalBoard.getGraphicalTransmitters(), convertTransmitter(transmitters));
+            }
+        });
+        loop.start();
+        return graphicalBoard;
     }
 
     private void updateBoard(Board board, GraphicalBoard graphicalBoard) {
@@ -106,19 +120,12 @@ public class GraphicalGameStateBuilder {
     }
 
     private GraphicalColor getColor(Color c) {
-        if (c.equals(Color.BLACK)) {
-            return GraphicalColor.BLACK;
-        } else if (c.equals(Color.WHITE)) {
-            return GraphicalColor.WHITE;
-        } else if (c.equals(Color.RED)) {
-            return GraphicalColor.RED;
-        } else if (c.equals(Color.BLUE)) {
-            return GraphicalColor.BLUE;
-        } else if (c.equals(Color.GREEN)) {
-            return GraphicalColor.GREEN;
-        } else {
-            return GraphicalColor.YELLOW;
-        }
+        if (c.equals(Color.BLACK)) return GraphicalColor.BLACK;
+        else if (c.equals(Color.WHITE)) return GraphicalColor.WHITE;
+        else if (c.equals(Color.RED)) return GraphicalColor.RED;
+        else if (c.equals(Color.BLUE)) return GraphicalColor.BLUE;
+        else if (c.equals(Color.GREEN)) return GraphicalColor.GREEN;
+        else return GraphicalColor.YELLOW;
     }
 
     private GraphicalPiece convertPiece(Piece piece) {

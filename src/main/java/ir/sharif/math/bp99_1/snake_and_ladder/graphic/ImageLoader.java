@@ -1,7 +1,6 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
-import ir.sharif.math.bp99_1.snake_and_ladder.util.ThreadColor;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -17,7 +16,6 @@ public class ImageLoader {
     private final Map<String, Icon> dice;
 
     public static BufferedImage getImage(String name) {
-        System.out.println(name);
         return instance.imageMap.get(name);
     }
 

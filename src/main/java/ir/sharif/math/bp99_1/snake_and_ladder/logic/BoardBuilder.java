@@ -9,6 +9,7 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters.Transmitter;
 
 import java.util.Scanner;
 
+// ***
 public class BoardBuilder {
     private final Scanner scanner;
 
@@ -25,6 +26,8 @@ public class BoardBuilder {
         addPrizes(board);
         return board;
     }
+
+    // //
 
     private void buildCells(Board board) {
         scanner.next();
@@ -96,7 +99,7 @@ public class BoardBuilder {
         for (int i = 0; i < transmittersNumber; ++i) {
             Cell cell1 = getCell(board);
             Cell cell2 = getCell(board);
-            Transmitter transmitter = new Transmitter(cell1, cell2, "snake");
+            Transmitter transmitter = new Transmitter(cell1, cell2);
             board.getTransmitters().add(transmitter);
             cell1.setTransmitter(transmitter);
         }
@@ -113,7 +116,7 @@ public class BoardBuilder {
             int chance = scanner.nextInt();
             int chanceNumber = scanner.nextInt();
             Cell cell = board.getCell(x, y);
-            cell.setPrize(new Prize(cell, point, chance, chanceNumber, "prize"));
+            cell.setPrize(new Prize(cell, point, chance, chanceNumber));
         }
     }
 

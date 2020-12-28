@@ -9,6 +9,7 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+// //
 public class PreStart {
     private final GameState gameState;
 
@@ -17,6 +18,7 @@ public class PreStart {
     }
 
 
+    // //
     public void playerReady(int playerNumber) {
         Player player = gameState.getPlayer(playerNumber);
         player.setReady(!player.isReady());
@@ -25,6 +27,7 @@ public class PreStart {
         }
     }
 
+    // *
     private void prepareGameStat() {
         for (Map.Entry<Cell, Integer> entry : gameState.getBoard().getStartingCells().entrySet()) {
             Cell cell = entry.getKey();
@@ -37,6 +40,7 @@ public class PreStart {
         gameState.start();
     }
 
+    // *
     private Piece findPiece(Player player, Color color) {
         for (Piece piece : player.getPieces())
             if (piece.getColor().equals(color))

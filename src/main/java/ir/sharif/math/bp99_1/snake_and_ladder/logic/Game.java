@@ -5,11 +5,7 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
-
+// //
 public class Game {
     private final GameState gameState;
 
@@ -17,6 +13,7 @@ public class Game {
         this.gameState = gameState;
     }
 
+    // ***
     public void rollDice(int playerNumber) {
         Player player = gameState.getPlayer(playerNumber);
         if (!player.equals(gameState.getCurrentPlayer()))
@@ -35,6 +32,7 @@ public class Game {
         }
     }
 
+    // ***
     public void selectPiece(Piece piece) {
         Player player = gameState.getCurrentPlayer();
         if (!player.isDicePlayedThisTurn())
@@ -54,6 +52,7 @@ public class Game {
         }
     }
 
+    // ***
     public void selectCell(Cell cell) {
         Player player = gameState.getCurrentPlayer();
         Piece piece = player.getSelectedPiece();
@@ -68,38 +67,29 @@ public class Game {
         }
     }
 
+    // //
     private void check(Cell cell, Piece piece) {
         checkPrize(cell, piece);
         checkTransmitter(cell, piece);
         checkSameColor(cell, piece);
     }
 
+    // //
     private void checkPrize(Cell cell, Piece piece) {
         if (cell.getPrize() != null)
             cell.getPrize().using(piece);
     }
 
+    // //
     private void checkTransmitter(Cell cell, Piece piece) {
         if (cell.getTransmitter() != null)
             cell.getTransmitter().transmit(piece);
     }
 
+    // //
     private void checkSameColor(Cell cell, Piece piece) {
         int increasingScore = 2;
         if (cell.getColor().equals(piece.getColor()))
             piece.getPlayer().applyOnScore(increasingScore);
-    }
-
-    public void archive(Player player1,Player player2){
-        try {
-            PrintStream printStream = new PrintStream(new FileOutputStream(new File("/src/main/resources/ir/sharif/math/bp99_1/snake_and_ladder/games.archive"),true));
-            printStream.println("\n"+player1.getName()+" : "+player1.getScore());
-            printStream.println(     player2.getName()+" : "+player2.getScore());
-            printStream.flush();
-            printStream.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 }

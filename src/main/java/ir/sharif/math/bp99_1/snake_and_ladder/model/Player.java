@@ -20,20 +20,6 @@ public class Player {
     private int moveLeft;
     private Piece selectedPiece;
 
-//    public Player(int id, String name, int score) {
-//        this.id = id;
-//        this.name = name;
-//        this.score = score;
-//        this.dice = new Dice();
-//        this.pieces = new ArrayList<>();
-//        this.pieces.add(new Piece(this, Color.RED));
-//        this.pieces.add(new Piece(this, Color.BLUE));
-//        this.pieces.add(new Piece(this, Color.GREEN));
-//        this.pieces.add(new Piece(this, Color.YELLOW));
-//        this.moveLeft = 0;
-//        this.selectedPiece = null;
-//    }
-
     public Player(String name, int score, int id, int playerNumber) {
         this.name = name;
         this.score = score;
@@ -117,11 +103,6 @@ public class Player {
         this.score += score;
     }
 
-    public void usePrize(Prize prize) {
-        score += prize.getPoint();
-        dice.addChance(prize.getChance(), prize.getChanceNumber());
-    }
-
     public boolean isReady() {
         return isReady;
     }
@@ -130,6 +111,13 @@ public class Player {
         isReady = ready;
     }
 
+    //***
+    public void usePrize(Prize prize) {
+        score += prize.getPoint();
+        dice.addChance(prize.getChance(), prize.getChanceNumber());
+    }
+
+    //***
     public boolean hasMove(Board board, int diceNumber) {
         for (Piece piece : pieces) {
             for (Cell cell : board.getCells()) {
@@ -140,6 +128,7 @@ public class Player {
         return false;
     }
 
+    // **
     public void endTurn() {
         if (selectedPiece != null)
             selectedPiece.setSelected(false);
@@ -148,6 +137,8 @@ public class Player {
         dicePlayedThisTurn = false;
     }
 
+
+    // dont touch it
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -161,6 +152,7 @@ public class Player {
         return Objects.hash(name);
     }
 
+    // //
     @Override
     public String toString() {
         return "PlayerID : " + id + '\n' +

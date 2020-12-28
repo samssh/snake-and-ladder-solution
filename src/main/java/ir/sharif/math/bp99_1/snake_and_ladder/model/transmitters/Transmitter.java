@@ -5,12 +5,10 @@ import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
 
 public class Transmitter {
     private final Cell firstCell, lastCell;
-    private final String name;
 
-    public Transmitter(Cell firstCell, Cell lastCell, String name) {
+    public Transmitter(Cell firstCell, Cell lastCell) {
         this.firstCell = firstCell;
         this.lastCell = lastCell;
-        this.name = name;
     }
 
     public Cell getFirstCell() {
@@ -21,16 +19,12 @@ public class Transmitter {
         return lastCell;
     }
 
-    public String getName() {
-        return name;
-    }
-
+    //***
     public void transmit(Piece piece) {
         int negativeScore = 3;
         if (lastCell.getPiece() == null)
             piece.moveTo(lastCell);
         piece.getPlayer().applyOnScore(-negativeScore);
-        // what happened if lastCell is has piece
     }
 
     @Override
@@ -38,7 +32,6 @@ public class Transmitter {
         return "Transmitter{" +
                 "firstCell=" + firstCell +
                 ", lastCell=" + lastCell +
-                ", name='" + name + '\'' +
                 '}';
     }
 }
