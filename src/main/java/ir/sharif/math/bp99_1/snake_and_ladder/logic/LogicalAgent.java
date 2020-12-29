@@ -43,7 +43,7 @@ public class LogicalAgent {
         graphicalAgent.update(gameState);
     }
 
-    public void selectPiece(int x, int y) {
+    public void selectCell(int x, int y) {
         if (gameState.isStarted()) {
             Cell cell = gameState.getBoard().getCell(x, y);
             if (cell.getPiece() != null) game.selectPiece(cell.getPiece());

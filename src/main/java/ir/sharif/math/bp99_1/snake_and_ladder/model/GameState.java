@@ -5,14 +5,12 @@ public class GameState {
     private final Player player1;
     private final Player player2;
     private int turn;
-    private boolean started;
 
     public GameState(Board board, Player player1, Player player2) {
         this.board = board;
         this.player1 = player1;
         this.player2 = player2;
         turn = 0;
-        started = false;
     }
 
     public Board getBoard() {
@@ -40,7 +38,7 @@ public class GameState {
     }
 
     public boolean isStarted() {
-        return started;
+        return turn != 0;
     }
 
     public int getTurn() {
@@ -48,7 +46,6 @@ public class GameState {
     }
 
     public void start() {
-        started = true;
         turn = 1;
     }
 
@@ -64,7 +61,6 @@ public class GameState {
                 ", playerOne=" + player1 +
                 ", playerTwo=" + player2 +
                 ", turn=" + turn +
-                ", finished=" + started +
                 '}';
     }
 }

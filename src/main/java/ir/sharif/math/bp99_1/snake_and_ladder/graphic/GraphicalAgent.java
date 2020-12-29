@@ -59,7 +59,7 @@ public class GraphicalAgent {
     }
 
     public void clickRequest(int x, int y) {
-        logicalAgent.selectPiece(x, y);
+        logicalAgent.selectCell(x, y);
         /*
          *  TO DO
          *  WE SEND X , Y TO LOGIC, LOGIC SHOULD DECIDE WEATHER WE CHOOSE

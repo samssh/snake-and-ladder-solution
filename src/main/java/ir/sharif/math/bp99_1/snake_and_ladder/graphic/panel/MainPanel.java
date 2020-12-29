@@ -1,15 +1,12 @@
 package ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel;
 
 import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
-import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainPanel extends JPanel {
-    @Getter
     private final BoardPanel boardPanel;
-    @Getter
     private final PlayerInfoPanel player1InfoPanel, player2InfoPanel;
 
     public MainPanel(BoardPanel boardPanel, PlayerInfoPanel player1InfoPanel, PlayerInfoPanel player2InfoPanel) {

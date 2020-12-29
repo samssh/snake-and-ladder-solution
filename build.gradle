@@ -21,6 +21,6 @@ task ensureDirectory {
 dependencies {
     // lombok
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
-    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
-    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+//    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+//    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
 }
