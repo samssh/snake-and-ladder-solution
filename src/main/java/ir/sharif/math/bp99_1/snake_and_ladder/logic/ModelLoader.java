@@ -35,12 +35,12 @@ public class ModelLoader {
         return null;
     }
 
-    public Player loadPlayer(String name , int playernumber) {
+    public Player loadPlayer(String name, int playernumber) {
         // check if player exist load that or creat file for this player
         File playerFile = getPlayerFile(name);
         if (playerFile == null) {
             int id = Objects.requireNonNull(playersDirectory.list()).length;
-            Player player = new Player(name,0,id,  playernumber);
+            Player player = new Player(name, 0, id, playernumber);
             savePlayer(player);
             return player;
         }
@@ -58,7 +58,7 @@ public class ModelLoader {
             scanner.next();
             int point = scanner.nextInt();
             scanner.close();
-            return new Player(name, point,id , playernumber);
+            return new Player(name, point, id, playernumber);
         } catch (FileNotFoundException | IllegalArgumentException e) {
             e.printStackTrace();
             System.err.println("could not find player file");
@@ -74,7 +74,7 @@ public class ModelLoader {
         }
         try {
             PrintWriter printWriter = new PrintWriter(file);
-            printWriter.println(player.toString());
+            printWriter.println(player);
             printWriter.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -85,9 +85,11 @@ public class ModelLoader {
 
     private File getPlayerFile(String name) {
         for (String fileName : Objects.requireNonNull(playersDirectory.list())) {
-            String playerName = fileName.substring(0, fileName.indexOf('_'));
-            if (playerName.equals(name))
-                return new File(playersDirectory.getPath() + "/" + fileName);
+            if (fileName.endsWith(".player")) {
+                String playerName = fileName.substring(0, fileName.indexOf('_'));
+                if (playerName.equals(name))
+                    return new File(playersDirectory.getPath() + "/" + fileName);
+            }
         }
         return null;
     }
