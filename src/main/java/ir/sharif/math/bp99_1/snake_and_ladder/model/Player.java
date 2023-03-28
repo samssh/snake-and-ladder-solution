@@ -1,7 +1,7 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.model;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.model;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.prizes.Prize;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.prizes.Prize;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.model;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.model;
 
 public class Wall {
     private final Cell cell1, cell2;

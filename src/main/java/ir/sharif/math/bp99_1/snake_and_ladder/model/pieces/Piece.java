@@ -1,8 +1,8 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.model.pieces;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.pieces;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Cell;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Color;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Cell;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Color;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 
 public class Piece {
     private Cell currentCell;

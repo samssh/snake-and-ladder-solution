@@ -1,7 +1,7 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalCell;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalCell;
 
 import java.awt.event.MouseEvent;
 

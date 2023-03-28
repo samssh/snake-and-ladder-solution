@@ -1,6 +1,6 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 
 import javax.swing.*;
 import java.awt.*;

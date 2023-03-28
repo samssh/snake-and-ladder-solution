@@ -1,8 +1,8 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.logic;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.logic;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Board;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
-import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Board;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 
 import java.io.*;
 import java.util.Objects;

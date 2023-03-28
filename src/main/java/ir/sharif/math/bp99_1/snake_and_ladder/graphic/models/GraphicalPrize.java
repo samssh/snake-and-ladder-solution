@@ -1,6 +1,6 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.graphic.models;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.models;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.ImageLoader;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.ImageLoader;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

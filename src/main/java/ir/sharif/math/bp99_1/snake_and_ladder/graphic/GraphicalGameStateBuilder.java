@@ -1,11 +1,11 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.*;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.*;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.prizes.Prize;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters.Transmitter;
-import ir.sharif.math.bp99_1.snake_and_ladder.util.Loop;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.*;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.*;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.prizes.Prize;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters.Transmitter;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.util.Loop;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -132,7 +132,7 @@ public class GraphicalGameStateBuilder {
         if (piece == null) {
             return null;
         }
-        return new GraphicalPiece(getColor(piece.getColor()), piece.getPlayer().getPlayerNumber(), piece.isSelected());
+        return new GraphicalPiece(getColor((Color) piece.getColor()), piece.getPlayer().getPlayerNumber(), piece.isSelected());
     }
 
     private GraphicalPrize convertPrize(Prize prize) {
@@ -148,7 +148,7 @@ public class GraphicalGameStateBuilder {
             if (piece == null) {
                 graphicalPieces.add(null);
             } else
-                graphicalPieces.add(new GraphicalPiece(getColor(piece.getColor()), piece.getPlayer().getPlayerNumber(), piece.isSelected()));
+                graphicalPieces.add(new GraphicalPiece(getColor((Color) piece.getColor()), piece.getPlayer().getPlayerNumber(), piece.isSelected()));
         }
         return graphicalPieces;
     }

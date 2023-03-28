@@ -1,7 +1,7 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.model.prizes;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.prizes;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Cell;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Cell;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
 
 public class Prize {
     private final Cell cell;

@@ -1,6 +1,6 @@
-package ir.sharif.math.bp99_1.snake_and_ladder;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.logic.LogicalAgent;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.logic.LogicalAgent;
 
 public class Main {
 

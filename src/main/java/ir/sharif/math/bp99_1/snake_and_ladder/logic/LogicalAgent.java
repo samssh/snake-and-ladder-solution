@@ -1,10 +1,10 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.logic;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.logic;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Board;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Cell;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Board;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Cell;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
 
 public class LogicalAgent {
     private final ModelLoader modelLoader;

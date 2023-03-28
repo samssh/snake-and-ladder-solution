@@ -1,10 +1,10 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.logic;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.logic;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Cell;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Color;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Cell;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Color;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.Player;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
 
 import java.util.Map;
 import java.util.NoSuchElementException;

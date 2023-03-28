@@ -1,12 +1,12 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.ImageLoader;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.DiceMouseListener;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.EndTurnListener;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.ReadyButtonListener;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalPlayer;
-import ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.GraphicalAgent;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.ImageLoader;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.DiceMouseListener;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.EndTurnListener;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners.ReadyButtonListener;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalPlayer;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.util.Config;
 
 import javax.swing.*;
 import java.awt.*;

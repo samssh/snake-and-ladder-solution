@@ -1,12 +1,12 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.graphic;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic;
 
 
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalGameState;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.BoardPanel;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.MainPanel;
-import ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.PlayerInfoPanel;
-import ir.sharif.math.bp99_1.snake_and_ladder.logic.LogicalAgent;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.models.GraphicalGameState;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.BoardPanel;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.MainPanel;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.panel.PlayerInfoPanel;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.logic.LogicalAgent;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.GameState;
 
 import javax.swing.*;
 

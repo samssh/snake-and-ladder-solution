@@ -1,8 +1,8 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.model;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.model;
 
-import ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.prizes.Prize;
-import ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters.Transmitter;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.pieces.Piece;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.prizes.Prize;
+import main.java.ir.sharif.math.bp99_1.snake_and_ladder.model.transmitters.Transmitter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +73,7 @@ public class Cell {
     }
 
     public boolean canEnter(Piece piece) {
-        return (this.piece == null) && (color.equals(piece.getColor()) || color.equals(Color.WHITE));
+        return (this.piece == null) && (color.equals(piece.getColor()) || color.equals(Color.WHITE));//changed by kb
     }
 
     // dont touch it

@@ -1,4 +1,4 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.graphic.Listeners;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

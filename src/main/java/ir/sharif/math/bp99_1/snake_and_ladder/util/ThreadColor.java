@@ -1,4 +1,4 @@
-package ir.sharif.math.bp99_1.snake_and_ladder.util;
+package main.java.ir.sharif.math.bp99_1.snake_and_ladder.util;
 
 public class ThreadColor {
 
